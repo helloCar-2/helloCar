@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.007s</div>
+<div class="counter">3.318s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,174 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
-</li>
-<li>
-<a href="#tab3">Standard error</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="contextLoads()"></a>
-<h3 class="failures">contextLoads()</h3>
-<span class="code">
-<pre>java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@3fbe503c testClass = com.example.helloCar.HelloCarApplicationTests, locations = [], classes = [com.example.helloCar.HelloCarApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@33308786, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7d1cfb8b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@39655d3e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6138e79a, org.springframework.boot.test.context.SpringBootTestAnnotation@7d806bd6], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
-	at java.base/java.util.Optional.orElseGet(Optional.java:364)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
-	at app//org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:802)
-	at app//org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at app//org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at app//org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1232)
-	at app//org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950)
-	at app//org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
-	at app//org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
-	at app//org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
-	at app//org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at app//org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
-	at app//org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
-	at app//org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
-	at app//org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1458)
-	at app//org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
-	at app//org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
-	at app//org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
-	at app//org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
-	at app//org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
-	... 84 more
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
-	at app//org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655)
-	at app//org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:643)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at app//org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at app//org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at app//org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at app//org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at app//org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at app//org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
-	at app//org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 110 more
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
-	at app//org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at app//org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
-	... 124 more
-Caused by: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-	at app//org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:186)
-	at app//org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49)
-	at app//org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:55)
-	at app//org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:117)
-	at java.base@19.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base@19.0.2/java.lang.reflect.Method.invoke(Method.java:578)
-	at app//org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 125 more
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -239,17 +78,17 @@ Caused by: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$Data
 </tr>
 </thead>
 <tr>
-<td class="failures">contextLoads()</td>
-<td class="failures">0.007s</td>
-<td class="failures">failed</td>
+<td class="success">contextLoads()</td>
+<td class="success">3.318s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>17:40:56.921 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.helloCar.HelloCarApplicationTests]: HelloCarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:40:57.040 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.helloCar.HelloCarApplication for test class com.example.helloCar.HelloCarApplicationTests
+<pre>22:44:35.315 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.helloCar.HelloCarApplicationTests]: HelloCarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:44:35.491 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.helloCar.HelloCarApplication for test class com.example.helloCar.HelloCarApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -259,220 +98,1092 @@ Caused by: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$Data
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.1)
 
-2024-01-12T17:40:57.483+09:00  INFO 67144 --- [    Test worker] c.e.helloCar.HelloCarApplicationTests    : Starting HelloCarApplicationTests using Java 19.0.2 with PID 67144 (started by dev in /Users/dev/Desktop/java/helloCar)
-2024-01-12T17:40:57.485+09:00  INFO 67144 --- [    Test worker] c.e.helloCar.HelloCarApplicationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-01-12T17:40:58.196+09:00  INFO 67144 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-01-12T17:40:58.217+09:00  INFO 67144 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
-2024-01-12T17:40:58.603+09:00  WARN 67144 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
-2024-01-12T17:40:58.613+09:00  INFO 67144 --- [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
+2024-01-15T22:44:36.320+09:00  INFO 18064 --- [    Test worker] c.e.helloCar.HelloCarApplicationTests    : Starting HelloCarApplicationTests using Java 19.0.2 with PID 18064 (started by hwjk1 in C:\work\helloCar)
+2024-01-15T22:44:36.326+09:00  INFO 18064 --- [    Test worker] c.e.helloCar.HelloCarApplicationTests    : The following 2 profiles are active: &quot;secret&quot;, &quot;dev&quot;
+2024-01-15T22:44:38.610+09:00  INFO 18064 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-15T22:44:38.769+09:00  INFO 18064 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 1 JPA repository interface.
+2024-01-15T22:44:39.961+09:00  INFO 18064 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-15T22:44:40.153+09:00  INFO 18064 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-01-15T22:44:40.267+09:00  INFO 18064 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-01-15T22:44:41.481+09:00  INFO 18064 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-15T22:44:41.558+09:00  INFO 18064 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-15T22:44:41.800+09:00  INFO 18064 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@156ff70f
+2024-01-15T22:44:41.804+09:00  INFO 18064 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-01-15T22:44:41.873+09:00  WARN 18064 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-15T22:44:44.608+09:00  INFO 18064 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-15T22:44:44.649+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists car
+2024-01-15T22:44:44.666+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    create table car (
+        max_price integer not null,
+        min_price integer not null,
+        model_year integer not null,
+        id bigint not null auto_increment,
+        brand varchar(255),
+        car_name varchar(255),
+        fuel varchar(255),
+        size varchar(255),
+        vehicle varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2024-01-15T22:44:44.679+09:00  INFO 18064 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-15T22:44:45.830+09:00  WARN 18064 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-15T22:44:45.871+09:00  WARN 18064 --- [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-01-12T17:40:58.631+09:00 ERROR 67144 --- [    Test worker] o.s.b.d.LoggingFailureAnalysisReporter   : 
+Using generated security password: 29385859-3f63-4acd-a000-c012906bc6d5
 
-***************************
-APPLICATION FAILED TO START
-***************************
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-2024-01-12T17:40:58.638+09:00  WARN 67144 --- [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.example.helloCar.HelloCarApplicationTests@3c232051]
-
-java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@3fbe503c testClass = com.example.helloCar.HelloCarApplicationTests, locations = [], classes = [com.example.helloCar.HelloCarApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@33308786, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7d1cfb8b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@39655d3e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6138e79a, org.springframework.boot.test.context.SpringBootTestAnnotation@7d806bd6], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180) ~[spring-test-6.1.2.jar:6.1.2]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.2.jar:6.1.2]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.2.jar:6.1.2]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.2.jar:6.1.2]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.2.jar:6.1.2]
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.2.jar:6.1.2]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
-	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310) ~[na:na]
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[na:na]
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[na:na]
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.1.jar:1.10.1]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86) ~[junit-platform-launcher-1.8.2.jar:1.8.2]
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36) ~[na:na]
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) ~[na:na]
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) ~[na:na]
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94) ~[na:na]
-	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100) ~[na:na]
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60) ~[na:na]
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56) ~[na:na]
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113) ~[na:na]
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65) ~[na:na]
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:802) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1232) ~[spring-context-6.1.2.jar:6.1.2]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950) ~[spring-context-6.1.2.jar:6.1.2]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.2.jar:6.1.2]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) ~[spring-boot-3.2.1.jar:3.2.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464) ~[spring-boot-3.2.1.jar:3.2.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.1.jar:3.2.1]
-	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137) ~[spring-boot-test-3.2.1.jar:3.2.1]
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.1.2.jar:6.1.2]
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.1.2.jar:6.1.2]
-	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1458) ~[spring-boot-3.2.1.jar:3.2.1]
-	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552) ~[spring-boot-test-3.2.1.jar:3.2.1]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137) ~[spring-boot-test-3.2.1.jar:3.2.1]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.2.1.jar:3.2.1]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.2.jar:6.1.2]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.2.jar:6.1.2]
-	... 84 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:643) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-6.1.2.jar:6.1.2]
-	... 110 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177) ~[spring-beans-6.1.2.jar:6.1.2]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-6.1.2.jar:6.1.2]
-	... 124 common frames omitted
-Caused by: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:186) ~[spring-boot-autoconfigure-3.2.1.jar:3.2.1]
-	at org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49) ~[spring-boot-autoconfigure-3.2.1.jar:3.2.1]
-	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:55) ~[spring-boot-autoconfigure-3.2.1.jar:3.2.1]
-	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:117) ~[spring-boot-autoconfigure-3.2.1.jar:3.2.1]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140) ~[spring-beans-6.1.2.jar:6.1.2]
-	... 125 common frames omitted
-
-</pre>
-</span>
-</div>
-<div id="tab3" class="tab">
-<h2>Standard error</h2>
-<span class="code">
-<pre>
-
-
-============================
-CONDITIONS EVALUATION REPORT
-============================
-
-
-Positive matches:
------------------
-
-    None
-
-
-Negative matches:
------------------
-
-    None
-
-
-Exclusions:
------------
-
-    None
-
-
-Unconditional classes:
-----------------------
-
-    None
-
-
-
+2024-01-15T22:44:46.685+09:00  INFO 18064 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@33de9d85, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f6352a3, org.springframework.security.web.context.SecurityContextHolderFilter@7fd7085d, org.springframework.security.web.header.HeaderWriterFilter@2446597e, org.springframework.web.filter.CorsFilter@24455d50, org.springframework.security.web.csrf.CsrfFilter@5cbaafbd, org.springframework.security.web.authentication.logout.LogoutFilter@6768dc74, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9120cb5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18419ab7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bb160fb, org.springframework.security.web.access.ExceptionTranslationFilter@7a91027c, org.springframework.security.web.access.intercept.AuthorizationFilter@1e205025]
+2024-01-15T22:44:47.848+09:00  INFO 18064 --- [    Test worker] c.e.helloCar.HelloCarApplicationTests    : Started HelloCarApplicationTests in 12.041 seconds (process running for 14.069)
+2024-01-15T22:44:49.519+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.536+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.538+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 hd]
+2024-01-15T22:44:49.538+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.539+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1897]
+2024-01-15T22:44:49.540+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1198]
+2024-01-15T22:44:49.540+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2010]
+2024-01-15T22:44:49.540+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.540+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.551+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [1]
+2024-01-15T22:44:49.578+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.578+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.579+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 hd]
+2024-01-15T22:44:49.579+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPi 하이브리드]
+2024-01-15T22:44:49.579+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2553]
+2024-01-15T22:44:49.579+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2188]
+2024-01-15T22:44:49.580+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2010]
+2024-01-15T22:44:49.580+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.580+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.581+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [2]
+2024-01-15T22:44:49.584+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.585+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.585+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 hd]
+2024-01-15T22:44:49.585+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPi 하이브리드]
+2024-01-15T22:44:49.585+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2324]
+2024-01-15T22:44:49.586+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2054]
+2024-01-15T22:44:49.586+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2011]
+2024-01-15T22:44:49.586+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.586+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.588+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [3]
+2024-01-15T22:44:49.594+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.595+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.595+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 hd]
+2024-01-15T22:44:49.595+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPi 하이브리드]
+2024-01-15T22:44:49.596+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2324]
+2024-01-15T22:44:49.596+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2054]
+2024-01-15T22:44:49.596+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2012]
+2024-01-15T22:44:49.596+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.596+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.602+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [4]
+2024-01-15T22:44:49.608+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.609+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.609+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 hd]
+2024-01-15T22:44:49.609+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPi 하이브리드]
+2024-01-15T22:44:49.609+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2324]
+2024-01-15T22:44:49.609+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2054]
+2024-01-15T22:44:49.609+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2013]
+2024-01-15T22:44:49.610+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.610+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.612+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [5]
+2024-01-15T22:44:49.617+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.618+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.618+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.618+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.618+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1990]
+2024-01-15T22:44:49.618+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1340]
+2024-01-15T22:44:49.618+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2010]
+2024-01-15T22:44:49.619+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.619+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.646+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [6]
+2024-01-15T22:44:49.653+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.654+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.654+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.654+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:49.655+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1663]
+2024-01-15T22:44:49.655+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1353]
+2024-01-15T22:44:49.655+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2010]
+2024-01-15T22:44:49.655+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.655+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.675+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [7]
+2024-01-15T22:44:49.714+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.714+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.714+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.715+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.715+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1990]
+2024-01-15T22:44:49.715+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1340]
+2024-01-15T22:44:49.715+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2011]
+2024-01-15T22:44:49.715+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.715+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.762+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [8]
+2024-01-15T22:44:49.766+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.767+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.767+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.767+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:49.768+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1663]
+2024-01-15T22:44:49.768+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1353]
+2024-01-15T22:44:49.768+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2011]
+2024-01-15T22:44:49.768+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.768+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.783+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [9]
+2024-01-15T22:44:49.789+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.790+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.790+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.791+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.791+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1990]
+2024-01-15T22:44:49.791+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1340]
+2024-01-15T22:44:49.791+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2012]
+2024-01-15T22:44:49.791+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.792+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.844+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [10]
+2024-01-15T22:44:49.863+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.864+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.864+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.864+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:49.864+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1663]
+2024-01-15T22:44:49.865+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1353]
+2024-01-15T22:44:49.865+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2012]
+2024-01-15T22:44:49.865+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.865+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.873+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [11]
+2024-01-15T22:44:49.877+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.878+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.878+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.878+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.878+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1955]
+2024-01-15T22:44:49.879+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1365]
+2024-01-15T22:44:49.879+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2013]
+2024-01-15T22:44:49.879+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.879+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.881+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [12]
+2024-01-15T22:44:49.886+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.887+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.887+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md]
+2024-01-15T22:44:49.887+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:49.887+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1663]
+2024-01-15T22:44:49.887+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1358]
+2024-01-15T22:44:49.888+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2013]
+2024-01-15T22:44:49.888+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.888+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.892+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [13]
+2024-01-15T22:44:49.901+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.902+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.902+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:49.902+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.902+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1990]
+2024-01-15T22:44:49.902+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1395]
+2024-01-15T22:44:49.902+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2013]
+2024-01-15T22:44:49.903+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.903+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.906+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [14]
+2024-01-15T22:44:49.910+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.910+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.910+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:49.910+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:49.911+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2180]
+2024-01-15T22:44:49.911+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1595]
+2024-01-15T22:44:49.911+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2013]
+2024-01-15T22:44:49.911+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.911+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.912+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [15]
+2024-01-15T22:44:49.915+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.915+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.916+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 쿠페]
+2024-01-15T22:44:49.916+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.916+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1995]
+2024-01-15T22:44:49.916+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1645]
+2024-01-15T22:44:49.916+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2013]
+2024-01-15T22:44:49.916+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.916+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [쿠페]
+2024-01-15T22:44:49.918+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [16]
+2024-01-15T22:44:49.938+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.938+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.938+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:49.939+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.939+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2065]
+2024-01-15T22:44:49.939+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1395]
+2024-01-15T22:44:49.939+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2014]
+2024-01-15T22:44:49.939+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.939+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.945+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [17]
+2024-01-15T22:44:49.949+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.950+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.950+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:49.950+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:49.950+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2255]
+2024-01-15T22:44:49.951+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1595]
+2024-01-15T22:44:49.951+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2014]
+2024-01-15T22:44:49.951+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.951+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.953+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [18]
+2024-01-15T22:44:49.959+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.959+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.959+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:49.960+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:49.960+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1696]
+2024-01-15T22:44:49.960+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1387]
+2024-01-15T22:44:49.960+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2014]
+2024-01-15T22:44:49.960+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.960+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:49.963+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [19]
+2024-01-15T22:44:49.976+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 쿠페]
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2305]
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1690]
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2014]
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:49.977+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [쿠페]
+2024-01-15T22:44:50.028+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [20]
+2024-01-15T22:44:50.059+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1968]
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1384]
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2015]
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.060+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.064+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [21]
+2024-01-15T22:44:50.067+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.067+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.068+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:50.068+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.068+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2155]
+2024-01-15T22:44:50.068+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1581]
+2024-01-15T22:44:50.068+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2015]
+2024-01-15T22:44:50.068+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.068+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.070+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [22]
+2024-01-15T22:44:50.077+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.077+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.078+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 md 페이스리프트]
+2024-01-15T22:44:50.078+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.078+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1663]
+2024-01-15T22:44:50.078+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1358]
+2024-01-15T22:44:50.078+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2015]
+2024-01-15T22:44:50.078+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.078+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.083+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [23]
+2024-01-15T22:44:50.086+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.087+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.087+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 쿠페]
+2024-01-15T22:44:50.088+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.088+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2305]
+2024-01-15T22:44:50.088+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1690]
+2024-01-15T22:44:50.089+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2015]
+2024-01-15T22:44:50.089+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.089+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [쿠페]
+2024-01-15T22:44:50.090+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [24]
+2024-01-15T22:44:50.095+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.095+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.096+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.096+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.096+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2455]
+2024-01-15T22:44:50.096+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1410]
+2024-01-15T22:44:50.096+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2015]
+2024-01-15T22:44:50.096+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.096+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.105+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [25]
+2024-01-15T22:44:50.109+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.110+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.110+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.110+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.110+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2415]
+2024-01-15T22:44:50.110+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1630]
+2024-01-15T22:44:50.110+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2015]
+2024-01-15T22:44:50.111+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.111+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.114+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [26]
+2024-01-15T22:44:50.122+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.123+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.123+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.124+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.124+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1815]
+2024-01-15T22:44:50.124+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1590]
+2024-01-15T22:44:50.124+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2015]
+2024-01-15T22:44:50.124+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.124+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.137+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [27]
+2024-01-15T22:44:50.140+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.141+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.141+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.141+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.141+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2455]
+2024-01-15T22:44:50.141+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1410]
+2024-01-15T22:44:50.141+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2016]
+2024-01-15T22:44:50.141+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.142+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.154+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [28]
+2024-01-15T22:44:50.159+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.160+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.160+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.160+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.160+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2415]
+2024-01-15T22:44:50.160+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1630]
+2024-01-15T22:44:50.161+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2016]
+2024-01-15T22:44:50.161+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.161+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.167+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [29]
+2024-01-15T22:44:50.193+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1815]
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1590]
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2016]
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.194+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.196+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [30]
+2024-01-15T22:44:50.201+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.202+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.202+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.202+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.202+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2415]
+2024-01-15T22:44:50.202+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1394]
+2024-01-15T22:44:50.203+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2017]
+2024-01-15T22:44:50.203+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.203+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.205+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [31]
+2024-01-15T22:44:50.228+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.228+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.228+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.228+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.228+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2383]
+2024-01-15T22:44:50.229+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1610]
+2024-01-15T22:44:50.229+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2017]
+2024-01-15T22:44:50.229+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.229+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.235+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [32]
+2024-01-15T22:44:50.240+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1840]
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1600]
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2017]
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.240+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.248+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [33]
+2024-01-15T22:44:50.256+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2415]
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1394]
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2018]
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.256+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.268+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [34]
+2024-01-15T22:44:50.277+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2383]
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1610]
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2018]
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.278+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.285+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [35]
+2024-01-15T22:44:50.289+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.289+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.290+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.290+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.290+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1840]
+2024-01-15T22:44:50.290+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1600]
+2024-01-15T22:44:50.290+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2018]
+2024-01-15T22:44:50.290+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.290+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.293+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [36]
+2024-01-15T22:44:50.298+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.298+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.299+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad 페이스리프트]
+2024-01-15T22:44:50.299+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.299+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2365]
+2024-01-15T22:44:50.299+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1404]
+2024-01-15T22:44:50.299+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2018]
+2024-01-15T22:44:50.299+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.299+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.305+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [37]
+2024-01-15T22:44:50.315+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.315+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.315+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad 페이스리프트]
+2024-01-15T22:44:50.315+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.315+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2454]
+2024-01-15T22:44:50.316+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1796]
+2024-01-15T22:44:50.316+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2018]
+2024-01-15T22:44:50.316+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.316+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.319+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [38]
+2024-01-15T22:44:50.323+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.323+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.323+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad 페이스리프트]
+2024-01-15T22:44:50.323+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.324+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [1861]
+2024-01-15T22:44:50.324+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1617]
+2024-01-15T22:44:50.324+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2018]
+2024-01-15T22:44:50.324+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.324+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.326+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [39]
+2024-01-15T22:44:50.329+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2306]
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1376]
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2019]
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.330+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.331+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [40]
+2024-01-15T22:44:50.335+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.335+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.335+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.335+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.335+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2454]
+2024-01-15T22:44:50.335+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1803]
+2024-01-15T22:44:50.335+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2019]
+2024-01-15T22:44:50.336+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.336+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.337+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [41]
+2024-01-15T22:44:50.344+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.344+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.344+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.344+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.345+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2050]
+2024-01-15T22:44:50.345+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1656]
+2024-01-15T22:44:50.345+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2019]
+2024-01-15T22:44:50.345+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.345+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.350+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [42]
+2024-01-15T22:44:50.357+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.357+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.358+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.358+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.358+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2306]
+2024-01-15T22:44:50.358+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1376]
+2024-01-15T22:44:50.358+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2020]
+2024-01-15T22:44:50.358+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.358+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.364+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [43]
+2024-01-15T22:44:50.366+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [디젤]
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2454]
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1803]
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2020]
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.367+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.375+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [44]
+2024-01-15T22:44:50.378+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 ad]
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2050]
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1656]
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2020]
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.378+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.380+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [45]
+2024-01-15T22:44:50.384+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2779]
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1570]
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2020]
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.384+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.385+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [46]
+2024-01-15T22:44:50.392+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2223]
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1855]
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2020]
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.392+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.395+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [47]
+2024-01-15T22:44:50.399+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.400+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.400+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7 하이브리드]
+2024-01-15T22:44:50.400+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린 하이브리드]
+2024-01-15T22:44:50.400+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2814]
+2024-01-15T22:44:50.400+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2199]
+2024-01-15T22:44:50.400+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2020]
+2024-01-15T22:44:50.400+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.405+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.422+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [48]
+2024-01-15T22:44:50.516+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2779]
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1570]
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2021]
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.516+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.526+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [49]
+2024-01-15T22:44:50.534+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.534+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.534+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.534+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.534+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2223]
+2024-01-15T22:44:50.535+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1855]
+2024-01-15T22:44:50.535+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2021]
+2024-01-15T22:44:50.535+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.535+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.538+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [50]
+2024-01-15T22:44:50.543+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.543+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.543+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7 하이브리드]
+2024-01-15T22:44:50.543+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린 하이브리드]
+2024-01-15T22:44:50.543+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2814]
+2024-01-15T22:44:50.544+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2199]
+2024-01-15T22:44:50.544+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2021]
+2024-01-15T22:44:50.544+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.544+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.546+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [51]
+2024-01-15T22:44:50.549+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.549+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.549+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 N]
+2024-01-15T22:44:50.549+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.549+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [3402]
+2024-01-15T22:44:50.549+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [3212]
+2024-01-15T22:44:50.549+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2021]
+2024-01-15T22:44:50.550+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.550+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.561+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [52]
+2024-01-15T22:44:50.628+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2806]
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1866]
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2022]
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.629+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.665+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [53]
+2024-01-15T22:44:50.709+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.709+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.709+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.710+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.710+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2641]
+2024-01-15T22:44:50.710+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2005]
+2024-01-15T22:44:50.710+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2022]
+2024-01-15T22:44:50.710+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.710+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.721+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [54]
+2024-01-15T22:44:50.724+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린 하이브리드]
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2892]
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2346]
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2022]
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.725+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.731+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [55]
+2024-01-15T22:44:50.736+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 N]
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [3402]
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [3212]
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2022]
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.736+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.744+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [56]
+2024-01-15T22:44:50.753+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2806]
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [1866]
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2023]
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.753+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.759+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [57]
+2024-01-15T22:44:50.783+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [LPG]
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2641]
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2005]
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2023]
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.784+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.788+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [58]
+2024-01-15T22:44:50.795+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 CN7]
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린 하이브리드]
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [2892]
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [2346]
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2023]
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.796+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.818+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [59]
+2024-01-15T22:44:50.877+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.877+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.877+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 N]
+2024-01-15T22:44:50.877+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.877+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [3402]
+2024-01-15T22:44:50.877+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [3212]
+2024-01-15T22:44:50.877+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2023]
+2024-01-15T22:44:50.877+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.878+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.898+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [60]
+2024-01-15T22:44:50.934+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    /* insert for
+        com.example.helloCar.domain.hellocar.domain.car.Car */insert 
+    into
+        car (brand, car_name, fuel, max_price, min_price, model_year, size, vehicle) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2024-01-15T22:44:50.934+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) &lt;- [현대]
+2024-01-15T22:44:50.934+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) &lt;- [아반떼 N 페이스리프트]
+2024-01-15T22:44:50.934+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) &lt;- [가솔린]
+2024-01-15T22:44:50.934+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (4:INTEGER) &lt;- [3560]
+2024-01-15T22:44:50.934+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (5:INTEGER) &lt;- [3352]
+2024-01-15T22:44:50.934+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (6:INTEGER) &lt;- [2023]
+2024-01-15T22:44:50.935+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (7:VARCHAR) &lt;- [준중형]
+2024-01-15T22:44:50.935+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (8:VARCHAR) &lt;- [세단]
+2024-01-15T22:44:50.940+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (1:BIGINT) -&gt; [61]
+2024-01-15T22:44:51.105+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.brand,
+        c1_0.car_name,
+        c1_0.fuel,
+        c1_0.max_price,
+        c1_0.min_price,
+        c1_0.model_year,
+        c1_0.size,
+        c1_0.vehicle 
+    from
+        car c1_0 
+    where
+        c1_0.id=?
+2024-01-15T22:44:51.107+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [61]
+2024-01-15T22:44:51.116+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (2:VARCHAR) -&gt; [현대]
+2024-01-15T22:44:51.116+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (3:VARCHAR) -&gt; [아반떼 N 페이스리프트]
+2024-01-15T22:44:51.116+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (4:VARCHAR) -&gt; [가솔린]
+2024-01-15T22:44:51.116+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (5:INTEGER) -&gt; [3560]
+2024-01-15T22:44:51.116+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (6:INTEGER) -&gt; [3352]
+2024-01-15T22:44:51.116+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (7:INTEGER) -&gt; [2023]
+2024-01-15T22:44:51.117+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (8:VARCHAR) -&gt; [준중형]
+2024-01-15T22:44:51.117+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (9:VARCHAR) -&gt; [세단]
+2024-01-15T22:44:51.156+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.brand,
+        c1_0.car_name,
+        c1_0.fuel,
+        c1_0.max_price,
+        c1_0.min_price,
+        c1_0.model_year,
+        c1_0.size,
+        c1_0.vehicle 
+    from
+        car c1_0 
+    where
+        c1_0.id=?
+2024-01-15T22:44:51.156+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [61]
+2024-01-15T22:44:51.157+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (2:VARCHAR) -&gt; [현대]
+2024-01-15T22:44:51.158+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (3:VARCHAR) -&gt; [아반떼 N 페이스리프트]
+2024-01-15T22:44:51.158+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (4:VARCHAR) -&gt; [가솔린]
+2024-01-15T22:44:51.158+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (5:INTEGER) -&gt; [3560]
+2024-01-15T22:44:51.158+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (6:INTEGER) -&gt; [3352]
+2024-01-15T22:44:51.158+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (7:INTEGER) -&gt; [2023]
+2024-01-15T22:44:51.158+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (8:VARCHAR) -&gt; [준중형]
+2024-01-15T22:44:51.158+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (9:VARCHAR) -&gt; [세단]
+2024-01-15T22:44:51.168+09:00 DEBUG 18064 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.brand,
+        c1_0.car_name,
+        c1_0.fuel,
+        c1_0.max_price,
+        c1_0.min_price,
+        c1_0.model_year,
+        c1_0.size,
+        c1_0.vehicle 
+    from
+        car c1_0 
+    where
+        c1_0.id=?
+2024-01-15T22:44:51.169+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter (1:BIGINT) &lt;- [61]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (2:VARCHAR) -&gt; [현대]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (3:VARCHAR) -&gt; [아반떼 N 페이스리프트]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (4:VARCHAR) -&gt; [가솔린]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (5:INTEGER) -&gt; [3560]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (6:INTEGER) -&gt; [3352]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (7:INTEGER) -&gt; [2023]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (8:VARCHAR) -&gt; [준중형]
+2024-01-15T22:44:51.181+09:00 TRACE 18064 --- [    Test worker] org.hibernate.orm.jdbc.extract           : extracted value (9:VARCHAR) -&gt; [세단]
 </pre>
 </span>
 </div>
@@ -484,7 +1195,7 @@ Unconditional classes:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.5</a> at 2024. 1. 12. 오후 5:40:58</p>
+<a href="http://www.gradle.org">Gradle 8.5</a> at 2024. 1. 15. 오후 10:44:51</p>
 </div>
 </div>
 </body>

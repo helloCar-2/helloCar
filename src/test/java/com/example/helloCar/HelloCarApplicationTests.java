@@ -14,8 +14,6 @@ class HelloCarApplicationTests {
 
     @Test
     void contextLoads() {
-
-
         Car avanteHD2010_G = Car.builder()
                 .brand("현대")
                 .carName("아반떼 hd")
