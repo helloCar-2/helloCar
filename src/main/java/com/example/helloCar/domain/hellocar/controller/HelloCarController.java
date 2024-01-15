@@ -15,4 +15,10 @@ public class HelloCarController {
 
         return "hellocar_start";
     }
+
+    @GetMapping("/home")
+    public String home(){
+
+        return "car_home";
+    }
 }
