@@ -20,10 +20,10 @@ public class Car {
     private String carName;
     //차 이름
 
-    private Long minPrice;
+    private int minPrice;
     //최소 가격
 
-    private Long maxPrice;
+    private int maxPrice;
     //최대 가격
 
     private String vehicle;
