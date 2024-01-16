@@ -14,6 +14,8 @@ class HelloCarApplicationTests {
 
     @Test
     void contextLoads() {
+
+        //아반떼
         Car avanteHD2010_G = Car.builder()
                 .brand("현대")
                 .carName("아반떼 hd")
@@ -38,42 +40,6 @@ class HelloCarApplicationTests {
                 .build();
         this.carService.save(avanteHD2010_LH);
 
-        Car avanteHD2011HBD = Car.builder()
-                .brand("현대")
-                .carName("아반떼 hd")
-                .minPrice(2054)
-                .maxPrice(2324)
-                .vehicle("세단")
-                .fuel("LPi 하이브리드")
-                .modelYear(2011)
-                .size("준중형")
-                .build();
-        this.carService.save(avanteHD2011HBD);
-
-        Car avanteHD2012HBD = Car.builder()
-                .brand("현대")
-                .carName("아반떼 hd")
-                .minPrice(2054)
-                .maxPrice(2324)
-                .vehicle("세단")
-                .fuel("LPi 하이브리드")
-                .modelYear(2012)
-                .size("준중형")
-                .build();
-        this.carService.save(avanteHD2012HBD);
-
-        Car avanteHD2013HBD = Car.builder()
-                .brand("현대")
-                .carName("아반떼 hd")
-                .minPrice(2054)
-                .maxPrice(2324)
-                .vehicle("세단")
-                .fuel("LPi 하이브리드")
-                .modelYear(2013)
-                .size("준중형")
-                .build();
-        this.carService.save(avanteHD2013HBD);
-
         Car avanteMD2010_G = Car.builder()
                 .brand("현대")
                 .carName("아반떼 md")
@@ -97,6 +63,18 @@ class HelloCarApplicationTests {
                 .size("준중형")
                 .build();
         this.carService.save(avanteMD2010_L);
+
+        Car avanteHD2011HBD = Car.builder()
+                .brand("현대")
+                .carName("아반떼 hd")
+                .minPrice(2054)
+                .maxPrice(2324)
+                .vehicle("세단")
+                .fuel("LPi 하이브리드")
+                .modelYear(2011)
+                .size("준중형")
+                .build();
+        this.carService.save(avanteHD2011HBD);
 
         Car avanteMD2011_G = Car.builder()
                 .brand("현대")
@@ -145,6 +123,18 @@ class HelloCarApplicationTests {
                 .size("준중형")
                 .build();
         this.carService.save(avanteMD2012_L);
+
+        Car avanteHD2012HBD = Car.builder()
+                .brand("현대")
+                .carName("아반떼 hd")
+                .minPrice(2054)
+                .maxPrice(2324)
+                .vehicle("세단")
+                .fuel("LPi 하이브리드")
+                .modelYear(2012)
+                .size("준중형")
+                .build();
+        this.carService.save(avanteHD2012HBD);
 
         Car avanteMD2013_G = Car.builder()
                 .brand("현대")
@@ -206,6 +196,18 @@ class HelloCarApplicationTests {
                 .size("준중형")
                 .build();
         this.carService.save(avanteMD2013_Coupe);
+
+        Car avanteHD2013HBD = Car.builder()
+                .brand("현대")
+                .carName("아반떼 hd")
+                .minPrice(2054)
+                .maxPrice(2324)
+                .vehicle("세단")
+                .fuel("LPi 하이브리드")
+                .modelYear(2013)
+                .size("준중형")
+                .build();
+        this.carService.save(avanteHD2013HBD);
 
         Car avanteMD2014FL_G = Car.builder()
                 .brand("현대")
@@ -782,6 +784,202 @@ class HelloCarApplicationTests {
                 .size("준중형")
                 .build();
         this.carService.save(avanteCN7_2023_FL_N);
+
+        //쏘나타
+
+        Car YFsonata_2010_G = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타")
+                .minPrice(1960)
+                .maxPrice(2992)
+                .vehicle("세단")
+                .fuel("휘발유")
+                .modelYear(2010)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2010_G);
+
+        Car YFsonata_2010_L = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타")
+                .minPrice(1420)
+                .maxPrice(1758)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2010)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2010_L);
+
+        Car YFsonata_2011_G = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타")
+                .minPrice(2002)
+                .maxPrice(3000)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2011)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2011_G);
+
+        Car YFsonata_2011_L = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타")
+                .minPrice(1420)
+                .maxPrice(1758)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2011)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2011_L);
+
+        Car YFsonata_2011_HBD = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 하이브리드")
+                .minPrice(2928)
+                .maxPrice(3232)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2011)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2011_HBD);
+
+        Car YFsonata_2012_G = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 하이브리드")
+                .minPrice(2020)
+                .maxPrice(2960)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2012)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2012_G);
+
+        Car YFsonata_2012_LPG = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 하이브리드")
+                .minPrice(1445)
+                .maxPrice(2040)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2012)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2012_LPG);
+
+        Car YFsonata_2012_HBD = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 하이브리드")
+                .minPrice(2824)
+                .maxPrice(2824)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2012)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2012_HBD);
+
+        Car YFsonataFL_2012_G = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 페이스리프트")
+                .minPrice(2040)
+                .maxPrice(2980)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2012)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonataFL_2012_G);
+
+        Car YFsonataFL_2012_LPG = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 페이스리프트")
+                .minPrice(1445)
+                .maxPrice(2120)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2012)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonataFL_2012_LPG);
+
+        Car YFsonataFL_2013_G = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 페이스리프트")
+                .minPrice(2040)
+                .maxPrice(2980)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2013)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonataFL_2013_G);
+
+        Car YFsonataFL_2013_LPG = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 페이스리프트")
+                .minPrice(1445)
+                .maxPrice(2120)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2013)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonataFL_2013_LPG);
+
+        Car YFsonata_2013_HBD = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 하이브리드")
+                .minPrice(2875)
+                .maxPrice(3180)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2013)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2013_HBD);
+
+        Car YFsonataFL_2014_G = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 페이스리프트")
+                .minPrice(2895)
+                .maxPrice(3200)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2014)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonataFL_2014_G);
+
+        Car YFsonataFL_2014_LPG = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 페이스리프트")
+                .minPrice(1465)
+                .maxPrice(2195)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2014)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonataFL_2014_LPG);
+
+        Car YFsonata_2014_HBD = Car.builder()
+                .brand("현대")
+                .carName("YF쏘나타 하이브리드")
+                .minPrice(2895)
+                .maxPrice(3200)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2014)
+                .size("중형")
+                .build();
+        this.carService.save(YFsonata_2014_HBD);
+
+
 
 
     }
