@@ -17,8 +17,6 @@ public class HelloCarController {
     public String home(){
         return "car_home";
     }
-
-
     @GetMapping("/login")
     public String login(){
         return "login";

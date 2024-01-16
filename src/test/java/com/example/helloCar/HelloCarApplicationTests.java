@@ -979,6 +979,323 @@ class HelloCarApplicationTests {
                 .build();
         this.carService.save(YFsonata_2014_HBD);
 
+        Car LFsonata_2014_G = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(2255)
+                .maxPrice(3210)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2014)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2014_G);
+
+        Car LFsonata_2014_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(1860)
+                .maxPrice(2320)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2014)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2014_L);
+
+        Car LFsonata_2015_G = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(2255)
+                .maxPrice(3210)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2015)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2015_G);
+
+        Car LFsonata_2015_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(1860)
+                .maxPrice(2320)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2015)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2015_L);
+
+        Car LFsonata_2015_HBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 하이브리드")
+                .minPrice(3013)
+                .maxPrice(3343)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2015)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2015_HBD);
+
+        Car LFsonata_2015_PlugHBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 플러그인 하이브리드")
+                .minPrice(4138)
+                .maxPrice(4403)
+                .vehicle("세단")
+                .fuel("가솔린 플러그인 하이브리드")
+                .modelYear(2015)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2015_PlugHBD);
+
+        Car LFsonata_2016_G = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(2204)
+                .maxPrice(3132)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2016)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2016_G);
+
+        Car LFsonata_2016_D = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(2449)
+                .maxPrice(2896)
+                .vehicle("세단")
+                .fuel("디젤")
+                .modelYear(2016)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2016_D);
+
+        Car LFsonata_2016_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(1705)
+                .maxPrice(2220)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2016)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2016_L);
+
+        Car LFsonata_2016_HBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 하이브리드")
+                .minPrice(2829)
+                .maxPrice(3139)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2016)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2016_HBD);
+
+        Car LFsonata_2016_PlugHBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 플러그인 하이브리드")
+                .minPrice(3919)
+                .maxPrice(4179)
+                .vehicle("세단")
+                .fuel("가솔린 플러그인 하이브리드")
+                .modelYear(2016)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2016_PlugHBD);
+
+        Car LFsonata_2017_G = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(2255)
+                .maxPrice(3190)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2017_G);
+
+        Car LFsonata_2017_D = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(2505)
+                .maxPrice(2981)
+                .vehicle("세단")
+                .fuel("디젤")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2017_D);
+
+        Car LFsonata_2017_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타")
+                .minPrice(1715)
+                .maxPrice(2220)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2017_L);
+
+        Car LFsonata_2017_HBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 하이브리드")
+                .minPrice(2886)
+                .maxPrice(3330)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2017_HBD);
+
+        Car LFsonata_2017_PlugHBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 플러그인 하이브리드")
+                .minPrice(3893)
+                .maxPrice(4250)
+                .vehicle("세단")
+                .fuel("가솔린 플러그인 하이브리드")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonata_2017_PlugHBD);
+
+        Car LFsonataFL_2017_G = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(2255)
+                .maxPrice(3253)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2017_G);
+
+        Car LFsonataFL_2017_D = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(2505)
+                .maxPrice(3118)
+                .vehicle("세단")
+                .fuel("디젤")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2017_D);
+
+        Car LFsonataFL_2017_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(1750)
+                .maxPrice(2278)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2017_L);
+
+        Car LFsonataFL_2017_HBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈 하이브리드")
+                .minPrice(2886)
+                .maxPrice(3358)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2017_HBD);
+
+        Car LFsonataFL_2017_PlugHBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈 플러그인 하이브리드")
+                .minPrice(3935)
+                .maxPrice(4256)
+                .vehicle("세단")
+                .fuel("가솔린 플러그인 하이브리드")
+                .modelYear(2017)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2017_PlugHBD);
+
+
+
+        Car LFsonataFL_2018_G = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(2219)
+                .maxPrice(3233)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2018)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2018_G);
+
+        Car LFsonataFL_2018_D = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(2464)
+                .maxPrice(3100)
+                .vehicle("세단")
+                .fuel("디젤")
+                .modelYear(2018)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2017_D);
+
+        Car LFsonataFL_2018_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(1680)
+                .maxPrice(2288)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2018)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2018_L);
+
+        Car LFsonataFL_2018_HBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈 하이브리드")
+                .minPrice(2854)
+                .maxPrice(3299)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2018)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2018_HBD);
+
+        Car LFsonataFL_2018_PlugHBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈 플러그인 하이브리드")
+                .minPrice(3885)
+                .maxPrice(4205)
+                .vehicle("세단")
+                .fuel("가솔린 플러그인 하이브리드")
+                .modelYear(2018)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2018_PlugHBD);
+
+
+
+
 
 
 
