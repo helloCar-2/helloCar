@@ -1,0 +1,42 @@
+footer {
+    background-color: rgb(243, 101, 31);
+}
+
+
+.model_search,
+.application {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    box-shadow: 10px 10px 10px #000000;
+    border-radius: 70px;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+    left: 50%;
+    position: absolute;
+    top: 24px;
+}
+
+.model_search:hover,
+.application:hover {
+    transform: scale(1.1) translateX(-45%);
+    opacity: 0.8;
+}
+
+.model_search > h5:hover,
+.application > h5:hover {
+    color: crimson;
+}
+
+.application {
+    background-color: rgb(243, 101, 31);
+    opacity: 90%;
+}
+
+.user_name_box {
+    color: black;
+    font-size: 18px;
+}
+.user_name {
+    font-weight: bold;
+}

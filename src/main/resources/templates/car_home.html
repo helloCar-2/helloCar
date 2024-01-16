@@ -1,7 +1,33 @@
 <html layout:decorate="~{layout}" class="relative">
 <div layout:fragment="content" class="container my-3 mx-auto">
-    <div class="background_img object-fill">
-        <img th:src="@{/img/car.png}" alt="car_image">
+    <div class="background_img object-fill opacity-70 relative">
+        <img th:src="@{/img/car.png}" alt="car_image" style="width: 390px; height: 700px;">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 pt-4">
+            <a th:href="@{/hellocar/home}">
+                <img th:src="@{/img/logo2.png}" alt="로고" class="w-26 h-16"></a>
+        </div>
+        <div class="user_name_box absolute top-24 left-1/2 transform -translate-x-1/2">환영합니다!
+            <span class="user_name">홍길동</span>
+            님 ☻
+        </div>
+        <a href="#">
+            <div class="model_search absolute left-1/2 transform -translate-x-1/2 top-24 mt-6 p-6 bg-white bg-opacity-80 border border-gray-200 drop-shadow-2xl"
+                 style="width: 300px; height: 260px;">
+                <img th:src="@{/img/car1.png}" alt="car_image" class="object-cover w-60 h-24 mx-auto">
+                <h5 class="mb-20 mt-8 text-4xl tracking-tight text-black-900 text-center">모델 검색하기</h5>
+            </div>
+        </a>
+        <a href="#">
+            <div class="application absolute left-1/2 transform -translate-x-1/2 top-1/2 mt-12 p-6 border-gray-100 drop-shadow-2xl"
+                 style="width: 300px; height: 260px;">
+                <svg class="object-cover w-60 h-24 mx-auto text-white" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M5 1v3m5-3v3m5-3v3M1 7h7m1.506 3.429 2.065 2.065M19 7h-2M2 3h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm6 13H6v-2l5.227-5.292a1.46 1.46 0 0 1 2.065 2.065L8 16Z"/>
+                </svg>
+                <h5 class="mb-20 mt-8 text-4xl tracking-tight text-white text-center">시승 신청하기</h5>
+            </div>
+        </a>
     </div>
 </div>
 </html>
