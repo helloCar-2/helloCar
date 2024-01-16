@@ -17,6 +17,16 @@ footer {
     top: 24px;
 }
 
+.model_search:hover {
+    transform: scale(1.1) translateX(-45%);
+    opacity: 0.8;
+    box-shadow: 10px 10px 10px crimson;
+}
+
+.model_search > h5:hover {
+    color: crimson;
+}
+
 .model_search:hover,
 .application:hover {
     transform: scale(1.1) translateX(-45%);
