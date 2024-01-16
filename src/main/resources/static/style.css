@@ -22,31 +22,79 @@ footer {
     font-weight: 800;
     font-style: normal;
 
-.model_search:hover {
-    transform: scale(1.1) translateX(-45%);
-    opacity: 0.8;
+    .model_search:hover {
+        transform: scale(1.1) translateX(-45%);
+        opacity: 0.8;
+    }
+
+    .model_search:hover,
+    .application:hover {
+        transform: scale(1.1) translateX(-45%);
+        opacity: 0.8;
+    }
+
+    .model_search > h5:hover,
+    .application > h5:hover {
+        color: crimson;
+    }
+
+    .application {
+        background-color: rgb(243, 101, 31);
+        opacity: 90%;
+    }
+
+    .user_name_box {
+        color: black;
+        font-size: 18px;
+    }
+
+    .user_name {
+        font-weight: bold;
+    }
 }
 
-.model_search:hover,
-.application:hover {
-    transform: scale(1.1) translateX(-45%);
-    opacity: 0.8;
+/* 드래그 박스의 스타일 */
+#external-events {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 100px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
 }
 
-.model_search > h5:hover,
-.application > h5:hover {
-    color: crimson;
+#external-events h4 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 1em;
 }
 
-.application {
-    background-color: rgb(243, 101, 31);
-    opacity: 90%;
+#external-events .fc-event {
+    margin: 3px 0;
+    cursor: move;
 }
 
-.user_name_box {
-    color: black;
-    font-size: 18px;
+#external-events p {
+    margin: 1.5em 0;
+    font-size: 11px;
+    color: #666;
 }
-.user_name {
-    font-weight: bold;
+
+#external-events p input {
+    margin: 0;
+    vertical-align: middle;
 }
+
+#calendar-wrap {
+    margin-left: 200px;
+}
+
+#calendar1 {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+
