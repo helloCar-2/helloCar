@@ -16,12 +16,6 @@ footer {
     top: 24px;
 }
 
-
-.login {
-    font-family: "Gothic A1", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-
 .model_search:hover {
     transform: scale(1.1) translateX(-45%);
     opacity: 0.8;
@@ -47,6 +41,17 @@ footer {
     color: black;
     font-size: 18px;
 }
+
 .user_name {
     font-weight: bold;
+}
+
+.login_button {
+    background-color: rgb(243, 101, 31);
+}
+
+.login {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 800;
+    font-style: normal;
 }
