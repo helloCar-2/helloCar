@@ -1,0 +1,268 @@
+<html layout:decorate="~{layout}" class="relative">
+<div layout:fragment="content" class="container">
+    <img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6">
+    <span class="font-bold block text-center text-4xl text-gray-800 mb-10">시승 신청</span>
+    <div id="accordion-flush" data-accordion="collapse"
+         data-active-classes="bg-white text-gray-900"
+         data-inactive-classes="text-gray-500">
+        <h2 id="accordion-flush-heading">
+            <div class="items-center w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3">
+                <span>서비스 이용 동의</span>
+                <div class="mt-4">
+                    <div class="flex items-center mb-2">
+                        <input id="link-checkbox" type="checkbox" value=""
+                               data-modal-target="static-modal" data-modal-toggle="static-modal"
+                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                        <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900">(필수) 시승차 및 서비스 이용에 따른
+                            고지사항 및 이용약관 안내</label>
+                        <!-- Main modal -->
+                        <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+                             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow">
+                                    <!-- Modal header -->
+                                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                                        <h3 class="text-xl font-semibold text-gray-900">
+                                            (필수) 시승차 및 서비스 이용에 따른 고지사항 및 이용약관 안내
+                                        </h3>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="p-4 md:p-5 space-y-4">
+                                        <p class="text-base leading-relaxed text-gray-500">
+                                            With less than a month to go before the European Union enacts new consumer
+                                            privacy laws for its citizens, companies around the world are updating their
+                                            terms of service agreements to comply.
+                                        </p>
+                                        <p class="text-base leading-relaxed text-gray-500">
+                                            The European Union’s General Data Protection Regulation (G.D.P.R.) goes into
+                                            effect on May 25 and is meant to ensure a common set of data rights in the
+                                            European Union. It requires organizations to notify users as soon as
+                                            possible of high-risk data breaches that could personally affect them.
+                                        </p>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                                        <button data-modal-hide="static-modal" type="button"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            동의
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="link-checkbox1" type="checkbox" value=""
+                               data-modal-target="static-modal-2" data-modal-toggle="static-modal-2"
+                               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                        <label for="link-checkbox1" class="ms-2 text-sm font-medium text-gray-900">(필수) 개인정보 수집 및
+                            이용안내</label>
+                        <!-- Main modal -->
+                        <div id="static-modal-2" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+                             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow">
+                                    <!-- Modal header -->
+                                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                                        <h3 class="text-xl font-semibold text-gray-900">
+                                            (필수) 개인정보 수집 및 이용안내
+                                        </h3>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="p-4 md:p-5 space-y-4">
+                                        <p class="text-base leading-relaxed text-gray-500">
+                                            •개인정보 수집 및 이용 목적
+                                            <br>
+                                            - 시승서비스 제공, 시승차량 사고 발생 시 보험처리 등
+                                            - 사고 대응, 시승차량 도난 방지 및 운행 관리, 고객 불만 등
+                                            - 민원사항 처리, 분쟁 발생 시 대응, 소비자 의견 조사,고객 관리 서비스 제공
+                                            - 교통법규 미준수로 인한 벌금, 과태료처리
+                                            <br>
+                                            •개인정보의 수집 항목
+                                            [필수 항목]
+                                            <br>
+                                            - 고객 성명, 휴대전화 번호, 생년월일, 성별, 연계정보(CI), 주소(자택/직장), 시승정보(시승차종, 차량번호, 시승일시),
+                                            시승차량 위치정보
+                                            <br>
+                                            [선택 항목]
+                                            <br>
+                                            - 자동차 운전경력, 보유차종 및 연식, 기타 시승 관련 요청사항
+                                            <br>
+                                            •개인정보의 보유 및 이용기간
+                                            - 시승일 기준 2년 (※ 단, 시승차량 위치정보는 수집일로부터 14일)
+                                            <br>
+                                            고객님은 위의 개인정보 수집 이용에 대한 동의를 거부하실 수 있습니다.
+                                            그러나, 동의 거부 시 시승서비스 이용이 불가합니다.
+                                        </p>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                                        <button data-modal-hide="static-modal-2" type="button"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            동의
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h2>
+        <h2 id="accordion-flush-heading-1">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
+                    data-accordion-target="#accordion-flush-body-1" aria-expanded="false"
+                    aria-controls="accordion-flush-body-2">
+                <span>시승 모델</span>
+                <div class="flex items-center">
+                    <span class="font-normal text-blue-400 mr-2 text-sm">모델을 선택해주세요.</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 5 5 1 1 5"/>
+                    </svg>
+                </div>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+            <div class="py-5 border-b border-gray-200">
+                <p class="mb-2 text-gray-500">Flowbite is first conceptualized and designed using the
+                    Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                <p class="text-gray-500">Check out the <a href="https://flowbite.com/figma/"
+                                                          class="text-blue-600 hover:underline">Figma
+                    design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+            </div>
+        </div>
+        <h2 id="accordion-flush-heading-2">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
+                    data-accordion-target="#accordion-flush-body-2" aria-expanded="false"
+                    aria-controls="accordion-flush-body-2">
+                <span>시승 장소</span>
+                <div class="flex items-center">
+                    <span class="font-normal text-blue-400 mr-2 text-sm">시승 장소를 선택해주세요.</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 5 5 1 1 5"/>
+                    </svg>
+                </div>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+            <div class="py-5 border-b border-gray-200">
+                <p class="mb-2 text-gray-500">Flowbite is first conceptualized and designed using the
+                    Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                <p class="text-gray-500">Check out the <a href="https://flowbite.com/figma/"
+                                                          class="text-blue-600 hover:underline">Figma
+                    design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+            </div>
+        </div>
+        <h2 id="accordion-flush-heading-3">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
+                    data-accordion-target="#accordion-flush-body-3" aria-expanded="false"
+                    aria-controls="accordion-flush-body-3">
+                <span>시승 일정</span>
+                <div class="flex items-center">
+                    <span class="font-normal text-blue-400 mr-2 text-sm">시승 일정을 선택해주세요.</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 5 5 1 1 5"/>
+                    </svg>
+                </div>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from
+                    Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another
+                    difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers
+                    sections of pages.</p>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite,
+                    Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best
+                    of two worlds.</p>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
+                <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
+                    <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite
+                        Pro</a></li>
+                    <li><a href="https://tailwindui.com/" rel="nofollow"
+                           class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 id="accordion-flush-heading-4">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
+                    data-accordion-target="#accordion-flush-body-4" aria-expanded="false"
+                    aria-controls="accordion-flush-body-4">
+                <span>보유차종 및 연식</span>
+                <div class="flex items-center">
+                    <span class="font-normal text-blue-400 mr-2 text-sm">보유차종과 연식을 적어주세요.</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 5 5 1 1 5"/>
+                    </svg>
+                </div>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from
+                    Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another
+                    difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers
+                    sections of pages.</p>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite,
+                    Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best
+                    of two worlds.</p>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
+                <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
+                    <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite
+                        Pro</a></li>
+                    <li><a href="https://tailwindui.com/" rel="nofollow"
+                           class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 id="accordion-flush-heading-5">
+            <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 gap-3"
+                    data-accordion-target="#accordion-flush-body-5" aria-expanded="false"
+                    aria-controls="accordion-flush-body-5">
+                <span>기타 시승 관련 요청사항</span>
+                <div class="flex items-center">
+                    <span class="font-normal text-blue-400 mr-2 text-sm">시승 시 요청사항을 적어주세요.</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 5 5 1 1 5"/>
+                    </svg>
+                </div>
+            </button>
+        </h2>
+        <div id="accordion-flush-body-5" class="hidden" aria-labelledby="accordion-flush-heading-5">
+            <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from
+                    Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another
+                    difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers
+                    sections of pages.</p>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite,
+                    Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best
+                    of two worlds.</p>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
+                <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
+                    <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite
+                        Pro</a></li>
+                    <li><a href="https://tailwindui.com/" rel="nofollow"
+                           class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
