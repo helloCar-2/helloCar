@@ -26,5 +26,10 @@ public class HelloCarController {
     public String testdrive(){
         return "car_testdrive";
     }
+
+    @GetMapping("/compare")
+    public String compare(){
+        return "car_compare";
+    }
 }
 
