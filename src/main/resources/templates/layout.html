@@ -3,11 +3,12 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-<!--    <!— 화면 해상도에 따라 글자 크기 대응(모바일 대응) —>-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <!--    <!— 화면 해상도에 따라 글자 크기 대응(모바일 대응) —>-->
+    <!--    <meta name="viewport"-->
+    <!--          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">-->
     <!--  tailwind cd  -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!--  tailwind script  -->
@@ -35,47 +36,38 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
     <!-- fullcalendar 언어 CDN -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
+    <!--  map 스크립트  -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=355ca64ea3db63fc3fa50f2760df0648"></script>
 </head>
-<body class="mx-auto relative min-h-screen pb-20" style="width: 390px; min-height: 100vh;">
+<body class="mx-auto relative min-h-screen pb-20" style="min-height: 100vh;">
 <th:block layout:fragment="content"></th:block>
 <footer th:replace="~{footer :: footerFragment}"></footer>
 </body>
+<!--map 자바스크립트 시작-->
 <script>
-    (function () {
-        $(function () {
-            // 드래그 박스 취득
-            var containerEl = $('#external-events-list')[0];
-            new FullCalendar.Draggable(containerEl, {
-                itemSelector: '.fc-event', eventData: function (eventEl) {
-                    return {title: eventEl.innerText.trim()}
-                }
-            });
-            // calendar element 취득
-            var calendarEl = $('#calendar1')[0];
-            // full-calendar 생성하기
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                // 해더에 표시할 툴바
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-                },
-                initialDate: '2024-01-17',
-// 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
-                locale: 'ko',
-// 한국어 설정
-                editable: true,
-// 수정 가능
-                droppable: true,
-// 드래그 가능
-                drop: function (arg) {
-                    // 드래그 엔 드롭 성공시 드래그 박스에서 아이템을 삭제한다.
-                    arg.draggedEl.parentNode.removeChild(arg.draggedEl);
-                }
-            });
-            // 캘린더 랜더링
-            calendar.render();
-        });
-    })();
+    const drivingLoungeLocation = {
+        latitude: 36.350498,
+        longitude: 127.384827
+    };
+
+    const windowCenter = {
+        latitude: drivingLoungeLocation.latitude,
+        longitude: drivingLoungeLocation.longitude
+    };
+
+    const options = {
+        center: new kakao.maps.LatLng(windowCenter.latitude, windowCenter.longitude),
+        level: 3
+    };
+
+    const container = document.getElementById('map');
+    const map = new kakao.maps.Map(container, options);
+
+    // tilesloaded 이벤트 핸들러 등록
+    kakao.maps.event.addListener(map, 'tilesloaded', function() {
+        // 모든 타일이 로드된 후에 relayout 호출
+        map.relayout();
+    });
 </script>
+<!--map 자바스크립트 끝-->
 </html>
