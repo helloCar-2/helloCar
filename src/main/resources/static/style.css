@@ -16,41 +16,33 @@ footer {
     top: 24px;
 }
 
+.model_search:hover {
+    transform: scale(1.1) translateX(-45%);
+    opacity: 0.8;
+}
 
-.login {
-    font-family: "Gothic A1", sans-serif;
-    font-weight: 800;
-    font-style: normal;
+.model_search:hover,
+.application:hover {
+    transform: scale(1.1) translateX(-45%);
+    opacity: 0.8;
+}
 
-    .model_search:hover {
-        transform: scale(1.1) translateX(-45%);
-        opacity: 0.8;
-    }
+.model_search > h5:hover,
+.application > h5:hover {
+    color: crimson;
+}
 
-    .model_search:hover,
-    .application:hover {
-        transform: scale(1.1) translateX(-45%);
-        opacity: 0.8;
-    }
+.application {
+    background-color: rgb(243, 101, 31);
+    opacity: 90%;
+}
 
-    .model_search > h5:hover,
-    .application > h5:hover {
-        color: crimson;
-    }
-
-    .application {
-        background-color: rgb(243, 101, 31);
-        opacity: 90%;
-    }
-
-    .user_name_box {
-        color: black;
-        font-size: 18px;
-    }
-
-    .user_name {
-        font-weight: bold;
-    }
+.user_name_box {
+    color: black;
+    font-size: 18px;
+}
+.user_name {
+    font-weight: bold;
 }
 
 /* 드래그 박스의 스타일 */
@@ -98,3 +90,13 @@ footer {
 
 
 
+
+.login_button {
+    background-color: rgb(243, 101, 31);
+}
+
+.login {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}

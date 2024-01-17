@@ -24,7 +24,6 @@ public class HelloCarController {
 
     @GetMapping("/testdrive")
     public String testdrive(){
-
         return "car_testdrive";
     }
 }
