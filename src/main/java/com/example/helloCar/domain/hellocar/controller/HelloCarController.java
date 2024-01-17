@@ -21,10 +21,13 @@ public class HelloCarController {
     public String login(){
         return "login";
     }
-
     @GetMapping("/testdrive")
     public String testdrive(){
         return "car_testdrive";
+    }
+    @GetMapping("/login_search")
+    public String login_search(){
+        return "login_search";
     }
 }
 
