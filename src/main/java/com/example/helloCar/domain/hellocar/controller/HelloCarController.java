@@ -29,5 +29,13 @@ public class HelloCarController {
     public String login_search(){
         return "login_search";
     }
+    @GetMapping("/signup_form_email")
+    public String signup_form_email(){
+        return "signup_form_email";
+    }
+    @GetMapping("/signup_form")
+    public String signup_form(){
+        return "signup_form";
+    }
 }
 
