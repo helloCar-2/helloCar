@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping("/hellocar")
 public class HelloCarController {
+    @GetMapping("/list")
+    public String list(){
+        return "car_list";
+    }
     @GetMapping("/start")
     public String start(){
         return "hellocar_start";
@@ -30,6 +34,10 @@ public class HelloCarController {
     @GetMapping("/compare")
     public String compare(){
         return "car_compare";
+    }
+    @GetMapping("/searchandselect")
+    public String seachAndSelect(){
+        return "car_searchandselect";
     }
 }
 
