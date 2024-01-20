@@ -10,32 +10,52 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/hellocar")
 public class HelloCarController {
     @GetMapping("/start")
-    public String start(){
+    public String start() {
         return "hellocar_start";
     }
+
     @GetMapping("/home")
-    public String home(){
+    public String home() {
         return "car_home";
     }
+
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
+
     @GetMapping("/testdrive")
-    public String testdrive(){
+    public String car_testdrive() {
         return "car_testdrive";
     }
+
     @GetMapping("/login_search")
-    public String login_search(){
+    public String login_search() {
         return "login_search";
     }
+
     @GetMapping("/signup_form_email")
-    public String signup_form_email(){
+    public String signup_form_email() {
         return "signup_form_email";
     }
+
     @GetMapping("/signup_form")
-    public String signup_form(){
+    public String signup_form() {
         return "signup_form";
+    }
+
+    @GetMapping("/password_search")
+    public String password_search() {
+        return "password_search";
+    }
+
+    @GetMapping("/chat_qna")
+    public String chat_qna() {
+        return "chat_qna";
+    }
+    @GetMapping("/testdrive_list")
+    public String testdrive_list() {
+        return "testdrive_list";
     }
 }
 
