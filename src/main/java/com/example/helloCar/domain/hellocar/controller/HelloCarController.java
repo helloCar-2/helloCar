@@ -64,13 +64,12 @@ public class HelloCarController {
         return "testdrive_list";
     }
     @GetMapping("/compare")
-    public String compare(){
+    public String compare() {
         return "car_compare";
     }
     @GetMapping("/searchandselect")
-    public String seachAndSelect(){
+    public String seachAndSelect() {
         return "car_searchandselect";
-
     }
 
     @GetMapping("/mypage")
