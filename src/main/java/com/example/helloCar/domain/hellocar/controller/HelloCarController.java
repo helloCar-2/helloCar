@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping("/hellocar")
 public class HelloCarController {
+    @GetMapping("/list")
+    public String list(){
+        return "car_list";
+    }
     @GetMapping("/start")
     public String start() {
         return "hellocar_start";
@@ -28,6 +32,7 @@ public class HelloCarController {
     public String car_testdrive() {
         return "car_testdrive";
     }
+
 
     @GetMapping("/login_search")
     public String login_search() {
@@ -56,6 +61,15 @@ public class HelloCarController {
     @GetMapping("/testdrive_list")
     public String testdrive_list() {
         return "testdrive_list";
+
+    @GetMapping("/compare")
+    public String compare(){
+        return "car_compare";
+    }
+    @GetMapping("/searchandselect")
+    public String seachAndSelect(){
+        return "car_searchandselect";
+
     }
 }
 
