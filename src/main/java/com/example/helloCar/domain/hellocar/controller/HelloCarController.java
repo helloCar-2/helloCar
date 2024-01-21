@@ -61,15 +61,14 @@ public class HelloCarController {
     @GetMapping("/testdrive_list")
     public String testdrive_list() {
         return "testdrive_list";
-
+    }
     @GetMapping("/compare")
-    public String compare(){
+    public String compare() {
         return "car_compare";
     }
     @GetMapping("/searchandselect")
-    public String seachAndSelect(){
+    public String seachAndSelect() {
         return "car_searchandselect";
-
     }
 }
 
