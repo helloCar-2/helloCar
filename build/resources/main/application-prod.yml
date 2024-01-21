@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://wines-db.internal:5432/postgres
+    url: jdbc:postgresql://hellowcar-db.internal:5432/postgres
     username: postgres
-    password: zsmcAPEJGzA55zd
+    password: M1IN3l8myFSq8BL
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
