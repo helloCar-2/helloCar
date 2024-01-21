@@ -759,7 +759,7 @@ class HelloCarApplicationTests {
                 .modelYear(2023)
                 .size("준중형")
                 .build();
-        this.carService.save(avanteCN7_2023_FL_N);
+        this.carService.save(avanteCN7_2023_FL_G);
 
         Car avanteCN7_2023_FL_L = Car.builder()
                 .brand("현대")
@@ -771,7 +771,7 @@ class HelloCarApplicationTests {
                 .modelYear(2023)
                 .size("준중형")
                 .build();
-        this.carService.save(avanteCN7_2023_FL_N);
+        this.carService.save(avanteCN7_2023_FL_L);
 
         Car avanteCN7_2023_FL_HBD = Car.builder()
                 .brand("현대")
@@ -783,7 +783,7 @@ class HelloCarApplicationTests {
                 .modelYear(2023)
                 .size("준중형")
                 .build();
-        this.carService.save(avanteCN7_2023_FL_N);
+        this.carService.save(avanteCN7_2023_FL_HBD);
 
         //쏘나타
 
@@ -1232,7 +1232,6 @@ class HelloCarApplicationTests {
         this.carService.save(LFsonataFL_2017_PlugHBD);
 
 
-
         Car LFsonataFL_2018_G = Car.builder()
                 .brand("현대")
                 .carName("LF쏘나타 뉴 라이즈")
@@ -1255,7 +1254,7 @@ class HelloCarApplicationTests {
                 .modelYear(2018)
                 .size("중형")
                 .build();
-        this.carService.save(LFsonataFL_2017_D);
+        this.carService.save(LFsonataFL_2018_D);
 
         Car LFsonataFL_2018_L = Car.builder()
                 .brand("현대")
@@ -1293,10 +1292,330 @@ class HelloCarApplicationTests {
                 .build();
         this.carService.save(LFsonataFL_2018_PlugHBD);
 
+        Car LFsonataFL_2019_G = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(2219)
+                .maxPrice(3233)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2019_G);
+
+        Car LFsonataFL_2019_D = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(2464)
+                .maxPrice(3100)
+                .vehicle("세단")
+                .fuel("디젤")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2019_D);
+
+        Car LFsonataFL_2019_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(1680)
+                .maxPrice(2288)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2019_L);
+
+        Car LFsonataFL_2019_HBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈 하이브리드")
+                .minPrice(2854)
+                .maxPrice(3299)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2019_HBD);
+
+        Car LFsonataFL_2019_PlugHBD = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈 플러그인 하이브리드")
+                .minPrice(3885)
+                .maxPrice(4205)
+                .vehicle("세단")
+                .fuel("가솔린 플러그인 하이브리드")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2019_PlugHBD);
 
 
+        Car sonataDN8_2019_G = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2288)
+                .maxPrice(3287)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2019_G);
 
+        Car sonataDN8_2019_L = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2396)
+                .maxPrice(3212)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2019_L);
 
+        Car sonataDN8_2019_HBD = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 하이브리드")
+                .minPrice(2790)
+                .maxPrice(3669)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2019)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2019_HBD);
+
+        Car LFsonataFL_2020_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(1685)
+                .maxPrice(2084)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2020)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2020_L);
+
+        Car sonataDN8_2020_G = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2386)
+                .maxPrice(3642)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2020)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2020_G);
+
+        Car sonataDN8_2020_L = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2641)
+                .maxPrice(3313)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2020)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2020_L);
+
+        Car sonataDN8_2020_HBD = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 하이브리드")
+                .minPrice(2754)
+                .maxPrice(3599)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2020)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2020_HBD);
+
+        Car LFsonataFL_2021_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(1945)
+                .maxPrice(2550)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2021)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2021_L);
+
+        Car sonataDN8_2021_G = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2547)
+                .maxPrice(3645)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2021)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2021_G);
+
+        Car sonataDN8_2021_L = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2611)
+                .maxPrice(3323)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2021)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2021_L);
+
+        Car sonataDN8_2021_HBD = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 하이브리드")
+                .minPrice(2881)
+                .maxPrice(3635)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2021)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2021_HBD);
+
+        Car LFsonataFL_2022_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(1945)
+                .maxPrice(2550)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2022)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2022_L);
+
+        Car sonataDN8_2022_G = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2547)
+                .maxPrice(3645)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2022)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2022_G);
+
+        Car sonataDN8_2022_L = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2611)
+                .maxPrice(3323)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2022)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2022_L);
+
+        Car sonataDN8_2022_HBD = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 하이브리드")
+                .minPrice(2881)
+                .maxPrice(3635)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2022)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2022_HBD);
+
+        Car LFsonataFL_2023_L = Car.builder()
+                .brand("현대")
+                .carName("LF쏘나타 뉴 라이즈")
+                .minPrice(2043)
+                .maxPrice(2600)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2023)
+                .size("중형")
+                .build();
+        this.carService.save(LFsonataFL_2023_L);
+
+        Car sonataDN8_2023_G = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2592)
+                .maxPrice(3633)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2023)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2023_G);
+
+        Car sonataDN8_2023_L = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8")
+                .minPrice(2655)
+                .maxPrice(3362)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2023)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2023_L);
+
+        Car sonataDN8_2023_HBD = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 하이브리드")
+                .minPrice(2946)
+                .maxPrice(3706)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2023)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8_2023_HBD);
+
+        Car sonataDN8FL_2023_G = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 페이스리프트")
+                .minPrice(2808)
+                .maxPrice(3917)
+                .vehicle("세단")
+                .fuel("가솔린")
+                .modelYear(2023)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8FL_2023_G);
+
+        Car sonataDN8FL_2023_L = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 페이스리프트")
+                .minPrice(2897)
+                .maxPrice(3586)
+                .vehicle("세단")
+                .fuel("LPG")
+                .modelYear(2023)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8FL_2023_L);
+
+        Car sonataDN8FL_2023_HBD = Car.builder()
+                .brand("현대")
+                .carName("쏘나타 DN8 페이스리프트 하이브리드")
+                .minPrice(3187)
+                .maxPrice(3921)
+                .vehicle("세단")
+                .fuel("가솔린 하이브리드")
+                .modelYear(2023)
+                .size("중형")
+                .build();
+        this.carService.save(sonataDN8FL_2023_HBD);
 
 
     }

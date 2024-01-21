@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 
 @Controller
 @RequiredArgsConstructor
@@ -61,7 +62,7 @@ public class HelloCarController {
     @GetMapping("/testdrive_list")
     public String testdrive_list() {
         return "testdrive_list";
-
+    }
     @GetMapping("/compare")
     public String compare(){
         return "car_compare";
@@ -70,6 +71,15 @@ public class HelloCarController {
     public String seachAndSelect(){
         return "car_searchandselect";
 
+    }
+
+    @GetMapping("/mypage")
+    public String myPage(){
+        return "my_page";
+    }
+    @GetMapping("/wish_list")
+    public String wishList(){
+        return "wish_list";
     }
 }
 
