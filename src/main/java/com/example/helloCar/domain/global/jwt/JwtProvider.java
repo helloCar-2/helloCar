@@ -1,6 +1,6 @@
 package com.example.helloCar.domain.global.jwt;
 
-import com.example.demo.global.util.Util;
+import com.example.helloCar.domain.global.util.Util;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;

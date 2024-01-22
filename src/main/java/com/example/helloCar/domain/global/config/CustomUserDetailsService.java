@@ -1,8 +1,8 @@
 package com.example.helloCar.domain.global.config;
 
 
-import com.example.demo.member.entity.Member;
-import com.example.demo.member.repository.MemberRepository;
+import com.example.helloCar.domain.member.entity.Member;
+import com.example.helloCar.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
