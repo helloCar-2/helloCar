@@ -1,7 +1,8 @@
 <script>
+	import Footer from './footer/footer.svelte';
 	import '../app.css';
 	// import '../routes/hellocar/car_compare.svelte'
-	export {};
+	
 </script>
 
 <div class="app">
@@ -9,5 +10,7 @@
 	<a href="/home"></a>
 	<main>
 		<slot />
+		<Footer />
 	</main>
+
 </div>
