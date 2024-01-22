@@ -1,8 +1,6 @@
-<html layout:decorate="~{layout}" class="relative">
-<div layout:fragment="content" class="container">
-    <img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6">
+    <img src="/img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6">
     <div class=" w-3/5 mx-auto">
-        <a class="flex items-center mb-6" th:href="@{/hellocar/searchandselect}">
+        <a class="flex items-center mb-6" href="/home">
             <label for="simple-search" class="sr-only">검색</label>
             <div class="relative w-full">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -16,8 +14,7 @@
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                        placeholder="차량 검색" required>
             </div>
-            <div type="submit"
-                    class="p-2.5 ms-2 text-sm font-medium text-white bg-[#f3651f] rounded-lg border focus:ring-4 focus:outline-none">
+            <div class="p-2.5 ms-2 text-sm font-medium text-white bg-[#f3651f] rounded-lg border focus:ring-4 focus:outline-none">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                      viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -98,5 +95,3 @@
             </div>
         </div>
     </div>
-</div>
-</html>

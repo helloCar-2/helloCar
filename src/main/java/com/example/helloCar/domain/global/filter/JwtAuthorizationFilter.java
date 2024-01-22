@@ -1,9 +1,9 @@
 package com.example.helloCar.domain.global.filter;
 
 
-import com.example.demo.global.jwt.JwtProvider;
-import com.example.demo.member.entity.Member;
-import com.example.demo.member.service.MemberService;
+import com.example.helloCar.domain.global.jwt.JwtProvider;
+import com.example.helloCar.domain.member.entity.Member;
+import com.example.helloCar.domain.member.service.MemberService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

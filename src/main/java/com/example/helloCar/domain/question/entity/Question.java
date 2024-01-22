@@ -1,6 +1,6 @@
 package com.example.helloCar.domain.question.entity;
 
-import com.example.helloCar.global.jpa.BaseEntity;
+import com.example.helloCar.domain.global.baseentity.BaseEntity;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

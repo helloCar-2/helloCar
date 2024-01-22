@@ -1,6 +1,6 @@
 package com.example.helloCar.domain.global.config;
 
-import com.example.demo.global.filter.JwtAuthorizationFilter;
+import com.example.helloCar.domain.global.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
