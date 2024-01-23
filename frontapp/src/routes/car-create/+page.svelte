@@ -52,7 +52,7 @@
             </div>
             <div class="flex justify-end">
                 <button class="mt-8 text-white bg-gray-800 hoverbg-gray-900 focusoutline-none focusring-4 focusring-gray-300 font-black rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ml-20">
-                    게시글 등록
+                    차량 등록
                 </button>
             </div>
         </div>
