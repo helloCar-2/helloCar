@@ -2,20 +2,24 @@
     <div class="container my-3 mx-auto">
         <div class="background_img">
             <img src="/img/logo.png" alt="로고" class="text-center mt-12 mx-auto w-60 h-20 object-cover">
-            <h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center">로그인</h5>
+            <h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center font-bold">로그인</h5>
         </div>
 
-        <form class="flex-col text-center">
+        <form method="POST" action="http://localhost:8080/member/login" class="flex-col text-center">
             <div class="login_box">
-                <input type="text" id="login"
+                <input type="text" id="username" name="username"
                        class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 w-full p-2.5"
                        placeholder="아이디 입력" required="">
             </div>
             <div class="password_box pt-6">
-                <input type="text" id="password"
+                <input type="password" id="password" name="password"
                        class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 block w-full p-2.5"
                        placeholder="패스워드 입력" required="">
             </div>
+            <button type="button"
+                    class="w-full h-12 mt-6 text-white bg-[#f3651f] hover:bg-[#cc5012] text-sm py-6 flex items-center">
+                <p class="font-bold mx-auto text-base">로그인</p>
+            </button>
         </form>
         <button type="button"
                 class="w-full h-12 mt-6 text-[#6d2720] bg-[#fff30c] hover:bg-[#d4d013]/90 text-sm py-3 flex justify-center">
@@ -42,10 +46,6 @@
             <p class="font-bold py-0.5"> 카카오 로그인 하기</p>
         </button>
 
-        <button type="button"
-                class="w-full h-12 mt-6 text-white bg-[#f3651f] hover:bg-[#cc5012] text-sm py-6 flex items-center">
-            <p class="font-bold mx-auto text-base">로그인</p>
-        </button>
         <div class="flex justify-center mt-2 text-gray-500">
             <a href="/hellocar/signup_form_email" class="px-2 underline hover:text-blue-500">
                 <span>회원가입</span>

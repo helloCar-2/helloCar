@@ -1,4 +1,22 @@
 package com.example.helloCar.domain.testdrive.entity;
 
-public class TestDrive {
+import com.example.helloCar.domain.global.baseentity.BaseEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+@Getter
+@EntityListeners(AuditingEntityListener.class)
+public class TestDrive extends BaseEntity {
+
+    private String area;
+
 }
