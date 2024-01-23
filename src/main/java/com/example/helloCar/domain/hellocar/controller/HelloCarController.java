@@ -1,14 +1,13 @@
 package com.example.helloCar.domain.hellocar.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-@RequestMapping("/hellocar")
+@RequestMapping("/car")
 public class HelloCarController {
     @GetMapping("/list")
     public String list(){
