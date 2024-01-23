@@ -5,7 +5,7 @@
 	
 </script>
 
-<div class="app">
+<div class="app mx-auto relative min-h-screen pb-20">
 	<a href="/compare"></a>
 	<a href="/home"></a>
 	<main>

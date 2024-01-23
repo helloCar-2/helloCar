@@ -1,9 +1,9 @@
-package com.example.helloCar.domain.question.service;
+package com.example.helloCar.domain.qna.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class QuestionService {
+public class QnaService {
 }
