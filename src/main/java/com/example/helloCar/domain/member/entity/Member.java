@@ -40,7 +40,14 @@ public class Member extends BaseEntity {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("MEMBER"));
 
+        if (isAdmin()) {
+            authorities.add(new SimpleGrantedAuthority("admin"));
+        }
+
         return authorities;
+    }
+    public boolean isAdmin() {
+        return "admin".equals(username);
     }
 
     public Map<String, Object> toClaims() {
