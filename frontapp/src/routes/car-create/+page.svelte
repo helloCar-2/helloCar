@@ -1,5 +1,5 @@
 <div class="container w-100 my-3 mx-auto flex justify-center">
-    <form meod="post" enctype="multipart/form-data">
+    <form enctype="multipart/form-data">
         <div>
             <div class="mx-auto">
                 <label class="block mb-2 text-sm font-black text-gray-900 darktext-dark" for="files">Upload
