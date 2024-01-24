@@ -1,8 +1,6 @@
 <script>
 	import { enhance } from "$app/forms";
 	import { register } from "./+page.js";
-
-	const { register } = actions;
 </script>
 
 <div class="container my-3 mx-auto p-4">
