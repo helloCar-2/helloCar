@@ -1,4 +1,4 @@
-package com.example.helloCar.domain.global.RS;
+package com.example.helloCar.domain.global.rs;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
