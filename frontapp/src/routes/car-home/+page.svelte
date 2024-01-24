@@ -9,10 +9,10 @@
 		style="height: 900px;"
 	/>
 	<div class="absolute top-0 left-1/2 transform -translate-x-1/2 pt-4">
-		<a href="/home"> <img src="img/logo2.png" alt="로고" class="w-26 h-16" /></a>
+		<a href="/car-home"> <img src="img/logo2.png" alt="로고" class="w-26 h-16" /></a>
 	</div>
 </div>
-<a href="#">
+<a href="/model-search">
 	<div
 		class="model_search absolute left-1/2 transform -translate-x-1/2 top-24 mt-6 p-6 bg-white bg-opacity-80 border border-gray-200 drop-shadow"
 		style="width: 300px; height: 260px;"
@@ -21,7 +21,7 @@
 		<h5 class="mb-20 mt-8 text-4xl tracking-tight text-black-900 text-center">모델 검색하기</h5>
 	</div>
 </a>
-<a href="/testdrive">
+<a href="/car-testdrive">
 	<div
 		class="application absolute left-1/2 transform -translate-x-1/2 top-96 mt-8 p-6 bg-opacity-80 drop-shadow"
 		style="width: 300px; height: 260px;"

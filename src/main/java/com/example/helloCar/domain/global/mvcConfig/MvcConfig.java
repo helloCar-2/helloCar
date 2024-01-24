@@ -1,4 +1,4 @@
-package com.example.helloCar.domain.global.mvcconfig;
+package com.example.helloCar.domain.global.mvcConfig;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -9,7 +9,7 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry){
         corsRegistry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:5174")
+                .allowedOrigins("http://localhost:5173")
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(true);

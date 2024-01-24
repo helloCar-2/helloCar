@@ -2,7 +2,7 @@
 	<div class="footer p-3 bg-[#f3651f]">
 		<ul class="flex justify-between text-sm font-medium text-white">
 			<li>
-				<a href="/wishList" class="hover:underline">
+				<a href="/wish-list" class="hover:underline">
 					<svg
 						class="w-6 h-6 text-gray-800 text-white mx-auto"
 						aria-hidden="true"
@@ -18,7 +18,7 @@
 				>
 			</li>
 			<li>
-				<a href="/testdrive" class="hover:underline">
+				<a href="/car-testdrive" class="hover:underline">
 					<svg
 						class="w-6 h-6 text-gray-800 text-white mx-auto"
 						aria-hidden="true"
@@ -37,7 +37,7 @@
 				>
 			</li>
 			<li>
-				<a href="/home" class="hover:underline">
+				<a href="/car-home" class="hover:underline">
 					<svg
 						class="h-6 w-6 text-gray-800 text-white mx-auto"
 						aria-hidden="true"
@@ -53,7 +53,7 @@
 				>
 			</li>
 			<li>
-				<a href="/qna" class="hover:underline">
+				<a href="/chat-qna" class="hover:underline">
 					<svg
 						class="w-6 h-6 text-gray-800 text-white mx-auto"
 						aria-hidden="true"
@@ -74,7 +74,7 @@
 				>
 			</li>
 			<li>
-				<a href="/mypage" class="hover:underline">
+				<a href="/my-page" class="hover:underline">
 					<svg
 						class="w-6 h-6 text-gray-800 text-white mx-auto"
 						aria-hidden="true"
