@@ -2,7 +2,7 @@
     <div class="container my-3 mx-auto">
         <div class="background_img">
             <img src="/img/logo.png" alt="로고" class="text-center mt-24 mx-auto w-60 h-20 object-cover">
-            <h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center">아이디 찾기</h5>
+            <h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center font-bold">아이디 찾기</h5>
         </div>
 
         <form class="flex-col text-center">
@@ -25,7 +25,6 @@
         </button>
     </div>
 </div>
-</html>
 
 <!-- Main modal -->
 <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
