@@ -38,7 +38,6 @@ public class HelloCarService {
         }
         return null;
     }
-    private final HelloCarRepository helloCarRepository;
 
     public void save (HelloCar car){
         this.helloCarRepository.save(car);

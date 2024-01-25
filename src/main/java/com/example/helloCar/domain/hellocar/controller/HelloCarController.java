@@ -3,6 +3,8 @@ package com.example.helloCar.domain.hellocar.controller;
 import com.example.helloCar.domain.global.rs.RsData;
 import com.example.helloCar.domain.hellocar.entity.HelloCar;
 import com.example.helloCar.domain.hellocar.service.HelloCarService;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -23,14 +25,22 @@ public class HelloCarController {
 
     @Data
     public static class HelloCarRequest {
+        @NotBlank
         private String carName;
         private String img;
+        @NotBlank
         private String brand;
+        @NotNull
         private int maxPrice;
+        @NotNull
         private int minPrice;
+        @NotNull
         private int modelYear;
+        @NotBlank
         private String vehicle;
+        @NotBlank
         private String size;
+        @NotBlank
         private String fuel;
     }
 
