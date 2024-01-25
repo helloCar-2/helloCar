@@ -1,7 +1,7 @@
-<div class="container my-3 p-4">
+<div class="container my-3 mx-auto p-4">
 	<div class="background_img">
 		<img src="/img/logo.png" alt="로고" class="text-center mt-24 mx-auto w-60 h-20 object-cover">
-		<h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center">비밀번호 찾기</h5>
+		<h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center font-bold">비밀번호 찾기</h5>
 	</div>
 	<form class="flex-col text-center">
 		<div>
