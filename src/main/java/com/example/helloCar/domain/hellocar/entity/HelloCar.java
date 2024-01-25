@@ -19,7 +19,6 @@ import java.util.Set;
 @SuperBuilder
 public class HelloCar extends BaseEntity {
 
-    @Column(unique = true)
     private String carname;
 
     private String brand;

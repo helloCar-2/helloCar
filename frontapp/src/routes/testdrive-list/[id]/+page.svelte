@@ -1,3 +1,8 @@
+<script>
+	export let data;
+	console.log(data.data.testDrive);
+</script>
+
 <div class="w-10/12 m-auto">
 	<img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6" />
 	<span class="font-bold block text-center text-4xl text-gray-800 mb-10">시승 신청내역</span>
@@ -16,7 +21,7 @@
 				<thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
 					<tr>
 						<th scope="col" class="px-6 py-3 bg-gray-50 "> 모델명 </th>
-						<th scope="col" class="px-6 py-3 "> 제네시스 G80 </th>
+						<th scope="col" class="px-6 py-3 "> {data.data.testDrive.car.carname} </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,7 +32,7 @@
 						>
 							차량 가격
 						</th>
-						<td class="px-6 py-4"> 8000만원 </td>
+						<td class="px-6 py-4"> {data.data.testDrive.car.minPrice} ~ {data.data.testDrive.car.maxPrice} 만원</td>
 					</tr>
 					<tr class="border-b border-gray-200 dark:border-gray-700">
 						<th
@@ -36,7 +41,7 @@
 						>
 							시승 장소
 						</th>
-						<td class="px-6 py-4"> 평양시 </td>
+						<td class="px-6 py-4">  {data.data.testDrive.area.drivingLoungeName} </td>
 					</tr>
 					<tr class="border-b border-gray-200 dark:border-gray-700">
 						<th
@@ -45,7 +50,7 @@
 						>
 							시승 일정
 						</th>
-						<td class="px-6 py-4"> 2222년 2월 22일 22시 22분 </td>
+						<td class="px-6 py-4"> {data.data.testDrive.date} / {data.data.testDrive.time} </td>
 					</tr>
 					<tr class="border-b border-gray-200 dark:border-gray-700">
 						<th
