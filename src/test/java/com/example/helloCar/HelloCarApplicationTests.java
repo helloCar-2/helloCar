@@ -2,6 +2,7 @@
 //
 //import com.example.helloCar.domain.hellocar.domain.car.Car;
 //import com.example.helloCar.domain.hellocar.domain.car.CarService;
+//import com.example.helloCar.domain.hellocar.service.HelloCarService;
 //import org.junit.jupiter.api.Test;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +11,7 @@
 //class HelloCarApplicationTests {
 //
 //    @Autowired
-//    private CarService carService;
+//    private HelloCarService helloCarService;
 //
 //    @Test
 //    void contextLoads() {
