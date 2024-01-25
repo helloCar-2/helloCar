@@ -1,83 +1,52 @@
 package com.example.helloCar.domain.hellocar.controller;
 
+import com.example.helloCar.domain.global.rs.RsData;
+import com.example.helloCar.domain.hellocar.entity.HelloCar;
+import com.example.helloCar.domain.hellocar.service.HelloCarService;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/car")
+@RequestMapping(value = "/api/v1/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 public class HelloCarController {
-    @GetMapping("/list")
-    public String list(){
-        return "car_list";
-    }
-    @GetMapping("/start")
-    public String start() {
-        return "hellocar_start";
+
+    private final HelloCarService helloCarService;
+
+    @Data
+    public static class HelloCarRequest {
+        private String carName;
+        private String img;
+        private String brand;
+        private int maxPrice;
+        private int minPrice;
+        private int modelYear;
+        private String vehicle;
+        private String size;
+        private String fuel;
     }
 
-    @GetMapping("/home")
-    public String home() {
-        return "car_home";
+    //등록
+    @AllArgsConstructor
+    @Getter
+    public static class HellocarResponse {
+        private final HelloCar helloCar;
     }
+    @PostMapping(value = "/create", consumes = APPLICATION_JSON_VALUE)
+    public RsData<HellocarResponse> create(@RequestBody HelloCarRequest helloCarRequest) {
+        HelloCar helloCar = helloCarService.create(helloCarRequest.getCarName(), helloCarRequest.getImg(), helloCarRequest.getBrand(),
+                helloCarRequest.getMaxPrice(), helloCarRequest.getMinPrice(), helloCarRequest.getModelYear(), helloCarRequest.getVehicle(),
+                helloCarRequest.getSize(), helloCarRequest.getFuel());
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @GetMapping("/testdrive")
-    public String car_testdrive() {
-        return "car_testdrive";
-    }
-
-
-    @GetMapping("/login_search")
-    public String login_search() {
-        return "login_search";
-    }
-
-    @GetMapping("/signup_form_email")
-    public String signup_form_email() {
-        return "signup_form_email";
-    }
-
-    @GetMapping("/signup_form")
-    public String signup_form() {
-        return "signup_form";
-    }
-
-    @GetMapping("/password_search")
-    public String password_search() {
-        return "password_search";
-    }
-
-    @GetMapping("/chat_qna")
-    public String chat_qna() {
-        return "chat_qna";
-    }
-    @GetMapping("/testdrive_list")
-    public String testdrive_list() {
-        return "testdrive_list";
-    }
-    @GetMapping("/compare")
-    public String compare() {
-        return "car_compare";
-    }
-    @GetMapping("/searchandselect")
-    public String seachAndSelect() {
-        return "car_searchandselect";
-    }
-
-    @GetMapping("/mypage")
-    public String myPage(){
-        return "my_page";
-    }
-    @GetMapping("/wish_list")
-    public String wishList(){
-        return "wish_list";
+        return RsData.of("S-5", "성공", new HellocarResponse(helloCar));
     }
 }
 
