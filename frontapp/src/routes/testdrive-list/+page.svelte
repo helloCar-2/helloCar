@@ -4,7 +4,7 @@
 </script>
 
 
-<div class="">
+<div class="mx-auto" style="width: 83.333%;">
 	<img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6" />
 	<span class="font-bold block text-center text-4xl text-gray-800 mb-10">시승 신청내역</span>
 
@@ -36,9 +36,12 @@
 							</a>
 						</td>
 						<td class="px-6 py-4 font-semibold text-gray-900">
-							{testdrive.date}/{testdrive.area.drivingLoungeName}
+							{testdrive.date} / {testdrive.area.drivingLoungeName}
 						</td>
-						<td class="px-6 py-4 font-semibold text-gray-900"> 신청 완료 </td>
+						<td class="px-6 py-4 font-semibold text-gray-900"> 
+							<p class="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400 inline-flex items-center justify-center">
+								신청 완료</p>
+  							</td>
 					</tr>
 				{/each}
 

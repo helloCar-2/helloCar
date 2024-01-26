@@ -134,7 +134,7 @@
 						>
 							기타 요청사항
 						</th>
-						<td class="px-6 py-4"> 집앞으로 배달해주세요 </td>
+						<td class="px-6 py-4"> {data.data.testDrive.request} </td>
 					</tr>
 				</tbody>
 			</table>
