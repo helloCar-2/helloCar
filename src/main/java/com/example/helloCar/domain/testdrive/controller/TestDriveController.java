@@ -1,8 +1,6 @@
 package com.example.helloCar.domain.testdrive.controller;
 
-import com.example.helloCar.domain.global.RS.RsData;
-import com.example.helloCar.domain.hellocar.entity.HelloCar;
-import com.example.helloCar.domain.hellocar.service.HelloCarService;
+import com.example.helloCar.domain.global.rs.RsData;
 import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.example.helloCar.domain.testdrive.service.TestDriveService;
 import lombok.AllArgsConstructor;

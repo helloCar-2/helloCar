@@ -37,4 +37,10 @@ public class TestDrive extends BaseEntity {
 
     private String time;
     // 시승 시간대
+
+    private String userCar;
+    // 보유 차량 및 연식
+
+    private String request;
+    //기타 요청 사항
 }
