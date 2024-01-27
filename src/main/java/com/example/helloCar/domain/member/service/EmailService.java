@@ -1,14 +1,19 @@
 package com.example.helloCar.domain.member.service;
 
+import com.example.helloCar.domain.member.entity.Member;
+import com.example.helloCar.domain.member.repository.MemberRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class EmailService {
+    private final MemberRepository memberRepository;
     private final JavaMailSender mailSender;
     private static final String senderEmail = "joeun065@gmail.com";
     private static int number;
@@ -36,6 +41,11 @@ public class EmailService {
             throw new RuntimeException(e);
         }
         return message;
+    }
+
+    public boolean isEmailDuplicate(String email) {
+        Optional<Member> existingEmail = memberRepository.findByEmail(email);
+        return existingEmail.isPresent(); // true면 중복, false면 중복 아님
     }
 
     public int sendEmail(String email) {

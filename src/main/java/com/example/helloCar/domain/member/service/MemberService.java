@@ -16,7 +16,7 @@ public class MemberService {
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
 
-    public Member join(String username, String password, String email, String name) {
+    public Member join(String email, String name, String password, String username) {
         Member member = Member.builder()
                 .username(username)
                 .name(name)

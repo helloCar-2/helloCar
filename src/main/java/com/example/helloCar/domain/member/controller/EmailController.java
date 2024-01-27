@@ -34,10 +34,16 @@ public class EmailController {
 
     @PostMapping(value = "/email")
     public RsData<EmailResponse> sendVerificationCode(@Valid @RequestBody EmailRequest emailRequest) {
-        int number = emailService.sendEmail(emailRequest.getEmail());
-        String num = "" + number;
+        String email = emailRequest.getEmail();
 
-        return RsData.of("S-10", "이메일 인증번호 발송완료", new EmailResponse(num));
+        // 이메일 중복 검사
+        if (emailService.isEmailDuplicate(email) == true) {
+            return RsData.of("S-9", "중복된 이메일", null);
+        } else {
+            int number = emailService.sendEmail(emailRequest.getEmail());
+            String num = "" + number;
+            return RsData.of("S-10", "이메일 인증번호 발송완료", new EmailResponse(num));
+        }
     }
 
 
