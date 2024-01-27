@@ -16,15 +16,15 @@ public class MemberService {
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
 
-    public Member join(String username, String password, String email) {
+    public Member join(String username, String password, String email, String name) {
         Member member = Member.builder()
                 .username(username)
-                .password(password)
+                .name(name)
+                .password(passwordEncoder.encode(password))
                 .email(email)
                 .build();
 
         memberRepository.save(member);
-
         return member;
     }
 
@@ -40,7 +40,6 @@ public class MemberService {
         if (!passwordEncoder.matches(password, member.getPassword())) {
             return null;
         }
-
         return jwtProvider.genToken(member.toClaims(), 60 * 60 * 24 * 365);
     }
 }

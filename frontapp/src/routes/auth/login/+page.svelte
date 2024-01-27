@@ -25,7 +25,6 @@
 					// 로그인이 실패한 경우
 					const errorMessage = data.errorMessage;
 					console.error('로그인 실패:', errorMessage);
-
 					alert('아이디 또는 비밀번호가 일치하지 않습니다.');
 				}
 			} else {
@@ -128,7 +127,7 @@
 			<p class="font-bold py-0.5">카카오 로그인 하기</p>
 		</a>
 		<div class="flex justify-center mt-2 text-gray-500">
-			<a href="/signup-form-email" class="px-2 underline hover:text-blue-500">
+			<a href="/signup-form" class="px-2 underline hover:text-blue-500">
 				<span>회원가입</span>
 			</a>
 			<span class="mx-1">|</span>
