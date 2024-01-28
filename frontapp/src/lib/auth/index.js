@@ -22,7 +22,7 @@ export async function checkAuthAndConfigureFooter() {
   }
   // 로컬 스토리지에서 JWT 가져오기
   const storedToken = localStorage.getItem('accessToken');
-  console.log(storedToken)
+  // console.log(storedToken)
   if (storedToken) {
     // 서버로 JWT 전송 및 검증
     const response = await fetch('http://localhost:8080/api/verify-token', {
@@ -46,7 +46,7 @@ export async function checkAuthAndConfigureFooter() {
     } else {
       const newAccessToken = await refreshToken();
 
-      // console.log('새로 발급된 Access Token:', newAccessToken);
+      console.log('새로 발급된 Access Token:', newAccessToken);
 
       const errorResponse = await response.json();
       console.log('JWT 유효성 검증 실패:', errorResponse.message);
@@ -73,14 +73,13 @@ const refreshToken = async () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${storedRefreshToken}`
+        Authorization: `Bearer ${storedRefreshToken}`
       },
     });
 
     if (response.ok) {
       const data = await response.json();
       const newAccessToken = data.data.newAccessToken;
-
 
       // 새로운 Access Token으로 로컬 스토리지 업데이트
       localStorage.setItem('accessToken', newAccessToken);
