@@ -23,6 +23,7 @@ import static org.springframework.util.MimeTypeUtils.ALL_VALUE;
 public class MemberController {
     private final MemberService memberService;
 
+    // 로그인
     @Data
     public static class LoginRequest {
         @NotBlank
@@ -65,4 +66,10 @@ public class MemberController {
                 new MeResponse(member)
         );
     }
+
+
+    // 회원가입
+
+
+
 }
