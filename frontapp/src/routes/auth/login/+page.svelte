@@ -1,4 +1,5 @@
 <script>
+
 	let formData = {
 		username: '',
 		password: ''
@@ -14,28 +15,52 @@
 				body: JSON.stringify(formData)
 			});
 
-			if (response.ok) {
-				const data = await response.json();
 
-				// 로그인이 성공한 경우
-				if (data.resultCode === 'S-1') {
-					console.log('로그인 성공!');
-					window.location.href = '/car-home';
-				} else {
-					// 로그인이 실패한 경우
-					const errorMessage = data.errorMessage;
-					console.error('로그인 실패:', errorMessage);
+            if (response.ok) {
+                const data = await response.json();
+                const accesstoken = await data.data.accessToken;
+                const refreshToken = await data.data.refreshToken;
 
-					alert('아이디 또는 비밀번호가 일치하지 않습니다.');
-				}
-			} else {
-				console.error('서버 응답 오류:', response.statusText);
-				alert('다시 입력 해주세요.');
-			}
-		} catch (error) {
-			console.error('오류 발생:', error);
-		}
-	};
+                console.log('토큰 값:', accesstoken);
+                console.log('토큰 값:', refreshToken);
+
+                // 로그인이 성공한 경우
+                if (data.resultCode === 'S-1') {
+
+                    localStorage.setItem('accessToken', accesstoken);
+                    localStorage.setItem('refreshToken', refreshToken);
+
+                    const storedToken = localStorage.getItem('accessToken');
+
+                    if (storedToken) {
+                        console.log('로컬 스토리지에서 가져온 토큰 값:', storedToken);
+                        // 저장된 토큰이 있다면 해당 토큰을 사용하여 원하는 작업 수행
+                    } else {
+                        console.log('로컬 스토리지에 토큰이 저장되어 있지 않습니다.');
+                        // 저장된 토큰이 없다면, 로그인이 필요한 처리 수행
+                    }
+
+                    console.log('로그인 성공!');
+
+                    window.location.href = '/car-home';
+
+                } else {
+                    // 로그인이 실패한 경우
+                    const errorMessage = data.errorMessage;
+                    console.error('로그인 실패:', errorMessage);
+
+                    alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+                }
+            } else {
+                console.error('서버 응답 오류:', response.statusText);
+                alert('다시 입력 해주세요.');
+            }
+        } catch (error) {
+            console.error('오류 발생:', error);
+            alert('존재하지 않는 계정입니다.');
+        }
+    };
+
 </script>
 
 <div class="container my-3 mx-auto p-4">
