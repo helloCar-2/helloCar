@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -30,6 +31,7 @@ public class MemberController {
     private final MemberService memberService;
     private final JwtProvider jwtProvider;
     private final TokenController tokenController;
+    private final PasswordEncoder passwordEncoder;
 
     @Data
     public static class LoginRequest {
@@ -96,9 +98,9 @@ public class MemberController {
         private final Member member;
     }
 
-    @GetMapping(value = "/me", consumes = ALL_VALUE)
-    public RsData<MeResponse> me(@AuthenticationPrincipal User user) {
-        Member member = memberService.findByUsername(user.getUsername()).get();
+    @GetMapping(value = "/my-page", consumes = ALL_VALUE)
+    public RsData<MeResponse> mypage(@AuthenticationPrincipal User user) {
+        Member member = memberService.findByUsername(user.getUsername()).orElse(null);;
 
         return RsData.of(
                 "S-2",

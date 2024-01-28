@@ -2,7 +2,7 @@
     let isChecked = false;
     let isChecked2 = false;
     let modelChecked = false;
-    let errorMessage = "";
+
 
     function isAgreed() {
         isChecked = true;
@@ -18,6 +18,17 @@
         }
     }
 
+	function getButtonAttributes() {
+    if (isChecked && isChecked2) {
+      return {
+        'data-accordion-target': '#accordion-flush-body-1',
+        'aria-expanded': 'false',
+        'aria-controls': 'accordion-flush-body-2'
+      };
+    } else {
+      return {};
+    }
+  }
 </script>
 
 
@@ -315,8 +326,9 @@
             </div>
         </button>
     </h2>
-    {#if isChecked && isChecked2}
+    
         <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+			{#if isChecked && isChecked2}
             <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
                 <button
                         type="button"
@@ -437,8 +449,9 @@
                     </div>
                 </div>
             </div>
+			{/if}
         </div>
-    {/if}
+  
     <h2 id="accordion-flush-heading-2">
         <button
                 type="button"

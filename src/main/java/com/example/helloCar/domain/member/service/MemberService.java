@@ -32,7 +32,20 @@ public class MemberService {
         return memberRepository.findByUsername(username);
     }
 
+
     public String genAccessToken(String username, String password) {
+        Member member = findByUsername(username).orElse(null);
+
+        if (member == null) return null;
+
+        if (!passwordEncoder.matches(password, member.getPassword())) {
+            return null;
+        }
+
+        return jwtProvider.genToken(member.toClaims(), 60 * 60 * 24 * 365);
+    }
+
+    public String genRefreshToken(String username, String password) {
         Member member = findByUsername(username).orElse(null);
 
         if (member == null) return null;
