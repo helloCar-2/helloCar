@@ -7,7 +7,7 @@
 
 	onMount(async () => {
 		admin = await checkAuthAndConfigureFooter();
-		console.log("123 : ", admin)
+		// console.log("123 : ", admin)
 	});
 </script>
 <div class="background_img object-fill opacity-70">
