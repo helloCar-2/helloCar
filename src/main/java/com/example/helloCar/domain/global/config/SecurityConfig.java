@@ -26,7 +26,7 @@ public class SecurityConfig {
                 // 아래의 모든 설정은 /api/** 경로에만 적용
                 .authorizeHttpRequests(
                         authorizeHttpRequests -> authorizeHttpRequests
-                                .requestMatchers("/api/**").permitAll() // 로그인은 누구나 가능
+                                .requestMatchers("/**").permitAll() // 로그인은 누구나 가능
 //                                .requestMatchers("/api/v1/member/check-username").permitAll()
 //                                .requestMatchers("/api/v1/member/check-email").permitAll()
 //                                .requestMatchers("/api/v1/member/create").permitAll()

@@ -14,9 +14,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -31,6 +31,7 @@ public class MemberController {
     private final MemberService memberService;
     private final JwtProvider jwtProvider;
     private final TokenController tokenController;
+    private final PasswordEncoder passwordEncoder;
 
     @Data
     public static class LoginRequest {
@@ -98,7 +99,6 @@ public class MemberController {
     }
 
     @GetMapping(value = "/my-page", consumes = ALL_VALUE)
-    @PreAuthorize("!hasRole('admin')")
     public RsData<MeResponse> mypage(@AuthenticationPrincipal User user) {
         Member member = memberService.findByUsername(user.getUsername()).orElse(null);;
 

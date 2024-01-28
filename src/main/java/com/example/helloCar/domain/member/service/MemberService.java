@@ -32,6 +32,7 @@ public class MemberService {
         return memberRepository.findByUsername(username);
     }
 
+
     public String genAccessToken(String username, String password) {
         Member member = findByUsername(username).orElse(null);
 
