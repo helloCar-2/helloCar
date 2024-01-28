@@ -21,8 +21,8 @@
                 const accesstoken = await data.data.accessToken;
                 const refreshToken = await data.data.refreshToken;
 
-                // console.log('토큰 값:', accesstoken);
-                // console.log('토큰 값:', refreshToken);
+                console.log('토큰 값:', accesstoken);
+                console.log('토큰 값:', refreshToken);
 
                 // 로그인이 성공한 경우
                 if (data.resultCode === 'S-1') {
@@ -33,7 +33,7 @@
                     const storedToken = localStorage.getItem('accessToken');
 
                     if (storedToken) {
-                        // console.log('로컬 스토리지에서 가져온 토큰 값:', storedToken);
+                        console.log('로컬 스토리지에서 가져온 토큰 값:', storedToken);
                         // 저장된 토큰이 있다면 해당 토큰을 사용하여 원하는 작업 수행
                     } else {
                         console.log('로컬 스토리지에 토큰이 저장되어 있지 않습니다.');

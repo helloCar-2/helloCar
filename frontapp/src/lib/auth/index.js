@@ -22,7 +22,7 @@ export async function checkAuthAndConfigureFooter() {
   }
   // 로컬 스토리지에서 JWT 가져오기
   const storedToken = localStorage.getItem('accessToken');
-  // console.log(storedToken)
+  console.log(storedToken)
   if (storedToken) {
     // 서버로 JWT 전송 및 검증
     const response = await fetch('http://localhost:8080/api/verify-token', {
