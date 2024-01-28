@@ -61,6 +61,7 @@
         }
     };
 
+
 </script>
 
 <div class="container my-3 mx-auto p-4">
@@ -153,7 +154,7 @@
 			<p class="font-bold py-0.5">카카오 로그인 하기</p>
 		</a>
 		<div class="flex justify-center mt-2 text-gray-500">
-			<a href="/signup-form-email" class="px-2 underline hover:text-blue-500">
+			<a href="/signup-form" class="px-2 underline hover:text-blue-500">
 				<span>회원가입</span>
 			</a>
 			<span class="mx-1">|</span>

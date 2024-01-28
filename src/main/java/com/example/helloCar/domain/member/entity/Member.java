@@ -4,10 +4,7 @@ import com.example.helloCar.domain.global.baseentity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
@@ -32,7 +29,7 @@ public class Member extends BaseEntity {
     private String username;
 
     private String password;
-
+    @Column(unique = true)
     private String email;
 
     // 현재 회원이 가지고 있는 권한들을 List<GrantedAuthority> 형태로 리턴
@@ -46,6 +43,7 @@ public class Member extends BaseEntity {
 
         return authorities;
     }
+
     public boolean isAdmin() {
         return "admin".equals(username);
     }

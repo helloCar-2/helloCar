@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.util.MimeTypeUtils.ALL_VALUE;
@@ -38,6 +41,7 @@ public class MemberController {
 
     @Getter
     public static class loginresponse {
+
         private String accessToken;
         private String refreshToken;
 
@@ -102,5 +106,56 @@ public class MemberController {
                 new MeResponse(member)
         );
     }
+
+    @AllArgsConstructor
+    @Getter
+    public static class MemberResponse {
+        private final Member member;
+    }
+
+    @Data
+    public static class MemberRequest {
+        @NotBlank
+        private String username;
+        @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}")
+        @NotBlank
+        private String password;
+        @NotBlank
+        private String passwordConfirm;
+        @NotBlank
+        private String name;
+        @NotBlank
+        @Pattern(regexp = "^(?:\\w+\\.?)*\\w+@(?:\\w+\\.)+\\w+$")
+        private String email;
+    }
+
     // 회원가입
+    @PostMapping(value = "/create", consumes = ALL_VALUE)
+    public RsData<MemberResponse> create(@Valid @RequestBody MemberRequest memberRequest) {
+        Member member = memberService.join(memberRequest.getEmail(), memberRequest.getName(), memberRequest.getPassword(), memberRequest.getUsername());
+        return RsData.of("S-3", "성공", new MemberResponse(member));
+    }
+
+    //아이디 중복 검사
+    @AllArgsConstructor
+    @Getter
+    public static class UsernameResponse {
+        private final Optional<Member> member;
+    }
+
+    @Data
+    public static class UsernameRequest {
+        @NotBlank
+        private String username;
+    }
+
+    @PostMapping(value = "/check-username", consumes = ALL_VALUE)
+    public RsData<UsernameResponse> checkUsernameDuplicate(@Valid @RequestBody UsernameRequest usernameRequest) {
+        Optional<Member> username = memberService.findByUsername(usernameRequest.getUsername());
+        if (username.isPresent()) {
+            return RsData.of("S-4", "중복된 아이디", new UsernameResponse(username));
+        } else {
+            return RsData.of("S-5", "아이디 사용 가능", null);
+        }
+    }
 }

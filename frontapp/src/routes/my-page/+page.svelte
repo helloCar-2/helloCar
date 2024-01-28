@@ -1,5 +1,34 @@
 <script>
-    function logout() {
+	import { onMount } from 'svelte';
+
+	let userData = {
+		username: '', // 초기값 설정
+		password: '', // 초기값 설정
+		passwordconfirm: '',
+		name: '', // 초기값 설정
+		email: '', // 초기값 설정
+	};
+
+	onMount(async () => {
+		try {
+			const response = await fetch('http://localhost:8080/member/me', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					// 여기에 인증 토큰 또는 필요한 헤더를 추가할 수 있습니다.
+				},
+			});
+
+			if (response.ok) {
+				userData = await response.json();
+			} else {
+				console.error('서버 응답 오류:', response.statusText);
+			}
+		} catch (error) {
+			console.error('오류 발생:', error);
+		}
+	});
+      function logout() {
         // 로컬 스토리지에서 토큰 삭제
         localStorage.removeItem('accessToken');
         window.location.href = '/auth/login';

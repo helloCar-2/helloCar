@@ -16,8 +16,8 @@ public class NotProd {
         return args -> {
 //            Member member1 = memberService.join("user1", password, "user1@test.com");
 //            Member member2 = memberService.join("user2", password, "user2@test.com");
-//            Member member3 = memberService.join("admin2", password, "admin@test.com");
-//
+//            Member member3 = memberService.join("admin2","1234","admin@test.com" , "김헬로");
+
 //            articleService.create(member3, "테스트입니다.", "테스트 내용입니다.");
 //            articleService.create(member2, "테스트1입니다.", "테스트 내용1입니다.");
 //            articleService.create(member1, "테스트2입니다.", "테스트 내용2입니다.");
