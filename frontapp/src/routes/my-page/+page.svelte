@@ -1,34 +1,38 @@
 <script>
-	import { onMount } from 'svelte';
+    import {onMount} from 'svelte';
 
-	let userData = {
-		username: '', // 초기값 설정
-		password: '', // 초기값 설정
-		passwordconfirm: '',
-		name: '', // 초기값 설정
-		email: '', // 초기값 설정
-	};
+    let userData = {
+        username: '',
+        password: '',
+        passwordconfirm: '',
+        name: '',
+        email: '',
+    };
 
-	onMount(async () => {
-		try {
-			const response = await fetch('http://localhost:8080/member/me', {
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-					// 여기에 인증 토큰 또는 필요한 헤더를 추가할 수 있습니다.
-				},
-			});
+    onMount(async () => {
+        try {
+            const accessToken = "your_access_token";  // 실제 토큰 값으로 대체해야 합니다.
+            const response = await fetch('http://localhost:8080/api/v1/member/my-page', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`,
+                },
+            });
 
-			if (response.ok) {
-				userData = await response.json();
-			} else {
-				console.error('서버 응답 오류:', response.statusText);
-			}
-		} catch (error) {
-			console.error('오류 발생:', error);
-		}
-	});
-      function logout() {
+            if (response.ok) {
+                userData = await response.json();
+                // userData 객체 업데이트 및 화면 갱신
+            } else {
+                console.error('서버 응답 오류:', response.statusText);
+            }
+        } catch (error) {
+            console.error('오류 발생:', error);
+        }
+    });
+
+
+    function logout() {
         // 로컬 스토리지에서 토큰 삭제
         localStorage.removeItem('accessToken');
         window.location.href = '/auth/login';
@@ -40,40 +44,40 @@
     <h5 class="text-4xl text-center my-8 font-bold">마이페이지</h5>
     <div>
         <div>
-            <label for="id" class="flex mb-2 text-xl font-medium text-gray-900 ">아이디</label>
-            <textarea id="id" rows="1"
+            <label for="username" class="flex mb-2 text-xl font-medium text-gray-900 ">아이디</label>
+            <textarea id="username" name="username" rows="1"
+                      bind:value={userData.username}
+                      class="flex mb-4 p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                      placeholder="아이디">{userData.username}</textarea>
+        </div>
+        <div>
+            <label for="password" class="flex mb-2 text-xl font-medium text-gray-900 ">비밀번호</label>
+            <textarea id="password" rows="1" bind:value={userData.password}
                       class="flex mb-4 p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Write your thoughts here..."></textarea>
         </div>
         <div>
-            <label for="pw" class="flex mb-2 text-xl font-medium text-gray-900 ">비밀번호</label>
-            <textarea id="pw" rows="1"
-                      class="flex mb-4 p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Write your thoughts here..."></textarea>
-        </div>
-        <div>
-            <label for="pw_check" class="flex mb-2 text-xl font-medium text-gray-900 ">비밀번호 확인</label>
-            <textarea id="pw_check" rows="1"
+            <label for="passwordconfirm" class="flex mb-2 text-xl font-medium text-gray-900 ">비밀번호 확인</label>
+            <textarea id="passwordconfirm" rows="1" bind:value={userData.passwordconfirm}
                       class="flex mb-4 p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Write your thoughts here..."></textarea>
         </div>
         <div>
             <label for="name" class="flex mb-2 text-xl font-medium text-gray-900 ">성명</label>
-            <textarea id="name" rows="1"
+            <textarea id="name" rows="1" bind:value={userData.name}
                       class="flex mb-4 p-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Write your thoughts here..."></textarea>
         </div>
         <div>
             <label class="flex mb-2 text-xl font-medium text-gray-900 ">이메일</label>
             <form>
-                <label for="search"
+                <label for="email"
                        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div class="relative">
-                    <input type="search" id="search"
+                    <input type="email" id="email" bind:value={userData.email}
                            class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                            placeholder="이메일을 입력해주세요." required>
                     <button id="sendVerificationCodeButton"
-
                             class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">
                         인증번호 발송
                     </button>

@@ -29,7 +29,6 @@ public class TokenController {
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             return authorizationHeader.substring(7); // "Bearer " 다음의 문자열이 토큰이므로 잘라냄
         }
-
         return null; // 유효한 토큰이 없는 경우
     }
 }
