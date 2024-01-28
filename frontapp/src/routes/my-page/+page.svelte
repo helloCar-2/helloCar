@@ -1,3 +1,36 @@
+<script>
+	import { onMount } from 'svelte';
+
+	let userData = {
+		username: '', // 초기값 설정
+		password: '', // 초기값 설정
+		passwordconfirm: '',
+		name: '', // 초기값 설정
+		email: '', // 초기값 설정
+	};
+
+	onMount(async () => {
+		try {
+			const response = await fetch('http://localhost:8080/member/me', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					// 여기에 인증 토큰 또는 필요한 헤더를 추가할 수 있습니다.
+				},
+			});
+
+			if (response.ok) {
+				userData = await response.json();
+			} else {
+				console.error('서버 응답 오류:', response.statusText);
+			}
+		} catch (error) {
+			console.error('오류 발생:', error);
+		}
+	});
+</script>
+
+
 <div class="container mx-auto w-5/6">
 	<img src="../img/logo1.png" class="h-20 w-60 object-cover mx-auto my-6 object-cover mt-12">
 	<h5 class="text-4xl text-center my-8 font-bold">마이페이지</h5>
