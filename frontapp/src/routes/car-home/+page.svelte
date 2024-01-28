@@ -1,5 +1,14 @@
 <script>
     import '../styles.css'
+	import {checkAuthAndConfigureFooter} from '$lib/auth/index.js';
+	import {onMount} from 'svelte';
+
+	let admin;
+
+	onMount(async () => {
+		admin = await checkAuthAndConfigureFooter();
+		// console.log("123 : ", admin)
+	});
 </script>
 <div class="background_img object-fill opacity-70">
 	<img
@@ -18,7 +27,11 @@
 		style="width: 300px; height: 260px;"
 	>
 		<img src="img/car1.png" alt="car_image" class="object-cover w-60 h-24 mx-auto" />
-		<h5 class="mb-20 mt-8 text-4xl tracking-tight text-black-900 text-center">모델 검색하기</h5>
+		{#if admin === "admin"}
+			<h5 class="mb-20 mt-8 text-4xl tracking-tight text-black-900 text-center">모델 등록하기</h5>
+		{:else}
+			<h5 class="mb-20 mt-8 text-4xl tracking-tight text-black-900 text-center">모델 검색하기</h5>
+		{/if}
 	</div>
 </a>
 <a href="/car-testdrive">

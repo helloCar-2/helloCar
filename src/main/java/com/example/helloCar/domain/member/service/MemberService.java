@@ -40,6 +40,15 @@ public class MemberService {
         if (!passwordEncoder.matches(password, member.getPassword())) {
             return null;
         }
+
         return jwtProvider.genToken(member.toClaims(), 60 * 60 * 24 * 365);
+    }
+
+    public String genNewAccessToken(String username) {
+        Member member = findByUsername(username).orElse(null);
+
+        if (member == null) return null;
+
+        return jwtProvider.genToken(member.toClaims(), 60 * 5);
     }
 }
