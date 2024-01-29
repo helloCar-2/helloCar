@@ -71,7 +71,7 @@ public class MemberController {
     @AllArgsConstructor
     @Getter
     public class newAccessRequest {
-        private final String newAccessToken;
+        private String newAccessToken;
     }
 
     @PostMapping(value = "/refresh", consumes = APPLICATION_JSON_VALUE)
