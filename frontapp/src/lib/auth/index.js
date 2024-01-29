@@ -1,4 +1,3 @@
-
 export async function checkAuthAndConfigureFooter() {
   // let showFooter = true;
   let permission = false;
@@ -50,6 +49,7 @@ export async function checkAuthAndConfigureFooter() {
       const errorResponse = await response.json();
       console.log('JWT 유효성 검증 실패:', errorResponse.message);
 
+      return newAccessToken;
     }
   } else {
     console.log('JWT가 로컬 스토리지에 없습니다.');
@@ -93,3 +93,5 @@ const refreshToken = async () => {
     throw new Error('Access Token 갱신 중 오류 발생');
   }
 };
+
+// checkAuthAndConfigureFooter();

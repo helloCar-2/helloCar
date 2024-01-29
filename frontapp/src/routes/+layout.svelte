@@ -1,23 +1,26 @@
 <script>
     import Footer from './footer/footer.svelte';
     import '../app.css';
-    import {onMount} from 'svelte';
+    // import {onMount} from 'svelte';
     import {checkAuthAndConfigureFooter} from '$lib/auth/index.js';
 
     // let showFooter;
-    let permission;
+    let permission = false;
 
-    onMount(async () => {
-        // checkAuthAndConfigureFooter 함수를 한 번 호출하여 결과를 변수에 할당합니다.
-        // showFooter = await checkAuthAndConfigureFooter();
-        permission = await checkAuthAndConfigureFooter();
-
-        // 토큰이 유효하지 않다면 로그인 페이지로 이동
-        if (!permission && window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form') {
-            window.location.href = '/auth/login';
-            alert("로그인을 먼저 진행해주세요.")
+    async function fetchData() {
+        try {
+            permission = await checkAuthAndConfigureFooter();
+            if (!permission && window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form') {
+                window.location.href = '/auth/login';
+                alert("로그인을 먼저 진행해주세요.")
+            }
+        } catch (error) {
+            console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
+            // 오류 처리를 추가할 수 있습니다.
         }
-    });
+    }
+
+    fetchData();
 </script>
 
 <!--{#if showFooter}-->
