@@ -191,18 +191,6 @@
             </a>
         </div>
     </div>
-    <!--    테스트 바 끝    -->
-    <div
-        role="status"
-        class="max-w-md p-4 flex flex-col items-center space-y-4 border border-gray-200 rounded shadow md:p-6 mt-6"
-    >
-        <p class="text-gray-500 text-xl font-medium">다른 차 비교하기</p>
-        <button
-            type="button"
-            class="text-white bg-[#f3651f] focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium text-bold px-4 p-1.5 text-center me-2 mb-2"
-            >+</button
-        >
-    </div>
 </div>
 
 

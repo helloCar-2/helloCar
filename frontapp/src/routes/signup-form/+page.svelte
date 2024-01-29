@@ -1,5 +1,4 @@
 <script>
-
     let formData = {
         name: '',
         email: '',
@@ -180,10 +179,7 @@
             console.error('오류 발생:', error);
         }
     };
-
 </script>
-
-
 <div class="container my-3 mx-auto p-4">
     <div class="background_img">
         <img src="/img/logo.png" alt="로고" class="text-center mt-24 mx-auto w-60 h-20 object-cover">
