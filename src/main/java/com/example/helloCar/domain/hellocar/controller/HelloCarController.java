@@ -9,16 +9,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/api/v1/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 public class HelloCarController {
 
     private final HelloCarService helloCarService;
@@ -50,6 +49,7 @@ public class HelloCarController {
     public static class HellocarResponse {
         private final HelloCar helloCar;
     }
+
     @PostMapping(value = "/create", consumes = APPLICATION_JSON_VALUE)
     public RsData<HellocarResponse> create(@RequestBody HelloCarRequest helloCarRequest) {
         HelloCar helloCar = helloCarService.create(helloCarRequest.getCarName(), helloCarRequest.getImg(), helloCarRequest.getBrand(),
@@ -57,6 +57,42 @@ public class HelloCarController {
                 helloCarRequest.getSize(), helloCarRequest.getFuel());
 
         return RsData.of("S-5", "성공", new HellocarResponse(helloCar));
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class ListResponse {
+        private final List<HelloCar> helloCarList;
+    }
+
+    @GetMapping("")
+    public RsData<ListResponse> list() {
+
+        List<HelloCar> helloCarList = this.helloCarService.findAll();
+
+        return RsData.of(
+                "s-1",
+                "성공",
+                new ListResponse(helloCarList));
+    }
+
+
+    //차 목록
+    @AllArgsConstructor
+    @Getter
+    public static class PostResponse {
+        private final HelloCar helloCar;
+    }
+
+    @GetMapping("/{id}")
+    public RsData<PostResponse> post(@PathVariable("id") Long id) {
+
+        HelloCar helloCar = this.helloCarService.findById(id);
+
+        return RsData.of(
+                "s-1",
+                "성공",
+                new PostResponse(helloCar));
     }
 }
 

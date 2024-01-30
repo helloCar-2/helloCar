@@ -1,6 +1,6 @@
 <nav class="w-full shadow fixed right-0 top-0">
 	<div class="navbar p-1 bg-[#f3651f]">
-		<a href="/home">
+		<a href="/car-home">
 			<img src="/img/logo2.png" class="h-14 object-cover mx-auto my-2 bg-[#f3651f]">
 		</a>
 	</div>

@@ -25,19 +25,18 @@
     let sendemail = false;
 
     onMount(async () => {
-            try {
-                const accessToken = localStorage.getItem('accessToken');
-                const response = await fetch('http://localhost:8080/api/v1/member/my-page', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${accessToken}`,
-                    },
-                });
+        try {
+            const accessToken = localStorage.getItem('accessToken');
+            const response = await fetch('http://localhost:8080/api/v1/member/my-page', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`,
+                },
+            });
 
             if (response.ok) {
                 userData = await response.json();
-                // userData 객체 업데이트 및 화면 갱신
 
                 userData.username = userData.data.member.username;
                 userData.name = userData.data.member.name;
@@ -53,16 +52,12 @@
 
 
     // 숨겨진 요소들 가져오기
-    // let passwordDiv = false;
-    // let passwordConfirmDiv = false;
     let updateConfirmDiv = false;
 
     function toggleHidden() {
         name = false;
         email = false;
         sendemail = true;
-        // passwordDiv = true;
-        // passwordConfirmDiv = true;
         updateConfirmDiv = true;
     }
 
@@ -84,11 +79,10 @@
         if (userData.password === userData.passwordConfirm) {
             passwordConfirmSuccessMessage = '비밀번호가 일치합니다'
             passwordConfirmErrorMessage = '';
-        }else if(userData.password == null) {
+        } else if (userData.password == null) {
             passwordConfirmSuccessMessage = ''
             passwordConfirmErrorMessage = '새로운 비밀번호를 입력해 주세요';
-        }
-        else {
+        } else {
             passwordConfirmSuccessMessage = ''
             userData.passwordConfirm = userData.passwordConfirm;
             passwordConfirmErrorMessage = '비밀번호가 일치하지 않습니다';
@@ -97,7 +91,7 @@
 
     //수정 제출
     const handleSubmit = async () => {
-        if(userData.password == null || userData.passwordConfirm == null) {
+        if (userData.password == null || userData.passwordConfirm == null) {
             console.log('값 모두 입력해야함');
             alert('내용을 모두 입력해 주세요.')
             return;
@@ -140,6 +134,67 @@
         localStorage.removeItem('accessToken');
         window.location.href = '/auth/login';
     }
+
+    // 회원 탈퇴
+    const memberDelete = async () => {
+        try {
+            // 사용자 정보를 서버에서 받아오는 부분
+            const accessToken = localStorage.getItem('accessToken');
+            const response = await fetch('http://localhost:8080/api/v1/member/my-page', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`,
+                },
+            });
+
+            if (response.ok) {
+                const userData = await response.json();
+                console.log('userData:', userData);
+
+                // userData에서 memberId 추출
+                const memberId = userData.data.member.id;
+                console.log(memberId)
+
+                // 회원 탈퇴 요청 보내기
+                const deleteResponse = await fetch(`http://localhost:8080/api/v1/member/delete?memberId=${memberId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                });
+
+                if (deleteResponse.ok) {
+                    const data = await deleteResponse.json();
+
+                    // 탈퇴 성공한 경우
+                    if (data.resultCode === 'S-4') {
+                        // 로컬 스토리지에서 토큰 삭제
+                        localStorage.removeItem('accessToken');
+                        alert('탈퇴가 완료되었습니다.');
+                        console.log('회원 탈퇴 성공!');
+
+                        // 로그인 페이지로 이동
+                        window.location.href = '/auth/login';
+                    } else {
+                        // 탈퇴 실패한 경우
+                        const errorMessage = data.errorMessage;
+                        console.error('탈퇴 실패:', errorMessage);
+                    }
+                } else {
+                    // 서버 응답 오류
+                    const errorText = await deleteResponse.text();
+                    console.error('서버 응답 오류:', deleteResponse.statusText, errorText);
+                }
+            } else {
+                console.error('서버 응답 오류:', response.statusText);
+            }
+        } catch (error) {
+            console.error('오류 발생:', error);
+        }
+    };
+
 </script>
 
 <div class="container mx-auto w-5/6">
@@ -226,9 +281,10 @@
         </button>
     </div>
     <div class="text-right mt-2">
-        <a href="#" class="text-red-500 ml-auto underline hover:text-yellow-500">
+        <button id="deleteButton" type="button" on:click={memberDelete}
+                class="text-red-500 ml-auto underline hover:text-yellow-500">
             회원 탈퇴
-        </a>
+        </button>
     </div>
 </div>
 

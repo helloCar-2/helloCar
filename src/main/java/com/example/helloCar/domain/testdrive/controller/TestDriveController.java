@@ -53,6 +53,5 @@ public class TestDriveController {
                 "s-1",
                 "성공",
                 new PostResponse(testDrive));
-
     }
 }

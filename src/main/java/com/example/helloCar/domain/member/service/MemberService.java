@@ -16,6 +16,15 @@ public class MemberService {
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
 
+    public void deleteMember(Long memberId) {
+        Optional<Member> om = memberRepository.findById(memberId);
+        if (om.isPresent()) {
+            Member member = om.get();
+
+            memberRepository.delete(member);
+        }
+    }
+
     public Member join(String email, String name, String password, String username) {
         Member member = Member.builder()
                 .username(username)
@@ -47,7 +56,9 @@ public class MemberService {
     public Optional<Member> findByUsername(String username) {
         return memberRepository.findByUsername(username);
     }
-
+    public Member findById(Long id){
+        return this.memberRepository.findById(id).get();
+    }
 
     public String genAccessToken(String username, String password) {
         Member member = findByUsername(username).orElse(null);
@@ -58,7 +69,7 @@ public class MemberService {
             return null;
         }
 
-        return jwtProvider.genToken(member.toClaims(), 60 * 10);
+        return jwtProvider.genToken(member.toClaims(), 60 * 100);
     }
 
     public String genRefreshToken(String username, String password) {
@@ -78,7 +89,7 @@ public class MemberService {
 
         if (member == null) return null;
 
-        return jwtProvider.genToken(member.toClaims(), 60 * 10);
+        return jwtProvider.genToken(member.toClaims(), 60 * 100);
     }
 
 }
