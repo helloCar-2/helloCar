@@ -28,6 +28,22 @@ public class MemberService {
         return member;
     }
 
+    public Member modify(String username, String newName, String newPassword) {
+        Member member = memberRepository.findByUsername(username) //유저 찾기
+                .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + username));
+
+        Member modifiedMember = Member.builder()
+                .name(newName)
+                .password(passwordEncoder.encode(newPassword))
+                .build();
+
+        member.setName(modifiedMember.getName());
+        member.setPassword(modifiedMember.getPassword());
+
+        memberRepository.save(member);
+        return member;
+    }
+
     public Optional<Member> findByUsername(String username) {
         return memberRepository.findByUsername(username);
     }
@@ -42,7 +58,7 @@ public class MemberService {
             return null;
         }
 
-        return jwtProvider.genToken(member.toClaims(), 5);
+        return jwtProvider.genToken(member.toClaims(), 60 * 10);
     }
 
     public String genRefreshToken(String username, String password) {
@@ -62,6 +78,7 @@ public class MemberService {
 
         if (member == null) return null;
 
-        return jwtProvider.genToken(member.toClaims(), 5);
+        return jwtProvider.genToken(member.toClaims(), 60 * 10);
     }
+
 }
