@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
+
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -59,40 +61,56 @@ public class HelloCarController {
         return RsData.of("S-5", "성공", new HellocarResponse(helloCar));
     }
 
+
+
     @AllArgsConstructor
     @Getter
-    public static class ListResponse {
-        private final List<HelloCar> helloCarList;
+    public static class HelloCarsResponse {
+        private final List<HelloCar> helloCars;
     }
 
-    @GetMapping("")
-    public RsData<ListResponse> list() {
-
-        List<HelloCar> helloCarList = this.helloCarService.findAll();
-
-        return RsData.of(
-                "s-1",
-                "성공",
-                new ListResponse(helloCarList));
+    @Data
+    public static class HelloCarsRequest {
+        private String brand;
+    }
+    @PostMapping(value = "/lists", consumes = APPLICATION_JSON_VALUE)
+    public RsData<HelloCarsResponse> lists(@RequestBody HelloCarsRequest helloCarsRequest){
+        List<HelloCar> carList = this.helloCarService.findByBrand(helloCarsRequest.getBrand());
+        return RsData.of("S-6","성공",new HelloCarsResponse(carList));
     }
 
 
-    //차 목록
+
+
     @AllArgsConstructor
     @Getter
-    public static class PostResponse {
+    public static class HelloCarSerchListResponse {
+        private final List<HelloCar> helloCars;
+    }
+
+
+    @GetMapping("/lists")
+    public RsData<HelloCarSerchListResponse> searchList(@RequestParam(value = "brand", defaultValue = "") String brand,
+                                      @RequestParam(value = "carname", defaultValue = "") String carname,
+                                      @RequestParam(value = "fuel", defaultValue = "") String fuel,
+                                      @RequestParam(value = "minPrice", defaultValue = "0") int minPrice,
+                                      @RequestParam(value = "maxPrice", defaultValue = "100000") int maxPrice){
+
+        List<HelloCar> carList = this.helloCarService.keywordSearch(brand,carname,fuel,minPrice,maxPrice);
+        return RsData.of("S-7","성공",new HelloCarSerchListResponse(carList));
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class detailResponse {
         private final HelloCar helloCar;
     }
 
     @GetMapping("/{id}")
-    public RsData<PostResponse> post(@PathVariable("id") Long id) {
+    public RsData<detailResponse> detail(@PathVariable(value = "id") Long id){
+        HelloCar result = this.helloCarService.findById(id);
 
-        HelloCar helloCar = this.helloCarService.findById(id);
-
-        return RsData.of(
-                "s-1",
-                "성공",
-                new PostResponse(helloCar));
+        return RsData.of("S-8","성공",new detailResponse(result));
     }
 }
 
