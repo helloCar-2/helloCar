@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class HelloCarService {
@@ -17,7 +19,7 @@ public class HelloCarService {
 
         HelloCar helloCar = HelloCar
                 .builder()
-                .carName(carName)
+                .carname(carName)
                 .img(null)
                 .brand(brand)
                 .maxPrice(maxPrice)
@@ -45,5 +47,14 @@ public class HelloCarService {
 
     public HelloCar findById(Long id){
         return this.helloCarRepository.findById(id).get();
+    }
+
+    public List<HelloCar> findByBrand(String brand) {
+        return this.helloCarRepository.findByBrand(brand);
+    }
+
+    public List<HelloCar> keywordSearch(String brand, String carname, String fuel, int minPrice, int maxPrice) {
+        return this.helloCarRepository.findCarsByCriteria(brand,carname,fuel,minPrice,maxPrice);
+
     }
 }
