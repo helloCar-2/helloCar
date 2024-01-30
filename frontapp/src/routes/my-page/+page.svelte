@@ -74,12 +74,12 @@
         }
     }
 
-    //비번 확인
+    // 비밀번호 확인
     function confirmValidatePassword() {
         if (userData.password === userData.passwordConfirm) {
             passwordConfirmSuccessMessage = '비밀번호가 일치합니다'
             passwordConfirmErrorMessage = '';
-        } else if (userData.password == null) {
+        } else if (userData.password === '') {
             passwordConfirmSuccessMessage = ''
             passwordConfirmErrorMessage = '새로운 비밀번호를 입력해 주세요';
         } else {
@@ -137,64 +137,71 @@
 
     // 회원 탈퇴
     const memberDelete = async () => {
-        try {
-            // 사용자 정보를 서버에서 받아오는 부분
-            const accessToken = localStorage.getItem('accessToken');
-            const response = await fetch('http://localhost:8080/api/v1/member/my-page', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`,
-                },
-            });
-
-            if (response.ok) {
-                const userData = await response.json();
-                console.log('userData:', userData);
-
-                // userData에서 memberId 추출
-                const memberId = userData.data.member.id;
-                console.log(memberId)
-
-                // 회원 탈퇴 요청 보내기
-                const deleteResponse = await fetch(`http://localhost:8080/api/v1/member/delete?memberId=${memberId}`, {
-                    method: 'DELETE',
+        const confirmResult = window.confirm('정말로 탈퇴하시겠습니까?');
+        if (confirmResult) {
+            try {
+                // 사용자 정보를 서버에서 받아오는 부분
+                const accessToken = localStorage.getItem('accessToken');
+                const response = await fetch('http://localhost:8080/api/v1/member/my-page', {
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
                     },
-                    body: JSON.stringify(userData),
                 });
 
-                if (deleteResponse.ok) {
-                    const data = await deleteResponse.json();
+                if (response.ok) {
+                    const userData = await response.json();
+                    console.log('userData:', userData);
 
-                    // 탈퇴 성공한 경우
-                    if (data.resultCode === 'S-4') {
-                        // 로컬 스토리지에서 토큰 삭제
-                        localStorage.removeItem('accessToken');
-                        alert('탈퇴가 완료되었습니다.');
-                        console.log('회원 탈퇴 성공!');
+                    // userData에서 memberId 추출
+                    const memberId = userData.data.member.id;
+                    console.log(memberId)
 
-                        // 로그인 페이지로 이동
-                        window.location.href = '/auth/login';
+                    // 회원 탈퇴 요청 보내기
+                    const deleteResponse = await fetch(`http://localhost:8080/api/v1/member/delete?memberId=${memberId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(userData),
+                    });
+
+                    if (deleteResponse.ok) {
+                        const data = await deleteResponse.json();
+
+                        // 탈퇴 성공한 경우
+                        if (data.resultCode === 'S-4') {
+                            // 로컬 스토리지에서 토큰 삭제
+                            localStorage.removeItem('accessToken');
+                            alert('탈퇴가 완료되었습니다.');
+                            console.log('회원 탈퇴 성공!');
+
+                            // 로그인 페이지로 이동
+                            window.location.href = '/auth/login';
+                        } else {
+                            // 탈퇴 실패한 경우
+                            const errorMessage = data.errorMessage;
+                            console.error('탈퇴 실패:', errorMessage);
+                        }
                     } else {
-                        // 탈퇴 실패한 경우
-                        const errorMessage = data.errorMessage;
-                        console.error('탈퇴 실패:', errorMessage);
+                        // 서버 응답 오류
+                        const errorText = await deleteResponse.text();
+                        console.error('서버 응답 오류:', deleteResponse.statusText, errorText);
                     }
-                } else {
-                    // 서버 응답 오류
-                    const errorText = await deleteResponse.text();
-                    console.error('서버 응답 오류:', deleteResponse.statusText, errorText);
                 }
-            } else {
-                console.error('서버 응답 오류:', response.statusText);
+            } catch (error) {
+                console.error('오류 발생:', error);
             }
-        } catch (error) {
-            console.error('오류 발생:', error);
+        } else {
+            // 사용자가 탈퇴 취소 눌렀을 경우
+            console.log('탈퇴가 취소되었습니다.');
         }
+    }
+    window.onload = function () {
+        // 여기에 스크립트 코드 작성
+        document.getElementById('deleteButton').addEventListener('click', memberDelete);
     };
-
 </script>
 
 <div class="container mx-auto w-5/6">
