@@ -20,7 +20,7 @@ import java.util.Set;
 public class HelloCar extends BaseEntity {
 
     @Comment("차량 이름")
-    private String carName;
+    private String carname;
 
     @Comment("차량 이미지")
     private String img;

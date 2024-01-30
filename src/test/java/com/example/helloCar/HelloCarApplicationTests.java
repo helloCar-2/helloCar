@@ -856,7 +856,7 @@ class HelloCarApplicationTests {
                 .minPrice(1960)
                 .maxPrice(2992)
                 .vehicle("세단")
-                .fuel("휘발유")
+                .fuel("가솔린")
                 .modelYear(2010)
                 .size("중형")
                 .build();

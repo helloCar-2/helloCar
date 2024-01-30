@@ -1,4 +1,5 @@
 <script>
+	import '../app.css';
 	import Footer from './footer/footer.svelte';
 	import '../app.css';
 	import { onMount } from 'svelte';
@@ -10,9 +11,15 @@
 		const currentPath = window.location.pathname;
 
 		// '/car-start' 또는 '/auth/login' 페이지에서는 Footer를 숨깁니다.
-		if (currentPath === '/car-start' || currentPath === '/auth/login' || currentPath === '/signup-form-email'
-				|| currentPath === '/signup-form' || currentPath === '/chat-qna' || currentPath === '/password-search'
-				|| currentPath === '/login-search') {
+		if (
+			currentPath === '/car-start' ||
+			currentPath === '/auth/login' ||
+			currentPath === '/signup-form-email' ||
+			currentPath === '/signup-form' ||
+			currentPath === '/chat-qna' ||
+			currentPath === '/password-search' ||
+			currentPath === '/login-search'
+		) {
 			showFooter = false;
 		} else {
 			showFooter = true;
@@ -21,14 +28,14 @@
 </script>
 
 {#if showFooter}
-	<div class="app mx-auto relative min-h-screen pb-20">
+	<div class="app relative mx-auto min-h-screen pb-20">
 		<main>
 			<slot />
-			<Footer />
+			<Footer></Footer>
 		</main>
 	</div>
 {:else}
-	<div class="app mx-auto relative min-h-screen pb-20">
+	<div class="app relative mx-auto min-h-screen pb-20">
 		<main>
 			<slot />
 		</main>
