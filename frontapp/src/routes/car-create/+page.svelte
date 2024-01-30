@@ -1,5 +1,5 @@
 <script>
-    import {create} from "svelte-check";
+    import {Button, Input} from 'flowbite-svelte';
 
     export let data;
 </script>

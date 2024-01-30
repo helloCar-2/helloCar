@@ -364,7 +364,7 @@
 					</thead>
 					<tbody class="">
 						<tr class="w-full bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-							<button
+							<button>
 								type="button"
 								class="flex w-full p-4 focus:outline-none text-black font-medium rounded-lg text-sm"
 								on:click={() => {
