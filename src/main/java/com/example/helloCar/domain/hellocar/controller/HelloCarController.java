@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/api/v1/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 public class HelloCarController {
 
     private final HelloCarService helloCarService;
@@ -50,6 +51,7 @@ public class HelloCarController {
     public static class HellocarResponse {
         private final HelloCar helloCar;
     }
+
     @PostMapping(value = "/create", consumes = APPLICATION_JSON_VALUE)
     public RsData<HellocarResponse> create(@RequestBody HelloCarRequest helloCarRequest) {
         HelloCar helloCar = helloCarService.create(helloCarRequest.getCarName(), helloCarRequest.getImg(), helloCarRequest.getBrand(),

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
@@ -46,6 +46,19 @@ public class HelloCar extends BaseEntity {
     @Comment("차 연료")
     private String fuel;
 
+
     @ManyToMany
-    Set<Member> members;
+    private List<Member> members;
+
+    //위시리스트
+    public boolean checkedHeartClickMember(String username) {
+        for (Member m : members) {
+            if (username.equals(m.getUsername())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+
