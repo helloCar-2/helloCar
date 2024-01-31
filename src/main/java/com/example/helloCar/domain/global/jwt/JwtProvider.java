@@ -28,6 +28,15 @@ public class JwtProvider {
 
         return cachedSecretKey;
     }
+    public String getUsername(String token) {
+        Object usernameObject = getClaims(token).get("username");
+
+        if (usernameObject != null) {
+            return usernameObject.toString();
+        } else {
+            return null;
+        }
+    }
 
     public String genToken(Map<String, Object> claims, int seconds) {
         long now = new Date().getTime();

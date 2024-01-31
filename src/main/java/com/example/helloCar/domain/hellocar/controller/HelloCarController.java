@@ -1,84 +1,109 @@
 package com.example.helloCar.domain.hellocar.controller;
 
+import com.example.helloCar.domain.global.rs.RsData;
+import com.example.helloCar.domain.hellocar.entity.HelloCar;
+import com.example.helloCar.domain.hellocar.service.HelloCarService;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.Objects;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-@RequestMapping("/hellocar")
+@RequestMapping(value = "/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 public class HelloCarController {
-    @GetMapping("/list")
-    public String list(){
-        return "car_list";
-    }
-    @GetMapping("/start")
-    public String start() {
-        return "hellocar_start";
+
+    private final HelloCarService helloCarService;
+
+    @Data
+    public static class HelloCarRequest {
+        @NotBlank
+        private String carName;
+        private String img;
+        @NotBlank
+        private String brand;
+        @NotNull
+        private int maxPrice;
+        @NotNull
+        private int minPrice;
+        @NotNull
+        private int modelYear;
+        @NotBlank
+        private String vehicle;
+        @NotBlank
+        private String size;
+        @NotBlank
+        private String fuel;
     }
 
-    @GetMapping("/home")
-    public String home() {
-        return "car_home";
+    //등록
+    @AllArgsConstructor
+    @Getter
+    public static class HellocarResponse {
+        private final HelloCar helloCar;
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
+    @PostMapping(value = "/create", consumes = APPLICATION_JSON_VALUE)
+    public RsData<HellocarResponse> create(@RequestBody HelloCarRequest helloCarRequest) {
+        HelloCar helloCar = helloCarService.create(helloCarRequest.getCarName(), helloCarRequest.getImg(), helloCarRequest.getBrand(),
+                helloCarRequest.getMaxPrice(), helloCarRequest.getMinPrice(), helloCarRequest.getModelYear(), helloCarRequest.getVehicle(),
+                helloCarRequest.getSize(), helloCarRequest.getFuel());
+
+        return RsData.of("S-5", "성공", new HellocarResponse(helloCar));
     }
 
-    @GetMapping("/testdrive")
-    public String car_testdrive() {
-        return "car_testdrive";
+
+    @AllArgsConstructor
+    @Getter
+    public static class HelloCarsResponse {
+        private final List<HelloCar> helloCars;
+    }
+
+    @Data
+    public static class HelloCarsRequest {
+        private String brand;
+    }
+    @PostMapping(value = "/lists", consumes = APPLICATION_JSON_VALUE)
+    public RsData<HelloCarsResponse> lists(@RequestBody HelloCarsRequest helloCarsRequest){
+        List<HelloCar> carList = this.helloCarService.findByBrand(helloCarsRequest.getBrand());
+        return RsData.of("S-6","성공",new HelloCarsResponse(carList));
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class HelloCarSerchListResponse {
+        private final List<HelloCar> helloCars;
     }
 
 
-    @GetMapping("/login_search")
-    public String login_search() {
-        return "login_search";
+    @GetMapping("/lists")
+    public RsData<HelloCarSerchListResponse> searchList(@RequestParam(value = "brand", defaultValue = "") String brand,
+                                      @RequestParam(value = "carname", defaultValue = "") String carname,
+                                      @RequestParam(value = "fuel", defaultValue = "") String fuel,
+                                      @RequestParam(value = "minPrice", defaultValue = "0") int minPrice,
+                                      @RequestParam(value = "maxPrice", defaultValue = "100000") int maxPrice){
+
+        List<HelloCar> carList = this.helloCarService.keywordSearch(brand,carname,fuel,minPrice,maxPrice);
+        return RsData.of("S-7","성공",new HelloCarSerchListResponse(carList));
     }
 
-    @GetMapping("/signup_form_email")
-    public String signup_form_email() {
-        return "signup_form_email";
+    @AllArgsConstructor
+    @Getter
+    public static class detailResponse {
+        private final HelloCar helloCar;
     }
 
-    @GetMapping("/signup_form")
-    public String signup_form() {
-        return "signup_form";
-    }
+    @GetMapping("/{id}")
+    public RsData<detailResponse> detail(@PathVariable(value = "id") Long id){
+        HelloCar result = this.helloCarService.findById(id);
 
-    @GetMapping("/password_search")
-    public String password_search() {
-        return "password_search";
-    }
-
-    @GetMapping("/chat_qna")
-    public String chat_qna() {
-        return "chat_qna";
-    }
-    @GetMapping("/testdrive_list")
-    public String testdrive_list() {
-        return "testdrive_list";
-    }
-    @GetMapping("/compare")
-    public String compare() {
-        return "car_compare";
-    }
-    @GetMapping("/searchandselect")
-    public String seachAndSelect() {
-        return "car_searchandselect";
-    }
-
-    @GetMapping("/mypage")
-    public String myPage(){
-        return "my_page";
-    }
-    @GetMapping("/wish_list")
-    public String wishList(){
-        return "wish_list";
+        return RsData.of("S-8","성공",new detailResponse(result));
     }
 }
 

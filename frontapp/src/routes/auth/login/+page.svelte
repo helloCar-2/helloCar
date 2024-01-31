@@ -1,4 +1,6 @@
 <script>
+    import {Button, Input} from 'flowbite-svelte';
+
     let formData = {
         username: '',
         password: ''
@@ -14,12 +16,27 @@
                 body: JSON.stringify(formData)
             });
 
+
             if (response.ok) {
                 const data = await response.json();
+                const accesstoken = await data.data.accessToken;
+                const refreshToken = await data.data.refreshToken;
 
                 // 로그인이 성공한 경우
                 if (data.resultCode === 'S-1') {
-                    console.log('로그인 성공!');
+
+                    localStorage.setItem('accessToken', accesstoken);
+                    localStorage.setItem('refreshToken', refreshToken);
+
+                    const storedToken = localStorage.getItem('accessToken');
+
+                    if (storedToken) {
+                        // 저장된 토큰이 있다면 해당 토큰을 사용하여 원하는 작업 수행
+                    } else {
+                        // 저장된 토큰이 없다면, 로그인이 필요한 처리 수행
+                    }
+
+
                     window.location.href = '/car-home';
 
                 } else {
@@ -35,6 +52,7 @@
             }
         } catch (error) {
             console.error('오류 발생:', error);
+            alert('존재하지 않는 계정입니다.');
         }
     };
 </script>
@@ -54,21 +72,30 @@
 
         <form class="flex-col text-center" on:submit|preventDefault={handleSubmit}>
             <div class="login_box">
-                <!--			<label for="username"></label>-->
-                <input class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 w-full p-2.5"
-                       placeholder="아이디 입력" type="text" id="username" bind:value={formData.username}/></div>
-            <div class="password_box pt-6">
-                <!--			<label for="password"></label>-->
-                <input class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 block w-full p-2.5"
-                       placeholder="패스워드 입력" type="password" id="password" bind:value={formData.password}/></div>
-
-            <button type="submit"
-                    class="w-full h-12 mt-6 text-white bg-[#f3651f] hover:bg-[#cc5012] text-sm py-6 flex items-center">
+                <div class="mb-4">
+                    <Input type="text" size="lg"
+                           class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 w-full p-2.5"
+                           bind:value={formData.username} id="username" placeholder="아이디 입력"/>
+                </div>
+            </div>
+            <div class="password_box pt-2">
+                <div class="mb-4">
+                    <Input type="password" size="lg"
+                           class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 block w-full p-2.5"
+                           bind:value={formData.password} id="password" placeholder="패스워드 입력"/>
+                </div>
+            </div>
+            <Button
+                    type="submit"
+                    class="w-full h-12 mt-6 text-white bg-[#f3651f] hover:bg-[#cc5012] text-sm py-6 flex items-center"
+            >
                 <p class="font-bold mx-auto text-base">로그인</p>
-            </button>
+            </Button>
         </form>
-        <a href=""
-           class="w-full h-12 mt-6 text-[#6d2720] bg-[#fff30c] hover:bg-[#d4d013]/90 text-sm py-3 flex justify-center">
+        <a
+                href=""
+                class="w-full h-12 mt-6 text-[#6d2720] bg-[#fff30c] hover:bg-[#d4d013]/90 text-sm py-3 flex justify-center"
+        >
             <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 48 48"
@@ -113,7 +140,7 @@
             <p class="font-bold py-0.5">카카오 로그인 하기</p>
         </a>
         <div class="flex justify-center mt-2 text-gray-500">
-            <a href="/signup-form-email" class="px-2 underline hover:text-blue-500">
+            <a href="/signup-form" class="px-2 underline hover:text-blue-500">
                 <span>회원가입</span>
             </a>
             <span class="mx-1">|</span>

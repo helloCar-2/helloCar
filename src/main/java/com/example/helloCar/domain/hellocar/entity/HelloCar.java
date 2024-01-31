@@ -8,8 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Comment;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,22 +19,46 @@ import java.util.Set;
 @SuperBuilder
 public class HelloCar extends BaseEntity {
 
+    @Comment("차량 이름")
     private String carname;
 
+    @Comment("차량 이미지")
+    private String img;
+
+    @Comment("브랜드")
     private String brand;
 
+    @Comment("최소가격")
     private int minPrice;
 
+    @Comment("최대가격")
     private int maxPrice;
 
+    @Comment("차 연식")
     private int modelYear;
 
+    @Comment("차종")
     private String vehicle;
 
+    @Comment("차 크기")
     private String size;
 
+    @Comment("차 연료")
     private String fuel;
 
+
     @ManyToMany
-    Set<Member> members;
+    private List<Member> members;
+
+    //위시리스트
+    public boolean checkedHeartClickMember(String username) {
+        for (Member m : members) {
+            if (username.equals(m.getUsername())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+

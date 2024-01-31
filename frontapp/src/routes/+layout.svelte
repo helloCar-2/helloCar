@@ -1,36 +1,39 @@
 <script>
-	import Footer from './footer/footer.svelte';
-	import '../app.css';
-	import { onMount } from 'svelte';
+    import Footer from './footer/footer.svelte';
+    import '../app.css';
+    // import {onMount} from 'svelte';
+    // import {checkAuthAndConfigureFooter} from '$lib/auth/index.js';
 
-	let showFooter = true;
-
-	onMount(() => {
-		// 현재 페이지 경로를 확인하고 showFooter 값을 조절합니다.
-		const currentPath = window.location.pathname;
-
-		// '/car-start' 또는 '/auth/login' 페이지에서는 Footer를 숨깁니다.
-		if (currentPath === '/car-start' || currentPath === '/auth/login' || currentPath === '/signup-form-email'
-				|| currentPath === '/signup-form' || currentPath === '/chat-qna' || currentPath === '/password-search'
-				|| currentPath === '/login-search') {
-			showFooter = false;
-		} else {
-			showFooter = true;
-		}
-	});
+    // let showFooter;
+    // let permission = false;
+    //
+    // async function fetchData() {
+    //     try {
+    //         permission = await checkAuthAndConfigureFooter();
+    //         if (!permission && window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form') {
+    //             window.location.href = '/auth/login';
+    //             alert("로그인을 먼저 진행해주세요.")
+    //         }
+    //     } catch (error) {
+    //         console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
+    //         // 오류 처리를 추가할 수 있습니다.
+    //     }
+    // }
+    //
+    // fetchData();
 </script>
 
-{#if showFooter}
-	<div class="app mx-auto relative min-h-screen pb-20">
-		<main>
-			<slot />
-			<Footer />
-		</main>
-	</div>
-{:else}
-	<div class="app mx-auto relative min-h-screen pb-20">
-		<main>
-			<slot />
-		</main>
-	</div>
-{/if}
+<!--{#if showFooter}-->
+    <div class="app mx-auto relative min-h-screen pb-20">
+        <main>
+            <slot/>
+            <Footer/>
+        </main>
+    </div>
+<!--{:else}-->
+<!--    <div class="app mx-auto relative min-h-screen pb-20">-->
+<!--        <main>-->
+<!--            <slot/>-->
+<!--        </main>-->
+<!--    </div>-->
+<!--{/if}-->
