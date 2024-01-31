@@ -3,11 +3,12 @@
 	import '../styles.css'
 	import api from '$lib/axiosEnterceptor/api.js';
 
+    let admin;
 
 	if (typeof window !== 'undefined') {
 		const accessToken = localStorage.getItem('accessToken');
 
-		api.post('/verify-token', {
+		let username = api.post('/verify-token', {
 			// 요청 본문 데이터
 		}, {
 			headers: {
@@ -18,6 +19,15 @@
 				.catch(function (error) {
 					console.log('진짜냐 :',error);
 				});
+        console.log(username)
+        const getData = () => {
+            username.then((username) => {
+                admin = username;
+                console.log(admin)
+
+            });
+        };
+        getData();
 	}
 </script>
 <div class="background_img object-fill opacity-70">
