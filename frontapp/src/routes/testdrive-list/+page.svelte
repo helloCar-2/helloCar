@@ -42,7 +42,6 @@
 						<td class="px-6 py-4 font-semibold text-gray-900"> 신청 완료 </td>
 					</tr>
 				{/each}
-
 			</tbody>
 		</table>
 	</div>

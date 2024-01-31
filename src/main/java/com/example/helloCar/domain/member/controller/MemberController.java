@@ -145,6 +145,36 @@ public class MemberController {
         return RsData.of("S-3", "성공", new MemberResponse(member));
     }
 
+    //회원 수정
+    @AllArgsConstructor
+    @Getter
+    public static class ModifyResponse {
+        private final Member member;
+        private final String newAccessToken;
+    }
+
+    @PostMapping(value = "/modify", consumes = ALL_VALUE)
+    public RsData<ModifyResponse> modify(@Valid @RequestBody MemberRequest memberRequest) {
+        Member member = memberService.modify(memberRequest.getUsername(), memberRequest.getName(), memberRequest.getPassword());
+        // 수정된 회원 정보로 다시 로그인하여 새로운 토큰 발급
+        String newAccessToken = memberService.genAccessToken(memberRequest.getUsername(), memberRequest.getPassword());
+        return RsData.of("S-3", "성공", new ModifyResponse(member, newAccessToken));
+    }
+
+    //회원 탈퇴
+    @AllArgsConstructor
+    @Getter
+    public static class MemberIdResponse {
+        private final String memberId;
+    }
+
+    @DeleteMapping(value = "/delete", consumes = ALL_VALUE)
+    public RsData<MemberIdResponse> delete(@RequestParam(value = "memberId") Long memberId) {
+        Member member = memberService.findById(memberId);
+        memberService.deleteMember(member.getId());
+        return RsData.of("S-4", "회원탈퇴 성공", null);
+    }
+
     //아이디 중복 검사
     @AllArgsConstructor
     @Getter

@@ -1,10 +1,12 @@
 package com.example.helloCar.domain.member.entity;
 
 import com.example.helloCar.domain.global.baseentity.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import lombok.*;
+import com.example.helloCar.domain.hellocar.entity.HelloCar;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,6 +33,13 @@ public class Member extends BaseEntity {
     private String password;
     @Column(unique = true)
     private String email;
+
+    @ManyToMany
+    private List<HelloCar> helloCars;
+
+
+
+
 
     // 현재 회원이 가지고 있는 권한들을 List<GrantedAuthority> 형태로 리턴
     public Collection<? extends GrantedAuthority> getAuthorities() {

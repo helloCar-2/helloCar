@@ -18,7 +18,7 @@
                 >
             </li>
             <li>
-                <a href="/car-testdrive" class="hover:underline">
+                <a href="/testdrive-list" class="hover:underline">
                     <svg
                             class="w-6 h-6 text-gray-800 text-white mx-auto"
                             aria-hidden="true"

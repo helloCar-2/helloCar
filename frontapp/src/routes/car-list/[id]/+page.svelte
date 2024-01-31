@@ -1,3 +1,8 @@
+<script>
+    export let data;
+    console.log(data.data.hellocar);
+</script>
+
 <img src="img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6" />
 <div class="w-3/5 mx-auto flex flex-col max-w-md">
     <div id="default-carousel" class="relative" data-carousel="slide">
@@ -143,29 +148,29 @@
         <div class="flex items-center justify-between">
             <div class="mx-auto my-2">
                 <div class="h-2 text-2xl w-24 mb-2.5">
-                    <p class="text-[#f3651f] font-bold">차 이름</p>
+                    <p class="text-[#f3651f] font-bold">{data.data.hellocar.carname}</p>
                 </div>
             </div>
         </div>
         <div class="flex items-center justify-between py-4 border-gray-400 border-b-2">
             <p class="h-2.5 w-24 mb-2.5 font-bold">가격</p>
-            <p class="text-[#f3651f]">2,180원 ~ 2,523원</p>
+            <p class="text-[#f3651f]">{data.data.hellocar.minPrice}원 ~ {data.data.hellocar.maxPrice}원</p>
         </div>
         <div class="flex items-center justify-between py-4 border-gray-400 border-b-2">
             <p class="h-2.5 w-24 mb-2.5 font-bold">연식</p>
-            <p class="text-[#f3651f]">2018년</p>
+            <p class="text-[#f3651f]">{data.data.hellocar.modelYear}년</p>
         </div>
         <div class="flex items-center justify-between py-4 border-gray-400 border-b-2">
             <p class="h-2.5 w-24 mb-2.5 font-bold">차종</p>
-            <p class="text-[#f3651f]">SUV</p>
+            <p class="text-[#f3651f]">{data.data.hellocar.vehicle}</p>
         </div>
         <div class="flex items-center justify-between py-4 border-gray-400 border-b-2">
-            <p class="h-2.5 w-24 mb-2.5 font-bold">사이즈</p>
+            <p class="h-2.5 w-24 mb-2.5 font-bold">{data.data.hellocar.size}</p>
             <p class="text-[#f3651f]">소형</p>
         </div>
         <div class="flex items-center justify-between py-4 border-gray-400 border-b-2">
             <p class="h-2.5 w-24 mb-2.5 font-bold">유종</p>
-            <p class="text-[#f3651f]">디젤</p>
+            <p class="text-[#f3651f]">{data.data.hellocar.fuel}</p>
         </div>
         <div class="flex justify-end">
             <a
@@ -190,18 +195,6 @@
                 </svg>
             </a>
         </div>
-    </div>
-    <!--    테스트 바 끝    -->
-    <div
-        role="status"
-        class="max-w-md p-4 flex flex-col items-center space-y-4 border border-gray-200 rounded shadow md:p-6 mt-6"
-    >
-        <p class="text-gray-500 text-xl font-medium">다른 차 비교하기</p>
-        <button
-            type="button"
-            class="text-white bg-[#f3651f] focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium text-bold px-4 p-1.5 text-center me-2 mb-2"
-            >+</button
-        >
     </div>
 </div>
 
