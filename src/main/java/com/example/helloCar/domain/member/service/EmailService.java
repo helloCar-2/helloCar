@@ -36,6 +36,7 @@ public class EmailService {
             String body = "";
             body += "<h3>" + "안녕하세요 HELLOCAR 입니다.";
             body += "<h2>" + "아래 인증코드를 입력해 주세요." + "</h3>";
+            body += "<h1>" + number + "</h1>";
             message.setText(body, "UTF-8", "html");
         } catch (MessagingException e) {
             throw new RuntimeException(e);

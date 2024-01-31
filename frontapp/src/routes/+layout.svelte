@@ -21,8 +21,9 @@
         fetchData();
 </script>
 
-{#if showFooter}
-    <div class="app mx-auto relative min-h-screen pb-20">
+
+<!--{#if showFooter}-->
+    <div class="app mx-auto relative min-h-screen pb-14">
         <main>
             <slot/>
             <Footer/>
