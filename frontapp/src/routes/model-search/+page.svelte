@@ -1,3 +1,7 @@
+<script>
+	import '$lib/axiosEnterceptor/api.js';
+</script>
+
 <img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6" />
 <div class=" w-3/5 mx-auto">
 	<form class="flex items-center mb-6">

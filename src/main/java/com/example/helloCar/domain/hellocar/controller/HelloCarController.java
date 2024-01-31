@@ -9,10 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -57,6 +54,11 @@ public class HelloCarController {
                 helloCarRequest.getSize(), helloCarRequest.getFuel());
 
         return RsData.of("S-5", "성공", new HellocarResponse(helloCar));
+    }
+
+    @GetMapping("/test")
+    public String test () {
+        return "test";
     }
 }
 

@@ -42,7 +42,7 @@ public class MemberService {
             return null;
         }
 
-        return jwtProvider.genToken(member.toClaims(), 5);
+        return jwtProvider.genToken(member.toClaims(), 60 * 5);
     }
 
     public String genRefreshToken(String username, String password) {
@@ -62,6 +62,6 @@ public class MemberService {
 
         if (member == null) return null;
 
-        return jwtProvider.genToken(member.toClaims(), 5);
+        return jwtProvider.genToken(member.toClaims(), 60 * 5);
     }
 }

@@ -1,5 +1,6 @@
 <script>
-    import {onMount} from 'svelte';
+    import '$lib/axiosEnterceptor/api.js';
+    import api from '$lib/axiosEnterceptor/api.js';
 
     let userData = {
         username: '',
@@ -13,33 +14,32 @@
     let email = true;
     let sendemail = false;
 
-    onMount(async () => {
-        try {
-            const accessToken = localStorage.getItem('accessToken');
-            const response = await fetch('http://localhost:8080/api/v1/member/my-page', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`,
-                },
+    if (typeof window !== 'undefined') {
+        const accessToken = localStorage.getItem('accessToken');
+        const userDatas = api.get('/member/my-page', {
+            // 요청 본문 데이터
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        })
+            .catch(function (error) {
+                console.log('진짜냐 :', error);
             });
 
-            if (response.ok) {
-                userData = await response.json();
-                // userData 객체 업데이트 및 화면 갱신
+        const getData = () => {
+            userDatas.then((userDatas) => {
+                const result = userDatas;
 
-                userData.username = userData.data.member.username;
-                userData.name = userData.data.member.name;
-                userData.email = userData.data.member.email;
-                console.log(userData.data.member.password)
-            } else {
-                console.error('서버 응답 오류:', response.statusText);
-            }
-        } catch (error) {
-            console.error('오류 발생:', error);
-        }
-    });
+                userData.username = result.data.member.username;
+                userData.name = result.data.member.name;
+                userData.email = result.data.member.email;
 
+            });
+        };
+        getData();
+    }
 
     // 숨겨진 요소들 가져오기
     let passwordDiv = false;

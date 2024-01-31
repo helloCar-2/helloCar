@@ -1,19 +1,3 @@
-<script>
-    import {checkAuthAndConfigureFooter} from "$lib/auth/index.js";
-
-    let admin;
-
-    async function fetchData() {
-        try {
-            admin = await checkAuthAndConfigureFooter();
-            console.log(admin);
-        } catch (error) {
-            console.error('에러에러렁:', error);
-        }
-    };
-
-    fetchData();
-</script>
 <footer class="w-full shadow fixed bottom-0">
     <div class="footer p-3 bg-[#f3651f]">
         <ul class="flex justify-between text-sm font-medium text-white">

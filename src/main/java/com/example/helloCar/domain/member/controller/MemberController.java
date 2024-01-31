@@ -14,8 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -99,8 +97,17 @@ public class MemberController {
     }
 
     @GetMapping(value = "/my-page", consumes = ALL_VALUE)
-    public RsData<MeResponse> mypage(@AuthenticationPrincipal User user) {
-        Member member = memberService.findByUsername(user.getUsername()).orElse(null);;
+    public RsData<MeResponse> mypage(HttpServletRequest request, HttpServletResponse resp) {
+        String token = tokenController.extractTokenFromHeader(request);
+
+        String username = jwtProvider.getUsername(token);
+
+        if (username == null) {
+            // 사용자가 인증되지 않은 경우 처리
+            return RsData.of("E-1", "사용자가 인증되지 않았습니다.", null);
+        }
+
+        Member member = memberService.findByUsername(username).orElse(null);
 
         return RsData.of(
                 "S-2",

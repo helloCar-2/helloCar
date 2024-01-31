@@ -1,24 +1,23 @@
 <script>
-    import '../styles.css'
-	import {checkAuthAndConfigureFooter} from '$lib/auth/index.js';
+	import '../styles.css'
+	import api from '$lib/axiosEnterceptor/api.js';
 
-	let admin;
 
-	async function fetchData() {
-		try {
-			admin = await checkAuthAndConfigureFooter();
-			console.log(admin);
-			if (!admin && window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form') {
-				window.location.href = '/auth/login';
-				alert("로그인을 먼저 진행해주세요.")
+	if (typeof window !== 'undefined') {
+		const accessToken = localStorage.getItem('accessToken');
+
+		api.post('/verify-token', {
+			// 요청 본문 데이터
+		}, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${accessToken}`,
 			}
-		} catch (error) {
-			console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
-			// 오류 처리를 추가할 수 있습니다.
-		}
+		})
+				.catch(function (error) {
+					console.log('진짜냐 :',error);
+				});
 	}
-
-	fetchData();
 </script>
 <div class="background_img object-fill opacity-70">
 	<img
@@ -37,11 +36,11 @@
 		style="width: 300px; height: 260px;"
 	>
 		<img src="img/car1.png" alt="car_image" class="object-cover w-60 h-24 mx-auto" />
-		{#if admin === "admin"}
+		<!--{#if admin === "admin"}-->
 			<h5 class="mb-20 mt-8 text-4xl tracking-tight text-black-900 text-center">모델 등록하기</h5>
-		{:else}
+		<!--{:else}-->
 			<h5 class="mb-20 mt-8 text-4xl tracking-tight text-black-900 text-center">모델 검색하기</h5>
-		{/if}
+		<!--{/if}-->
 	</div>
 </a>
 <a href="/car-testdrive">
