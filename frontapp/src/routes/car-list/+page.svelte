@@ -11,7 +11,6 @@
 
 	 onMount(async () => {
 		try {
-			console.log(`http://localhost:8080/api/v1/hellocar/lists${url}`);
 			const response = await fetch(url2, {
 				method: 'GET',
 				headers: {
@@ -22,7 +21,6 @@
 			if (response.ok) {
 				const data = await response.json();
                 helloCars = data.data.helloCars;
-                console.log(helloCars);
 			} else {
 				console.error('서버 응답 오류:', response.statusText);
 			}
@@ -30,11 +28,9 @@
 			console.error('오류 발생:', error);
 		}
 	});
-
-
-    function getCar(carnum){
-        window.location.href = `/car-detail/`+carnum;
-    }
+        function getCar(carnum) {
+            window.location.href = `/car-detail/` + carnum;
+        }
 </script>
 
 

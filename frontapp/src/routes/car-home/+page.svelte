@@ -8,27 +8,27 @@
     if (typeof window !== 'undefined') {
         const accessToken = localStorage.getItem('accessToken');
 
-        let username = api.post('/verify-token', {
-            // 요청 본문 데이터
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`,
-            }
-        })
-            .catch(function (error) {
-                console.log('진짜냐 :',error);
-            });
-        console.log(username)
+
+		let username = api.post('/verify-token', {
+			// 요청 본문 데이터
+		}, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${accessToken}`,
+			}
+		})
+				.catch(function (error) {
+					console.log('진짜냐 :',error);
+				});
+
         const getData = () => {
             username.then((username) => {
                 admin = username;
-                console.log(admin)
-
             });
         };
         getData();
-    }
+	}
+
 </script>
 <div class="background_img object-fill opacity-70">
     <img

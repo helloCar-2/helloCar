@@ -11,11 +11,13 @@ api.interceptors.request.use(
 
         // if (typeof window !== 'undefined') {
             const accessToken = localStorage.getItem('accessToken');
-            console.log(accessToken)
 
-            if (!accessToken && window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form') {
+            if (!accessToken && window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form' && window.location.pathname !== '/car-start') {
                 window.location.href = '/auth/login';
                 alert("로그인을 먼저 진행해주세요.");
+                return config;
+            } else if (accessToken && window.location.pathname === '/auth/login'){
+                window.location.href = '/car-home'
                 return config;
             }
             // config = await axios.post('http://localhost:8080/api/v1/verify-token', null, {
