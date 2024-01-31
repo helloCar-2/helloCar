@@ -43,16 +43,13 @@
                 if (data.resultCode === 'S-9') {
                     emailSuccessMessage = ''
                     emailErrorMessage = '이미 가입된 메일입니다';
-                    console.log('메일 중복!', data);
                 } else if (data.resultCode === 'S-10' && data.resultCode !== null) {
-                    console.log('메일 전송 성공!', data);
 
                     emailSuccessMessage = '메일 발송이 완료되었습니다';
                     emailErrorMessage = ''
 
                     const num = data.data.number
                     emailNum = num;
-                    console.log(emailNum)
                     return formData.email;
                 } else {
                     emailSuccessMessage = ''
@@ -74,11 +71,9 @@
             if (userVerificationCode === emailNum && userVerificationCode !== null) {
                 successMessage = '인증이 완료되었습니다';
                 errorMessage = '';
-                console.log('인증번호 일치!');
             } else {
                 successMessage = '';
                 errorMessage = '다시 입력해주세요';
-                console.log('인증번호 불일치!');
             }
         } catch (error) {
             console.error('오류 발생:', error);
@@ -163,7 +158,6 @@
 
                 // 회원가입 성공한 경우
                 if (data.resultCode === 'S-3') {
-                    console.log('회원가입 성공!');
                     window.location.href = '/auth/login';
                     alert('회원가입 되었습니다. 로그인 후 이용해 주세요.');
                 } else {

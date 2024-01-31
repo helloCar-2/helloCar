@@ -1,6 +1,5 @@
 <script>
     export let data;
-    console.log(data.data.hellocar);
 </script>
 
 <img src="img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6" />

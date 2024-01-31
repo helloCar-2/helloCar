@@ -36,13 +36,12 @@
             }
         })
             .catch(function (error) {
-                console.log('진짜냐 :', error);
+                // console.log('error :', error);
             });
 
         const getData = () => {
             userDatas.then((userDatas) => {
                 const result = userDatas;
-
                 userData.username = result.data.member.username;
                 userData.name = result.data.member.name;
                 userData.email = result.data.member.email;
@@ -93,7 +92,6 @@
     //수정 제출
     const handleSubmit = async () => {
         if (userData.password == null || userData.passwordConfirm == null) {
-            console.log('값 모두 입력해야함');
             alert('내용을 모두 입력해 주세요.')
             return;
         }
@@ -111,7 +109,6 @@
 
                 // 수정 성공한 경우
                 if (data.resultCode === 'S-3') {
-                    console.log('수정 성공!');
                     // 로컬 스토리지에 새로 발급된 토큰 저장
                     localStorage.setItem('accessToken', data.data.newAccessToken);
                     window.location.href = '/my-page';
@@ -153,11 +150,9 @@
 
                 if (response.ok) {
                     const userData = await response.json();
-                    console.log('userData:', userData);
 
                     // userData에서 memberId 추출
                     const memberId = userData.data.member.id;
-                    console.log(memberId)
 
                     // 회원 탈퇴 요청 보내기
                     const deleteResponse = await fetch(`http://localhost:8080/api/v1/member/delete?memberId=${memberId}`, {
@@ -176,7 +171,6 @@
                             // 로컬 스토리지에서 토큰 삭제
                             localStorage.removeItem('accessToken');
                             alert('탈퇴가 완료되었습니다.');
-                            console.log('회원 탈퇴 성공!');
 
                             // 로그인 페이지로 이동
                             window.location.href = '/auth/login';
@@ -196,13 +190,14 @@
             }
         } else {
             // 사용자가 탈퇴 취소 눌렀을 경우
-            console.log('탈퇴가 취소되었습니다.');
         }
     }
-    window.onload = function () {
-        // 여기에 스크립트 코드 작성
-        document.getElementById('deleteButton').addEventListener('click', memberDelete);
-    };
+    if (typeof window !== 'undefined') {
+        window.onload = function () {
+            // 여기에 스크립트 코드 작성
+            document.getElementById('deleteButton').addEventListener('click', memberDelete);
+        };
+    }
 </script>
 
 <div class="container mx-auto w-5/6">
@@ -249,10 +244,10 @@
             </div>
             <div>
                 <label for="name" class="flex mt-4 mb-2 text-xl font-medium text-gray-900 ">성명</label>
-                <textarea class:hidden={!updateConfirmDiv} id="name" rows="1" bind:value={userData.name}
+                <textarea class:hidden={!updateConfirmDiv} id="name1" rows="1" bind:value={userData.name}
                           class="flex mb-4 p-4 w-full bg-gray-50 text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Write your thoughts here..."></textarea>
-                <textarea class:hidden={updateConfirmDiv} id="name" rows="1" bind:value={userData.name}
+                <textarea class:hidden={updateConfirmDiv} id="name2" rows="1" bind:value={userData.name}
                           disabled
                           class="flex mb-4 p-4 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Write your thoughts here..."></textarea>

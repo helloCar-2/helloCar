@@ -14,7 +14,6 @@
     };
 
     const handleSubmit = async () => {
-        console.log(formData)
         try {
             const response = await fetch('http://localhost:8080/hellocar/create', {
                 method: 'POST',
@@ -23,14 +22,12 @@
                 },
                 body: JSON.stringify(formData)
             });
-            console.log('Response Status:', response.status);
+            // console.log('Response Status:', response.status);
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data)
                 //성공
                 if (data.resultCode === 'S-5') {
-                    console.log('생성 성공!');
                     alert('차량이 등록되었습니다.');
                     window.location.href = '/car-list';
                 } else {
@@ -39,8 +36,7 @@
                 }
             } else {
                 console.error('서버 응답 오류:', response.statusText);
-                console.log(formData)
-                alert('다시 입력 해주세요.ㅋㅋ');
+                alert('다시 입력 해주세요.');
             }
         } catch (error) {
             console.error('오류 발생:', error);
