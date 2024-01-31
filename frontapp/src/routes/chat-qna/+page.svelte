@@ -1,114 +1,143 @@
 <script>
-	import '$lib/axiosEnterceptor/api.js';
+    import api from '$lib/axiosEnterceptor/api.js';
+    import {goto} from '$app/navigation';
+
+    let admin;
+
+    if (typeof window !== 'undefined') {
+        const accessToken = localStorage.getItem('accessToken');
+
+        let username = api.post('/verify-token', {
+            // 요청 본문 데이터
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        })
+            .catch(function (error) {
+                // console.log('진짜냐 :', error);
+            });
+        const getData = () => {
+            username.then((username) => {
+                admin = username;
+                // console.log(admin)
+
+            });
+        };
+        getData();
+    }
+
+    const goToCarHome = () => {
+        goto('/car-home');
+    };
 </script>
 
 <nav class="w-full shadow fixed right-0 top-0">
-	<div class="navbar p-1 bg-[#f3651f]">
-		<a href="/car-home">
-			<img src="/img/logo2.png" class="h-14 object-cover mx-auto my-2 bg-[#f3651f]">
-		</a>
-	</div>
+    <div class="navbar p-1 bg-[#f3651f]">
+        <img src="/img/logo2.png" class="h-14 object-cover mx-auto my-2 bg-[#f3651f]" on:click={goToCarHome}>
+    </div>
 </nav>
 
 <div class="flex ml-4 mt-32 mb-6 items-start gap-2.5">
-	<img class="w-8 h-8 rounded-full" src="/img/photo.png" alt="Jese image">
-	<div class="flex flex-col gap-1 w-full max-w-[320px]">
-		<div class="flex items-center space-x-2 rtl:space-x-reverse">
-			<span class="text-sm font-semibold text-gray-900">채팅 봇</span>
-			<span class="text-sm font-normal text-gray-500">11:46</span>
-		</div>
-		<div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
-			<p class="text-sm font-normal text-gray-900"> 안녕하세요. 무엇을 도와드릴까요?</p>
-			<div class="md:flex">
-				<ul class="flex-column w-full mt-4 space-y space-y-4 text-sm font-medium text-gray-500">
-					<li>
-						<a href="#"
-						   class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
-							시승 관련 문의
-						</a>
-					</li>
-					<li>
-						<a href="#"
-						   class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
-							차량 관련 문의
-						</a>
-					</li>
-					<li>
-						<a href="#"
-						   class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
-							<svg class="w-4 h-4 me-2 text-gray-500" aria-hidden="true"
-								 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-								<path d="M7.824 5.937a1 1 0 0 0 .726-.312 2.042 2.042 0 0 1 2.835-.065 1 1 0 0 0 1.388-1.441 3.994 3.994 0 0 0-5.674.13 1 1 0 0 0 .725 1.688Z"/>
-								<path d="M17 7A7 7 0 1 0 3 7a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1V7a5 5 0 1 1 10 0v7.083A2.92 2.92 0 0 1 12.083 17H12a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a1.993 1.993 0 0 0 1.722-1h.361a4.92 4.92 0 0 0 4.824-4H17a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3Z"/>
-							</svg>
-							기타 문의하기(1:1)
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<span class="flex justify-end text-sm font-normal text-yellow-500">전송됨</span>
-	</div>
+    <img class="w-8 h-8 rounded-full" src="/img/photo.png" alt="Jese image">
+    <div class="flex flex-col gap-1 w-full max-w-[320px]">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="text-sm font-semibold text-gray-900">채팅 봇</span>
+            <span class="text-sm font-normal text-gray-500">11:46</span>
+        </div>
+        <div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
+            <p class="text-sm font-normal text-gray-900"> 안녕하세요. 무엇을 도와드릴까요?</p>
+            <div class="md:flex">
+                <ul class="flex-column w-full mt-4 space-y space-y-4 text-sm font-medium text-gray-500">
+                    <li>
+                        <a href="#"
+                           class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                            시승 관련 문의
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                            차량 관련 문의
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                            <svg class="w-4 h-4 me-2 text-gray-500" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M7.824 5.937a1 1 0 0 0 .726-.312 2.042 2.042 0 0 1 2.835-.065 1 1 0 0 0 1.388-1.441 3.994 3.994 0 0 0-5.674.13 1 1 0 0 0 .725 1.688Z"/>
+                                <path d="M17 7A7 7 0 1 0 3 7a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1V7a5 5 0 1 1 10 0v7.083A2.92 2.92 0 0 1 12.083 17H12a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a1.993 1.993 0 0 0 1.722-1h.361a4.92 4.92 0 0 0 4.824-4H17a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3Z"/>
+                            </svg>
+                            기타 문의하기(1:1)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <span class="flex justify-end text-sm font-normal text-yellow-500">전송됨</span>
+    </div>
 </div>
 
 <div class="flex mr-4 mt-26 mb-6 justify-end gap-2.5">
-	<img class="w-8 h-8 rounded-full" src="/img/photo.png" alt="Jese image">
-	<div class="flex flex-col gap-1 w-full max-w-[320px]">
-		<div class="flex items-center space-x-2 rtl:space-x-reverse">
-			<span class="text-sm font-semibold text-gray-900">나</span>
-			<span class="text-sm font-normal text-gray-500">11:48</span>
-		</div>
-		<div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-yellow-100 rounded-e-xl rounded-es-xl">
-			<p class="text-sm font-normal text-gray-900">시승 관련 문의</p>
-		</div>
-		<span class="flex justify-end text-sm font-normal text-yellow-500">전송됨</span>
-	</div>
+    <img class="w-8 h-8 rounded-full" src="/img/photo.png" alt="Jese image">
+    <div class="flex flex-col gap-1 w-full max-w-[320px]">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="text-sm font-semibold text-gray-900">나</span>
+            <span class="text-sm font-normal text-gray-500">11:48</span>
+        </div>
+        <div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-yellow-100 rounded-e-xl rounded-es-xl">
+            <p class="text-sm font-normal text-gray-900">시승 관련 문의</p>
+        </div>
+        <span class="flex justify-end text-sm font-normal text-yellow-500">전송됨</span>
+    </div>
 </div>
 
 <div class="flex ml-4 mt-26 items-start gap-2.5">
-	<img class="w-8 h-8 rounded-full" src="/img/photo.png" alt="Jese image">
-	<div class="flex flex-col gap-1 w-full max-w-[320px]">
-		<div class="flex items-center space-x-2 rtl:space-x-reverse">
-			<span class="text-sm font-semibold text-gray-900">채팅 봇</span>
-			<span class="text-sm font-normal text-gray-500">11:49</span>
-		</div>
-		<div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
-			<p class="text-sm font-normal text-gray-900"> 시승 관련 문의입니다. 버튼을 선택해 주세요.</p>
+    <img class="w-8 h-8 rounded-full" src="/img/photo.png" alt="Jese image">
+    <div class="flex flex-col gap-1 w-full max-w-[320px]">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="text-sm font-semibold text-gray-900">채팅 봇</span>
+            <span class="text-sm font-normal text-gray-500">11:49</span>
+        </div>
+        <div class="flex flex-col leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
+            <p class="text-sm font-normal text-gray-900"> 시승 관련 문의입니다. 버튼을 선택해 주세요.</p>
 
-			<div class="md:flex">
-				<ul class="flex-column w-full mt-4 space-y space-y-4 text-sm font-medium text-gray-500">
-					<li>
-						<button
-						   class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
-							1. 시승 신청 내역을 알고 싶어요.
-						</button>
-					</li>
-					<li>
-						<a href="#"
-						   class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
-							2. 시승 신청을 취소 하고 싶어요.
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<span class="flex justify-end text-sm font-normal text-yellow-500">전송됨</span>
-	</div>
+            <div class="md:flex">
+                <ul class="flex-column w-full mt-4 space-y space-y-4 text-sm font-medium text-gray-500">
+                    <li>
+                        <button
+                                class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                            1. 시승 신청 내역을 알고 싶어요.
+                        </button>
+                    </li>
+                    <li>
+                        <a href="#"
+                           class="inline-flex justify-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full">
+                            2. 시승 신청을 취소 하고 싶어요.
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <span class="flex justify-end text-sm font-normal text-yellow-500">전송됨</span>
+    </div>
 </div>
 
 <form class="fixed w-full bottom-0 right-0">
-	<label for="chat" class="sr-only"></label>
-	<div class="flex items-center px-3 py-2 rounded-lg bg-gray-50">
+    <label for="chat" class="sr-only"></label>
+    <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50">
 		<textarea id="chat" rows="1"
-				  class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-yellow-200 focus:border-red-500"
-				  placeholder="메세지 입력"></textarea>
-		<button type="submit"
-				class="inline-flex justify-center p-2 text-[#f3651f] rounded-full cursor-pointer hover:bg-blue-100">
-			<svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-				 fill="currentColor" viewBox="0 0 18 20">
-				<path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
-			</svg>
-			<span class="sr-only">Send message</span>
-		</button>
-	</div>
+                  class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-yellow-200 focus:border-red-500"
+                  placeholder="메세지 입력"></textarea>
+        <button type="submit"
+                class="inline-flex justify-center p-2 text-[#f3651f] rounded-full cursor-pointer hover:bg-blue-100">
+            <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 fill="currentColor" viewBox="0 0 18 20">
+                <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
+            </svg>
+            <span class="sr-only">Send message</span>
+        </button>
+    </div>
 </form>

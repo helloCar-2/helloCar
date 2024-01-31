@@ -16,7 +16,6 @@
                 body: JSON.stringify(formData)
             });
 
-
             if (response.ok) {
                 const data = await response.json();
                 const accesstoken = await data.data.accessToken;

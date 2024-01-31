@@ -1,5 +1,4 @@
 <script>
-    import '$lib/axiosEnterceptor/api.js';
     import api from '$lib/axiosEnterceptor/api.js';
 
     let userData = {
@@ -18,8 +17,6 @@
     let passwordConfirmSuccessMessage = '';
     //값 확인
     let error = null;
-
-
     let username = true;
     let name = true;
     let email = true;
@@ -45,7 +42,6 @@
                 userData.username = result.data.member.username;
                 userData.name = result.data.member.name;
                 userData.email = result.data.member.email;
-
             });
         };
         getData();
