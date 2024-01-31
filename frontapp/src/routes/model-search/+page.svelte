@@ -12,11 +12,6 @@
         fuel: ''
     };
 
-    // on:click={() => clickcheck()} 버튼 태그 안에 넣고 클릭해보면 아래꺼 실행됨.
-    function clickcheck() {
-        console.log(formData);
-    }
-
     // 제조사 클릭하면 formData.brand 에 값 넣어주는 함수임
     const buttons = [
         {id: 0, brand: ''},

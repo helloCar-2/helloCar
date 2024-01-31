@@ -1,6 +1,5 @@
 <script>
 	export let data;
-	console.log(data.data.testDrive);
 </script>
 
 <div class="w-10/12 m-auto">

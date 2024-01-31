@@ -23,7 +23,7 @@ public class NotProd {
 //            articleService.create(member1, "테스트2입니다.", "테스트 내용2입니다.");
 //            articleService.create(member2, "테스트3입니다.", "테스트 내용3입니다.");
 //            articleService.create(member1, "테스트4입니다.", "테스트 내용4입니다.");
-helloCarService.create("아반떼",  "/img/car3.png", "현대", 2000, 1500, 2024,"세단","준중형", "가솔린");
+//helloCarService.create("아반떼",  "/img/car3.png", "현대", 2000, 1500, 2024,"세단","준중형", "가솔린");
         };
 
     }
