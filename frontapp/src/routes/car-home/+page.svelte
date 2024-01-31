@@ -1,24 +1,24 @@
 <script>
-    import '../styles.css'
-    import {checkAuthAndConfigureFooter} from '$lib/auth/index.js';
 
-    let admin;
+	import '../styles.css'
+	import api from '$lib/axiosEnterceptor/api.js';
 
-    async function fetchData() {
-        try {
-            admin = await checkAuthAndConfigureFooter();
-            console.log(admin);
-            if (!admin && window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form') {
-                window.location.href = '/auth/login';
-                alert("로그인을 먼저 진행해주세요.")
-            }
-        } catch (error) {
-            console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
-            // 오류 처리를 추가할 수 있습니다.
-        }
-    }
 
-    fetchData();
+	if (typeof window !== 'undefined') {
+		const accessToken = localStorage.getItem('accessToken');
+
+		api.post('/verify-token', {
+			// 요청 본문 데이터
+		}, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${accessToken}`,
+			}
+		})
+				.catch(function (error) {
+					console.log('진짜냐 :',error);
+				});
+	}
 </script>
 <div class="background_img object-fill opacity-70">
     <img
@@ -31,6 +31,7 @@
         <a href="/car-home"> <img src="img/logo2.png" alt="로고" class="w-26 h-16"/></a>
     </div>
 </div>
+
 {#if admin === "admin"}
     <a href="/hellocar">
         <div
@@ -55,8 +56,6 @@
         </div>
     </a>
 {/if}
-
-
 <a href="/car-testdrive">
     <div
             class="application absolute left-1/2 transform -translate-x-1/2 top-96 mt-8 p-6 bg-opacity-80 drop-shadow"

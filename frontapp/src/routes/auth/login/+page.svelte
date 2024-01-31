@@ -61,8 +61,6 @@
             alert('존재하지 않는 계정입니다.');
         }
     };
-
-
 </script>
 
 <div class="container my-3 mx-auto p-4">

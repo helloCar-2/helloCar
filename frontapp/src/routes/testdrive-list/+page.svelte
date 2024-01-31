@@ -1,4 +1,5 @@
 <script>
+	import '$lib/axiosEnterceptor/api.js';
 	export let data;
 	console.log(data.data.testDrives);
 </script>

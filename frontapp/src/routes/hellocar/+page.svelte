@@ -1,4 +1,6 @@
 <script>
+    import '$lib/axiosEnterceptor/api.js';
+
     let formData = {
         img: '',
         carName: '',

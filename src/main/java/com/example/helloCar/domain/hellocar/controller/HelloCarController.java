@@ -10,11 +10,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Objects;
-
-
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -62,7 +59,6 @@ public class HelloCarController {
     }
 
 
-
     @AllArgsConstructor
     @Getter
     public static class HelloCarsResponse {
@@ -78,9 +74,6 @@ public class HelloCarController {
         List<HelloCar> carList = this.helloCarService.findByBrand(helloCarsRequest.getBrand());
         return RsData.of("S-6","성공",new HelloCarsResponse(carList));
     }
-
-
-
 
     @AllArgsConstructor
     @Getter

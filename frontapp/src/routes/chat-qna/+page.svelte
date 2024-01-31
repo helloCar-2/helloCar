@@ -1,3 +1,7 @@
+<script>
+	import '$lib/axiosEnterceptor/api.js';
+</script>
+
 <nav class="w-full shadow fixed right-0 top-0">
 	<div class="navbar p-1 bg-[#f3651f]">
 		<a href="/car-home">

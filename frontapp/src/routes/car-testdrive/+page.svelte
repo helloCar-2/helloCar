@@ -1,4 +1,6 @@
 <script>
+    import '$lib/axiosEnterceptor/api.js';
+
     let isChecked = false;
     let isChecked2 = false;
     let modelChecked = false;
