@@ -19,6 +19,7 @@
 				.catch(function (error) {
 					console.log('진짜냐 :',error);
 				});
+
         const getData = () => {
             username.then((username) => {
                 admin = username;
