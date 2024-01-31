@@ -16,13 +16,12 @@
             }
         })
             .catch(function (error) {
-                console.log('진짜냐 :', error);
+                // console.log('진짜냐 :', error);
             });
-        console.log(username)
         const getData = () => {
             username.then((username) => {
                 admin = username;
-                console.log(admin)
+                // console.log(admin)
 
             });
         };
