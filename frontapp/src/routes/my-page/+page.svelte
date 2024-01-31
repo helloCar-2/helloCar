@@ -199,10 +199,12 @@
             console.log('탈퇴가 취소되었습니다.');
         }
     }
-    window.onload = function () {
-        // 여기에 스크립트 코드 작성
-        document.getElementById('deleteButton').addEventListener('click', memberDelete);
-    };
+    if (typeof window !== 'undefined') {
+        window.onload = function () {
+            // 여기에 스크립트 코드 작성
+            document.getElementById('deleteButton').addEventListener('click', memberDelete);
+        };
+    }
 </script>
 
 <div class="container mx-auto w-5/6">
