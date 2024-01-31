@@ -10,13 +10,14 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
-import java.util.Objects;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "api/v1/hellocar", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 public class HelloCarController {
 
     private final HelloCarService helloCarService;

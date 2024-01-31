@@ -28,11 +28,9 @@
 			console.error('오류 발생:', error);
 		}
 	});
-
-
-    function getCar(carnum){
-        window.location.href = `/car-detail/`+carnum;
-    }
+        function getCar(carnum) {
+            window.location.href = `/car-detail/` + carnum;
+        }
 </script>
 
 

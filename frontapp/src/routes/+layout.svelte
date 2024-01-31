@@ -5,15 +5,20 @@
     let showFooter = false;
     async function fetchData() {
         try {
-            if (window.location.pathname !== '/auth/login' && window.location.pathname !== '/signup-form' && window.location.pathname !== '/car-start' && window.location.pathname !== '/chat-qna') {
+            if (typeof window !== 'undefined' &&
+                window.location.pathname !== '/auth/login' &&
+                window.location.pathname !== '/signup-form' &&
+                window.location.pathname !== '/car-start' &&
+                window.location.pathname !== '/chat-qna') {
                 showFooter = true;
             }
         } catch (error) {
             console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
         }
     }
-    //
-    fetchData();
+
+    // 클라이언트 측에서만 fetchData 함수를 호출하여 데이터를 가져옴
+        fetchData();
 </script>
 
 {#if showFooter}
