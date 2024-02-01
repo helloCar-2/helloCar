@@ -22,7 +22,7 @@
 </script>
 
 
-<!--{#if showFooter}-->
+{#if showFooter}
     <div class="app mx-auto relative min-h-screen pb-14">
         <main>
             <slot/>
