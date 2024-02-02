@@ -1,54 +1,79 @@
-<div class="container my-3 mx-auto p-4">
-    <div class="container my-3 mx-auto">
-        <div class="background_img">
-            <img src="/img/logo.png" alt="로고" class="text-center mt-24 mx-auto w-60 h-20 object-cover">
-            <h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center font-bold">아이디 찾기</h5>
-        </div>
+<script>
+	import { Modal } from 'flowbite-svelte';
+	import { Label, Input, Button, Card } from 'flowbite-svelte';
 
-        <form class="flex-col text-center">
-            <div class="login_box">
-                <label for="name" class="text-left block mb-2 text-sm font-medium text-gray-900">성명</label>
-                <input type="text" id="name"
-                       class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 w-full p-2.5"
-                       placeholder="성명" required="">
-            </div>
-            <div class="password_box pt-6">
-                <label for="email" class="text-left block mb-2 text-sm font-medium text-gray-900">이메일</label>
-                <input type="text" id="email"
-                       class="bg-gray-50 text-sm rounded border-gray-200 focus:ring-yellow-200 focus:border-red-500 block w-full p-2.5"
-                       placeholder="user@user.com" required="">
-            </div>
-        </form>
+	let defaultModal = false;
 
-        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="w-full h-12 mt-6 p-8 text-white bg-[#f3651f] hover:bg-[#cc5012] text-sm py-6 flex items-center" type="button">
-            <p class="font-bold mx-auto text-base">아이디 찾기</p>
-        </button>
-    </div>
+	let formData = {
+		name: '',
+		email: ''
+	};
+
+	let data = [];
+
+	const idSearch = async () => {
+		console.log(formData);
+		try {
+			const response = await fetch('http://localhost:8080/api/v1/member/idSearch', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			});
+
+			if (response.ok) {
+				data = await response.json();
+				defaultModal = true;
+			}
+		} catch (error) {
+			console.error('오류 발생:', error);
+			alert('존재하지 않는 계정입니다.');
+		}
+	};
+</script>
+
+<div class="w-10/12 mx-auto">
+	<div class="background_img">
+		<a href="/auth/login">
+			<img
+				src="/img/logo.png"
+				alt="로고"
+				class="text-center mt-24 mx-auto w-60 h-20 object-cover"
+			/>
+		</a>
+		<h5 class="login mb-20 mt-10 text-4xl tracking-tight text-black text-center font-bold">
+			아이디 찾기
+		</h5>
+	</div>
+	<form on:submit|preventDefault={idSearch}>
+		<div class="mb-6">
+			<Label for="large-input" class="block mb-2">성명</Label>
+			<Input id="large-input" size="lg" placeholder="성명" bind:value={formData.name} required />
+		</div>
+		<div class="mb-6">
+			<Label for="large-input" class="block mb-2">이메일</Label>
+			<Input id="large-input" size="lg" placeholder="이메일" bind:value={formData.email} required/>
+		</div>
+		<Button
+			type="submit"
+			class="w-full h-12 mt-16 text-white bg-[#f3651f] hover:bg-[#cc5012] text-sm py-6 flex items-center"
+		>
+			<p class="font-bold mx-auto text-base">아이디 찾기</p>
+		</Button>
+	</form>
 </div>
 
-<!-- Main modal -->
-<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="p-4 w-full">
-        <!-- Modal content -->
-        <div class="mx-auto w-72 bg-white rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex items-center justify-center p-4 md:p-5 border-b rounded-t">
-                <h3 class="text-xl font-semibold text-center text-gray-900">
-                    아이디 정보
-                </h3>
-            </div>
-            <!-- Modal body -->
-            <div class="p-4 md:p-3">
-                <p class="text-base text-center leading-relaxed text-gray-500">
-                    <span>회원님의 아이디는 "길동카" 입나다.</span>
-                </p>
-            </div>
-            <!-- Modal footer -->
-            <div class="flex justify-center items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                <button data-modal-hide="default-modal" type="button" class="text-white bg-[#f3651f] hover:bg-[#f3651f] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                    확인</button>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- <Button on:click={() => (defaultModal = true)}></Button> -->
+<Modal class="text-center" title="" bind:open={defaultModal} autoclose>
+	<p class="font-bold text-2xl">아이디 찾기 결과</p>
 
+	<div class="mx-auto mt-4 box-border border p-4">
+		<div class="p-4">
+			{data.data.member}
+		</div>
+	</div>
+	<svelte:fragment slot="footer" >
+		<Button class="mx-auto bg-[#f3651f]">확인</Button>
+	</svelte:fragment>
+</Modal>

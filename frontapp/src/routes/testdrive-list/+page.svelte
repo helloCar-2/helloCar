@@ -1,8 +1,37 @@
 <script>
-	import '$lib/axiosEnterceptor/api.js';
-	export let data;
-</script>
+	import api from '$lib/axiosEnterceptor/api.js';
 
+	let result =[];
+
+	if (typeof window !== 'undefined') {
+		const accessToken = localStorage.getItem('accessToken');
+
+		let res = api
+			.get(
+				'/testdrives',
+				{
+					// 요청 본문 데이터
+				},
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${accessToken}`
+					}
+				}
+			)
+			.catch(function (error) {
+				console.log('진짜냐 :', error);
+			});
+
+		const getData = () => {
+			res.then((res) => {
+				result = res.data.testDrives;
+			});
+		};
+
+		getData();
+	}
+</script>
 
 <div class="">
 	<img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6" />
@@ -21,7 +50,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each data.data.testDrives as testdrive}
+				{#each result as testdrive}
 					<tr class="bg-white border-b">
 						<td class="p-4">
 							<img

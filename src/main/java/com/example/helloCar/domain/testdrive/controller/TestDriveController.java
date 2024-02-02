@@ -1,8 +1,12 @@
 package com.example.helloCar.domain.testdrive.controller;
 
+import com.example.helloCar.domain.global.jwt.JwtProvider;
 import com.example.helloCar.domain.global.rs.RsData;
+import com.example.helloCar.domain.global.tokenverify.TokenController;
 import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.example.helloCar.domain.testdrive.service.TestDriveService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -14,10 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/testdrives")
+@RequestMapping("/api/v1/testdrives")
 @RequiredArgsConstructor
 public class TestDriveController {
     private final TestDriveService testDriveService;
+    private final JwtProvider jwtProvider;
+    private final TokenController tokenController;
 
 
     @AllArgsConstructor
@@ -28,9 +34,11 @@ public class TestDriveController {
 
 
     @GetMapping("")
-    public RsData<TestDrivesResponse> list(){
+    public RsData<TestDrivesResponse> list(HttpServletRequest request, HttpServletResponse resp){
+        String token = tokenController.extractTokenFromHeader(request);
+        String username = jwtProvider.getUsername(token);
 
-        List<TestDrive> testDrivelist = this.testDriveService.findAll();
+        List<TestDrive> testDrivelist = this.testDriveService.findByUser(username);
 
         return RsData.of(
                 "s-1",
