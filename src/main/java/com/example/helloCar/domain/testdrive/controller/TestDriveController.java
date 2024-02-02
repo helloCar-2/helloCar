@@ -1,23 +1,37 @@
 package com.example.helloCar.domain.testdrive.controller;
 
+import com.example.helloCar.domain.area.entity.Area;
+import com.example.helloCar.domain.global.jwt.JwtProvider;
 import com.example.helloCar.domain.global.rs.RsData;
+import com.example.helloCar.domain.global.tokenverify.TokenController;
+import com.example.helloCar.domain.hellocar.entity.HelloCar;
+import com.example.helloCar.domain.member.entity.Member;
+import com.example.helloCar.domain.member.service.MemberService;
 import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.example.helloCar.domain.testdrive.service.TestDriveService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.util.MimeTypeUtils.ALL_VALUE;
 
 @RestController
-@RequestMapping("/testdrives")
+@RequestMapping(value = "/api/v1/testdrive", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class TestDriveController {
     private final TestDriveService testDriveService;
+    private final TokenController tokenController;
+    private final JwtProvider jwtProvider;
+    private final MemberService memberService;
 
 
     @AllArgsConstructor
@@ -53,5 +67,60 @@ public class TestDriveController {
                 "s-1",
                 "성공",
                 new PostResponse(testDrive));
+    }
+
+    @Data
+    public static class TestDriveWrite {
+        @NotBlank
+        private String brand;
+        @NotBlank
+        private HelloCar car;
+        @NotBlank
+        private Area area;
+        @NotBlank
+        private String testDriveDate;
+        @NotBlank
+        private String time;
+        @NotBlank
+        private String hasCarAndYear;
+        @NotBlank
+        private String testDriveQnA;
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class MemberResponse {
+        private final TestDrive testDrive;
+    }
+
+    @PostMapping(value = "/write", consumes = ALL_VALUE)
+    public RsData<MemberResponse> testDriveWrite(@Valid @RequestBody HttpServletRequest request, TestDriveWrite testDriveWrite){
+        String token = tokenController.extractTokenFromHeader(request);
+
+        Map<String, Object> claims = jwtProvider.getClaims(token);
+        String username = (String) claims.get("username");
+        Member member = memberService.findByUsername(username).orElse(null);
+
+        if (member == null) {
+            // 사용자가 인증되지 않은 경우 처리
+            return RsData.of("E-1", "사용자가 인증되지 않았습니다.", null);
+        }
+
+        TestDrive testDrive = testDriveService.testDriveWrite(
+                member,
+                testDriveWrite.getCar(),
+                testDriveWrite.getArea(),
+                testDriveWrite.getBrand(),
+                testDriveWrite.getTestDriveDate(),
+                testDriveWrite.getTime(),
+                testDriveWrite.getHasCarAndYear(),
+                testDriveWrite.getTestDriveQnA()
+                );
+
+        return RsData.of(
+                "S-2",
+                "성공",
+                new MemberResponse(testDrive)
+        );
     }
 }

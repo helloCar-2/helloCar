@@ -44,6 +44,7 @@
 		"bcrypt": "^5.1.1",
 		"cookie": "^0.6.0",
 		"crypto": "^1.0.1",
+		"flowbite-datepicker": "^1.2.6",
 		"flowbite-svelte": "^0.44.22",
 		"jsonwebtoken": "^9.0.2"
 	}
