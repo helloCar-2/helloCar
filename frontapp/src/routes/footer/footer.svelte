@@ -1,5 +1,5 @@
 <script>
-    import {Footer, FooterCopyright, FooterLinkGroup, FooterLink} from 'flowbite-svelte';
+    import {Footer, FooterLinkGroup, FooterLink} from 'flowbite-svelte';
 </script>
 
 <Footer class="p-2 w-full shadow fixed bottom-0 bg-[#f3651f]">
@@ -47,7 +47,7 @@
                 />
             </svg>
             <p class="text-center mt-1">홈</p></FooterLink>
-        <FooterLink href="chat_qna" class="hover:underline">
+        <FooterLink href="/chat_qna" class="hover:underline">
             <svg
                     class="w-6 h-6 text-gray-800 text-white mx-auto"
                     aria-hidden="true"

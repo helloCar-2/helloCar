@@ -46,6 +46,7 @@
 		"crypto": "^1.0.1",
 		"flowbite-svelte": "^0.44.22",
 		"flowbite-svelte-icons": "^1.0.3",
-		"jsonwebtoken": "^9.0.2"
+		"jsonwebtoken": "^9.0.2",
+		"svelte-store": "^0.0.2"
 	}
 }

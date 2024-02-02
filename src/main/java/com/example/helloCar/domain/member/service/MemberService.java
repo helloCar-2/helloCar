@@ -1,6 +1,7 @@
 package com.example.helloCar.domain.member.service;
 
 import com.example.helloCar.domain.global.jwt.JwtProvider;
+import com.example.helloCar.domain.hellocar.repository.HelloCarRepository;
 import com.example.helloCar.domain.member.entity.Member;
 import com.example.helloCar.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class MemberService {
+    private final HelloCarRepository helloCarRepository;
     private final MemberRepository memberRepository;
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
@@ -91,5 +93,4 @@ public class MemberService {
 
         return jwtProvider.genToken(member.toClaims(), 60 * 100);
     }
-
 }

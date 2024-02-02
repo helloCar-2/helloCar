@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class HelloCarService {
@@ -64,4 +62,6 @@ public class HelloCarService {
         return this.helloCarRepository.findCarsByCriteria(brand,carname,fuel,minPrice,maxPrice);
 
     }
+
+
 }
