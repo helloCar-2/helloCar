@@ -46,6 +46,7 @@
 		"crypto": "^1.0.1",
 		"flowbite-datepicker": "^1.2.6",
 		"flowbite-svelte": "^0.44.22",
+		"flowbite-svelte-icons": "^1.0.3",
 		"jsonwebtoken": "^9.0.2"
 	}
 }

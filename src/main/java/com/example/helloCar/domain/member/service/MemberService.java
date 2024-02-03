@@ -4,6 +4,7 @@ import com.example.helloCar.domain.global.jwt.JwtProvider;
 import com.example.helloCar.domain.member.entity.Member;
 import com.example.helloCar.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -90,5 +91,29 @@ public class MemberService {
         if (member == null) return null;
 
         return jwtProvider.genToken(member.toClaims(), 60 * 5);
+    }
+
+    public Member findByNameAndEmail(String name, String email) {
+        Optional<Member> result = this.memberRepository.findByNameAndEmail(name,email);
+
+        return result.orElse(null);
+    }
+
+    public Member findByNameAndEmailAndUsername(String name, String email, String username) {
+        Optional<Member> result = this.memberRepository.findByNameAndEmailAndUsername(name,email,username);
+        return result.orElse(null);
+    }
+
+    public void PWmodify(Member username, String pw) {
+        Member PWmodifyMember = Member.builder()
+                .id(username.getId())
+                .name(username.getName())
+                .username(username.getUsername())
+                .password(passwordEncoder.encode(pw))
+                .email(username.getEmail())
+                .helloCars(username.getHelloCars())
+                .build();
+
+        this.memberRepository.save(PWmodifyMember);
     }
 }

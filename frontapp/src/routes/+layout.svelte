@@ -22,13 +22,14 @@
 	});
 </script>
 
+
 {#if showFooter}
-	<div class="app mx-auto relative min-h-screen pb-20">
-		<main>
-			<slot />
-			<Footer />
-		</main>
-	</div>
+    <div class="app mx-auto relative min-h-screen pb-14">
+        <main>
+            <slot/>
+            <Footer/>
+        </main>
+    </div>
 {:else}
 	<div class="app mx-auto relative min-h-screen pb-20">
 		<main>

@@ -1,12 +1,13 @@
 <script>
 
-	import '../styles.css'
-	import api from '$lib/axiosEnterceptor/api.js';
+    import '../styles.css'
+    import api from '$lib/axiosEnterceptor/api.js';
 
     let admin;
 
-	if (typeof window !== 'undefined') {
-		const accessToken = localStorage.getItem('accessToken');
+    if (typeof window !== 'undefined') {
+        const accessToken = localStorage.getItem('accessToken');
+
 
 		let username = api.post('/verify-token', {
 			// 요청 본문 데이터
@@ -27,13 +28,14 @@
         };
         getData();
 	}
+
 </script>
 <div class="background_img object-fill opacity-70">
     <img
             src="img/car.png"
             alt="car_image"
             class="object-cover mx-auto w-full"
-            style="height: 900px;"
+            style="height: 700px;"
     />
     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 pt-4">
         <a href="/car-home"> <img src="img/logo2.png" alt="로고" class="w-26 h-16"/></a>
@@ -44,7 +46,7 @@
     <a href="/hellocar">
         <div
                 class="model_search absolute left-1/2 transform -translate-x-1/2 top-24 mt-6 p-6 bg-white bg-opacity-80 border border-gray-200 drop-shadow"
-                style="width: 300px; height: 260px;"
+                style="width: 300px; height: 250px;"
         >
             <img src="img/car1.png" alt="car_image" class="object-cover w-60 h-24 mx-auto"/>
 
@@ -56,7 +58,7 @@
         <div
                 class="model_search absolute left-1/2 transform -translate-x-1/2 top-24 mt-6 p-6 bg-white bg-opacity-80 border
         border-gray-200 drop-shadow"
-                style="width: 300px; height: 260px;"
+                style="width: 300px; height: 250px;"
         >
             <img src="img/car1.png" alt="car_image" class="object-cover w-60 h-24 mx-auto"/>
 
@@ -66,8 +68,8 @@
 {/if}
 <a href="/car-testdrive">
     <div
-            class="application absolute left-1/2 transform -translate-x-1/2 top-96 mt-8 p-6 bg-opacity-80 drop-shadow"
-            style="width: 300px; height: 260px;"
+            class="application absolute left-1/2 transform -translate-x-1/2 top-96 mt-4 p-6 bg-opacity-80 drop-shadow"
+            style="width: 300px; height: 250px;"
     >
         <svg
                 class="object-cover w-60 h-24 mx-auto text-white"

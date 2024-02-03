@@ -37,9 +37,11 @@ public class TestDriveController {
 
 
     @GetMapping("")
-    public RsData<TestDrivesResponse> list(){
+    public RsData<TestDrivesResponse> list(HttpServletRequest request, HttpServletResponse resp){
+        String token = tokenController.extractTokenFromHeader(request);
+        String username = jwtProvider.getUsername(token);
 
-        List<TestDrive> testDrivelist = this.testDriveService.findAll();
+        List<TestDrive> testDrivelist = this.testDriveService.findByUser(username);
 
         return RsData.of(
                 "s-1",
