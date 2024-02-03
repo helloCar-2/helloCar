@@ -39,7 +39,6 @@ public class WishListController {
         String username = jwtProvider.getUsername(token);
         Member member = this.memberService.findByUsername(username).get();
         boolean isLiked = this.wishListService.toggleHeart(carId, member);
-//        Map<String, Boolean> response = new HashMap<>();
 
         if (member == null) {
             // 사용자가 인증되지 않은 경우 처리
@@ -51,4 +50,21 @@ public class WishListController {
                 new FavoriteResponse(isLiked)
         );
     }
+
+//    //찜 해제
+//    @AllArgsConstructor
+//    @Getter
+//    public static class DeleteResponse {
+//        private final String carId;
+//    }
+//    @DeleteMapping(value = "/delete/{id}", consumes = ALL_VALUE)
+//    public RsData<DeleteResponse> delete(@RequestParam(value = "carId") Long carId, HttpServletRequest request) {
+////        String token = tokenController.extractTokenFromHeader(request);
+////        String username = jwtProvider.getUsername(token);
+////        Member member = this.memberService.findByUsername(username).get();
+//
+//        wishListService.deleteWishList(carId);
+//        return RsData.of("S-3", "찜 취소 성공", null);
+//    }
+
 }

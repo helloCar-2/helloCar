@@ -79,10 +79,11 @@ public class HelloCarController {
     public static class HelloCarsRequest {
         private String brand;
     }
+
     @PostMapping(value = "/lists", consumes = APPLICATION_JSON_VALUE)
-    public RsData<HelloCarsResponse> lists(@RequestBody HelloCarsRequest helloCarsRequest){
+    public RsData<HelloCarsResponse> lists(@RequestBody HelloCarsRequest helloCarsRequest) {
         List<HelloCar> carList = this.helloCarService.findByBrand(helloCarsRequest.getBrand());
-        return RsData.of("S-6","성공",new HelloCarsResponse(carList));
+        return RsData.of("S-6", "성공", new HelloCarsResponse(carList));
     }
 
     @AllArgsConstructor
@@ -94,13 +95,13 @@ public class HelloCarController {
 
     @GetMapping("/lists")
     public RsData<HelloCarSerchListResponse> searchList(@RequestParam(value = "brand", defaultValue = "") String brand,
-                                      @RequestParam(value = "carname", defaultValue = "") String carname,
-                                      @RequestParam(value = "fuel", defaultValue = "") String fuel,
-                                      @RequestParam(value = "minPrice", defaultValue = "0") int minPrice,
-                                      @RequestParam(value = "maxPrice", defaultValue = "100000") int maxPrice){
+                                                        @RequestParam(value = "carname", defaultValue = "") String carname,
+                                                        @RequestParam(value = "fuel", defaultValue = "") String fuel,
+                                                        @RequestParam(value = "minPrice", defaultValue = "0") int minPrice,
+                                                        @RequestParam(value = "maxPrice", defaultValue = "100000") int maxPrice) {
 
-        List<HelloCar> carList = this.helloCarService.keywordSearch(brand,carname,fuel,minPrice,maxPrice);
-        return RsData.of("S-7","성공",new HelloCarSerchListResponse(carList));
+        List<HelloCar> carList = this.helloCarService.keywordSearch(brand, carname, fuel, minPrice, maxPrice);
+        return RsData.of("S-7", "성공", new HelloCarSerchListResponse(carList));
     }
 
     @AllArgsConstructor
@@ -111,7 +112,7 @@ public class HelloCarController {
     }
 
     @GetMapping("/{id}")
-    public RsData<detailResponse> detail(@PathVariable(value = "id") Long id,HttpServletRequest request){
+    public RsData<detailResponse> detail(@PathVariable(value = "id") Long id, HttpServletRequest request) {
         String token = tokenController.extractTokenFromHeader(request);
         String username = jwtProvider.getUsername(token);
         Member member = this.memberService.findByUsername(username).orElse(null);
@@ -119,7 +120,7 @@ public class HelloCarController {
         HelloCar result = this.helloCarService.findById(id);
         boolean ischecked = result.getMembers().contains(member);
 
-        return RsData.of("S-8","성공",new detailResponse(result,ischecked));
+        return RsData.of("S-8", "성공", new detailResponse(result, ischecked));
     }
 
     @AllArgsConstructor
@@ -131,7 +132,7 @@ public class HelloCarController {
 
 
     @PostMapping(value = "/wishLists", consumes = APPLICATION_JSON_VALUE)
-    public RsData<WishListResponse> wishList(HttpServletRequest request){
+    public RsData<WishListResponse> wishList(HttpServletRequest request) {
 
         String token = tokenController.extractTokenFromHeader(request);
         String username = jwtProvider.getUsername(token);
@@ -139,10 +140,24 @@ public class HelloCarController {
         Member member = this.memberService.findByUsername(username).orElse(null);
 
         List<HelloCar> wishList = new ArrayList<>();
-        for(HelloCar car : member.getHelloCars())
-        wishList.add(car);
+        for (HelloCar car : member.getHelloCars()) {
+            wishList.add(car);
+        }
 
-        return RsData.of("S-9","성공",new WishListResponse(wishList));
+        return RsData.of("S-9", "성공", new WishListResponse(wishList));
+    }
+
+    @DeleteMapping(value = "/deletWishList/{id}", consumes = APPLICATION_JSON_VALUE)
+    public RsData<WishListResponse> delete(@PathVariable(value = "id") Long carId, HttpServletRequest request) {
+        String token = tokenController.extractTokenFromHeader(request);
+        String username = jwtProvider.getUsername(token);
+        Member member = this.memberService.findByUsername(username).orElse(null);
+
+        HelloCar result = this.helloCarService.findById(carId);
+
+        member.getHelloCars().remove(result);
+        List<HelloCar> wishList = new ArrayList<>(member.getHelloCars());
+        return RsData.of("S-11", "찜 삭제 성공", new WishListResponse(wishList));
     }
 }
 

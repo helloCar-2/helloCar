@@ -42,15 +42,19 @@ public class HelloCarService {
 //        return null;
 //    }
 
-    public void save (HelloCar car){
+    public void delete(HelloCar helloCar) {
+        helloCarRepository.delete(helloCar);
+    }
+
+    public void save(HelloCar car) {
         this.helloCarRepository.save(car);
     }
 
-    public List<HelloCar> findAll(){
+    public List<HelloCar> findAll() {
         return this.helloCarRepository.findAll();
     }
 
-    public HelloCar findById(Long id){
+    public HelloCar findById(Long id) {
         return this.helloCarRepository.findById(id).get();
     }
 
@@ -59,7 +63,7 @@ public class HelloCarService {
     }
 
     public List<HelloCar> keywordSearch(String brand, String carname, String fuel, int minPrice, int maxPrice) {
-        return this.helloCarRepository.findCarsByCriteria(brand,carname,fuel,minPrice,maxPrice);
+        return this.helloCarRepository.findCarsByCriteria(brand, carname, fuel, minPrice, maxPrice);
 
     }
 

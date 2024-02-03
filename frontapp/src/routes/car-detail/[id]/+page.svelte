@@ -1,6 +1,6 @@
 <script>
     import api from "$lib/axiosEnterceptor/api.js";
-    import { onMount } from 'svelte';
+    import {onMount} from 'svelte';
 
 
     import {Button} from 'flowbite-svelte';
@@ -58,8 +58,6 @@
         }
 
     }
-
-
     // const dataToSend = {
     //     carId: Number(data.id),
     //     isFavorite: isFavorite,

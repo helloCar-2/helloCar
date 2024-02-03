@@ -25,5 +25,4 @@ public class WishList extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "memberId")
     private Member member;
-
 }
