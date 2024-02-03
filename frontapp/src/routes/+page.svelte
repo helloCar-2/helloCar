@@ -1,1 +1,7 @@
-<a href="http://localhost:5173/car-start">헬로카 접속</a>
+<script>
+    function redirectToCarStart() {
+        window.location.href = '/car-start';
+    }
+</script>
+
+<button on:click={redirectToCarStart}>헬로카 이동</button>

@@ -84,13 +84,11 @@ public class MemberController {
         if (newAccessToken == null) {
             return RsData.of("Invalid refresh request", null);
         }
-
         // 새로운 토큰을 응답 헤더에 추가
         resp.addHeader("Authentication", newAccessToken);
 
         return RsData.of("S-1", "새로운 Access 토큰이 발급되었습니다.", new newAccessRequest(newAccessToken));
     }
-
 
     @AllArgsConstructor
     @Getter
@@ -99,7 +97,7 @@ public class MemberController {
     }
 
     @GetMapping(value = "/my-page", consumes = ALL_VALUE)
-    public RsData<MeResponse> mypage(HttpServletRequest request, HttpServletResponse resp) {
+    public RsData<MeResponse> mypage(HttpServletRequest request) {
         String token = tokenController.extractTokenFromHeader(request);
 
         String username = jwtProvider.getUsername(token);
