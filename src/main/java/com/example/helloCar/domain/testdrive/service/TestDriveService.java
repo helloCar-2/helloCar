@@ -1,7 +1,5 @@
 package com.example.helloCar.domain.testdrive.service;
 
-import com.example.helloCar.domain.area.entity.Area;
-import com.example.helloCar.domain.hellocar.entity.HelloCar;
 import com.example.helloCar.domain.member.entity.Member;
 import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.example.helloCar.domain.testdrive.repository.TestDriveRepository;
@@ -27,7 +25,7 @@ public class TestDriveService {
         return this.testDriveRepository.findById(id).get();
     }
 
-    public TestDrive testDriveWrite(Member member, HelloCar helloCar, Area area, String brand, String testDriveDate, String time, String hasCarAndYear, String testDriveQnA){
+    public TestDrive testDriveWrite(Member member, String helloCar, String area, String brand, String testDriveDate, String time, String hasCarAndYear, String testDriveQnA){
         TestDrive testDrive = TestDrive.builder()
                 .member(member)
                 .car(helloCar)

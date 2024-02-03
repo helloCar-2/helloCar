@@ -1,17 +1,13 @@
 package com.example.helloCar.domain.testdrive.controller;
 
-import com.example.helloCar.domain.area.entity.Area;
 import com.example.helloCar.domain.global.jwt.JwtProvider;
 import com.example.helloCar.domain.global.rs.RsData;
 import com.example.helloCar.domain.global.tokenverify.TokenController;
-import com.example.helloCar.domain.hellocar.entity.HelloCar;
 import com.example.helloCar.domain.member.entity.Member;
 import com.example.helloCar.domain.member.service.MemberService;
 import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.example.helloCar.domain.testdrive.service.TestDriveService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -22,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-import static org.springframework.util.MimeTypeUtils.ALL_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/testdrive", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
@@ -71,19 +66,19 @@ public class TestDriveController {
 
     @Data
     public static class TestDriveWrite {
-        @NotBlank
+
         private String brand;
-        @NotBlank
-        private HelloCar car;
-        @NotBlank
-        private Area area;
-        @NotBlank
+
+        private String carName;
+
+        private String area;
+
         private String testDriveDate;
-        @NotBlank
+
         private String time;
-        @NotBlank
+
         private String hasCarAndYear;
-        @NotBlank
+
         private String testDriveQnA;
     }
 
@@ -93,8 +88,8 @@ public class TestDriveController {
         private final TestDrive testDrive;
     }
 
-    @PostMapping(value = "/write", consumes = ALL_VALUE)
-    public RsData<MemberResponse> testDriveWrite(@Valid @RequestBody HttpServletRequest request, TestDriveWrite testDriveWrite){
+    @PostMapping(value = "/write")
+    public RsData<MemberResponse> testDriveWrite(@RequestBody TestDriveWrite testDriveWrite, HttpServletRequest request){
         String token = tokenController.extractTokenFromHeader(request);
 
         Map<String, Object> claims = jwtProvider.getClaims(token);
@@ -108,7 +103,7 @@ public class TestDriveController {
 
         TestDrive testDrive = testDriveService.testDriveWrite(
                 member,
-                testDriveWrite.getCar(),
+                testDriveWrite.getCarName(),
                 testDriveWrite.getArea(),
                 testDriveWrite.getBrand(),
                 testDriveWrite.getTestDriveDate(),

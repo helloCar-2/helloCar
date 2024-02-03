@@ -10,6 +10,8 @@
         MultiSelect,
         Badge
     } from 'flowbite-svelte';
+    import {createEventDispatcher, onMount} from 'svelte';
+    import api from "$lib/axiosEnterceptor/api.js";
 
 
     let isChecked = false;
@@ -49,9 +51,60 @@
         area: '',
         testDriveDate: '',
         time: '',
-        heaCarAndYear: '',
+        hasCarAndYear: '',
         testDriveQnA: '',
     };
+
+    // 데이터를 백엔드로 보내는 구문
+
+    function buttonClick2(event) {
+        if (formData.brand === '' && formData.carName === '') {
+            alert("차량을 먼저 선택해주세요.");
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
+    function buttonClick3(event) {
+        if (formData.area === '') {
+            alert("지역을 먼저 선택해주세요.");
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
+    function buttonClick4(event) {
+        if (formData.testDriveDate === '') {
+            alert("시승 시간을 먼저 선택해주세요.");
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
+    function summitButton(event) {
+        if (formData.brand === '' || formData.carName === '' || formData.area === '' || formData.testDriveDate === '' || formData.time === '') {
+            alert("시승 신청서가 전부 작성되지 않았습니다.");
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            if (typeof window !== 'undefined') {
+                const accessToken = localStorage.getItem('accessToken');
+                console.log(accessToken)
+                api.post('/testdrive/write', formData, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
+                    }
+                }).then(response => {
+                    console.log(response.data); // 서버 응답 로그
+                }).catch(error => {
+                    console.error('Error:', error); // 에러 처리
+                });
+            }
+            window.location.href = '/car-home'
+            console.log(formData);
+        }
+    }
 
     const buttons = [
         {id: 0, brand: ''},
@@ -114,8 +167,7 @@
         {brand: 'KG모빌리티', value: {carName: '코란도', url: '../img/korando.png'}},
         {brand: 'KG모빌리티', value: {carName: '렉스턴', url: '../img/rexton.png'}},
         {brand: 'KG모빌리티', value: {carName: '렉스턴 스포츠', url: '../img/rexton_sport.png'}},
-        {
-            brand: 'KG모빌리티', value: {carName: '렉스턴 스포츠 칸', url: '../img/rexton_sport_khan.png'}
+        {brand: 'KG모빌리티', value: {carName: '렉스턴 스포츠 칸', url: '../img/rexton_sport_khan.png'}
         }
     ];
 
@@ -177,7 +229,7 @@
     let selectedAreas = [
         {
             key: '강원도',
-            value: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3195.1911677500757!2d127.11627437634174!3d36.78996666827549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ad81bc9b7e44d%3A0x56b88b1fed08d6a5!2z7ZiE64yA7J6Q64-Z7LCoIOyynOyViOyVhOyCsOyLnOyKueyEvO2EsA!5e0!3m2!1sko!2skr!4v1705913143831!5m2!1sko!2skr'
+            value: '강원도'
         },
         {
             key: '경기도',
@@ -209,20 +261,55 @@
         }
     ];
 
-
     function areaInsert() {
-        console.log(12)
-        const selectedButton = areas.find(area => area.name === formData.area);
-        console.log(selectedButton)
+        const selectedButton = areas.find(area => area.name == formData.area);
         if (selectedButton) {
             formData.area = selectedButton.value;
             console.log(selectedButton.value)
             selected.push(formData.area);
         }
-        console.log(formData.area);
     }
 
+    // 날짜 입력 구문
+    function handleDateChange(event) {
+        formData.testDriveDate = event.target.value;
+        console.log(formData.testDriveDate)
+    }
 
+    // 시간 입력 구문
+    function handleButtonClick(event) {
+        const selectedTime = event.target.textContent.trim();
+        formData.time = selectedTime;
+        console.log(formData.time)
+    }
+
+    // 보유차량 및 연식입력 구문
+    // 이벤트 디스패처 생성
+    const dispatch = createEventDispatcher();
+
+    // 폼 제출 핸들러
+    function handleSubmit(event) {
+        event.preventDefault(); // 기본 제출 동작 방지
+
+        // Textarea에서 입력된 값 가져오기
+        const hasCarAndYearInput = event.target.querySelector('textarea');
+        formData.hasCarAndYear = hasCarAndYearInput.value;
+
+        // formData 객체를 부모 컴포넌트로 디스패치하여 전달
+        dispatch('formData', formData);
+        console.log(formData.hasCarAndYear)
+    }
+
+    // 시승 요청사항 및 기타 요청사항 구문
+    function handleSubmit2(event) {
+        event.preventDefault();
+
+        const hasCarAndYearInput = event.target.querySelector('textarea');
+        formData.testDriveQnA = hasCarAndYearInput.value;
+
+        dispatch('formData', formData);
+        console.log(formData.testDriveQnA)
+    }
 </script>
 
 <img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6"/>
@@ -491,7 +578,7 @@
             {/if}
         </AccordionItem>
         <AccordionItem>
-            <div slot="header" class="flex items-center justify-between w-full">
+            <div slot="header" class="flex items-center justify-between w-full" on:click={buttonClick2}>
                 <span class="flex">시승 지역
                     {#if formData.area != ''}
 						<div class="ml-4 text-[#f3651f]">{formData.area}</div>
@@ -547,7 +634,7 @@
             </div>
         </AccordionItem>
         <AccordionItem>
-            <div slot="header" class="flex items-center justify-between w-full">
+            <div slot="header" class="flex items-center justify-between w-full" on:click={buttonClick3}>
                 <span>시승 일정</span>
                 <span class="font-normal text-[#f3651f] mr-2 text-sm">시승 일정을 선택해주세요.</span>
             </div>
@@ -558,27 +645,28 @@
                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                     </svg>
                 </div>
-                <input type="date"
+                <input on:change={handleDateChange}
+                       type="date"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                        placeholder="Select date" style="cursor: pointer;">
             </div>
         </AccordionItem>
         <AccordionItem>
-            <div slot="header" class="flex items-center justify-between w-full">
+            <div slot="header" class="flex items-center justify-between w-full" on:click={buttonClick4}>
                 <span>시승 시간</span>
                 <span class="font-normal text-[#f3651f] mr-2 text-sm">시승 시간을 선택해주세요.</span>
             </div>
-            <Button outline color="dark">11 : 00</Button>
-            <Button outline color="dark">13 : 00</Button>
-            <Button outline color="dark">14 : 00</Button>
-            <Button outline color="dark">15 : 00</Button>
+            <Button outline color="dark" on:click={handleButtonClick}>11 : 00</Button>
+            <Button outline color="dark" on:click={handleButtonClick}>13 : 00</Button>
+            <Button outline color="dark" on:click={handleButtonClick}>14 : 00</Button>
+            <Button outline color="dark" on:click={handleButtonClick}>15 : 00</Button>
         </AccordionItem>
         <AccordionItem>
             <div slot="header" class="flex items-center justify-between w-full">
                 <span>보유차종 및 연식</span>
                 <span class="font-normal text-[#f3651f] mr-2 text-sm">보유차종과 연식을 적어주세요.</span>
             </div>
-            <form>
+            <form on:submit={handleSubmit}>
   <Textarea class="mb-4" placeholder="보유 차종 및 연식을 기입해주세요.">
     <div slot="footer" class="flex items-center justify-between">
       <Button type="submit"
@@ -592,18 +680,20 @@
                 <span>기타 시승 관련 요청사항</span>
                 <span class="font-normal text-[#f3651f] mr-2 text-sm">기타 시승 시 요청사항을 적어주세요.</span>
             </div>
+            <form on:submit={handleSubmit2}>
             <Textarea class="mb-4" placeholder="시승 시 요청사항을 적어주세요.">
     <div slot="footer" class="flex items-center justify-between">
       <Button type="submit"
               class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-[#f3651f] rounded-lg focus:ring-4 focus:ring-blue-200">저장</Button>
     </div>
   </Textarea>
+            </form>
         </AccordionItem>
     </Accordion>
     <!--  아코디언 끝  -->
 
     <div class="flex items-center justify-end px-3 py-2 my-3">
-        <button
+        <button on:click={summitButton}
                 type="submit"
                 class="w-full items-center py-3 px-4 text-1xl font-bold text-center text-white bg-[#f3651f] rounded-lg focus:ring-4 focus:ring-blue-200">
             제출하기

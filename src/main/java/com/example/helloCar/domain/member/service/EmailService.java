@@ -34,8 +34,9 @@ public class EmailService {
             message.setRecipients(MimeMessage.RecipientType.TO, email);
             message.setSubject("HELLOCAR 이메일 인증");
             String body = "";
-            body += "<h3>" + "안녕하세요 HELLOCAR 입니다.";
-            body += "<h2>" + "아래 인증코드를 입력해 주세요." + "</h3>";
+            body += "<h3>" + "안녕하세요 HELLOCAR 입니다." + "</h3>";
+            body += "<h1>" + number +  "</h1>";
+            body += "<h2>" + "아래 인증코드를 입력해 주세요." +  "</h2>";
             message.setText(body, "UTF-8", "html");
         } catch (MessagingException e) {
             throw new RuntimeException(e);

@@ -1,8 +1,6 @@
 package com.example.helloCar.domain.testdrive.entity;
 
-import com.example.helloCar.domain.area.entity.Area;
 import com.example.helloCar.domain.global.baseentity.BaseEntity;
-import com.example.helloCar.domain.hellocar.entity.HelloCar;
 import com.example.helloCar.domain.member.entity.Member;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -25,12 +23,10 @@ public class TestDrive extends BaseEntity {
     // 차량 브랜드
     private String brand;
 
-    @ManyToOne
-    private HelloCar car;
+    private String car;
     // 차량 id (차량정보)
 
-    @ManyToOne
-    private Area area;
+    private String area;
     // 시승센터 id (ex 드라이빙라운지 대전점 id)
 
     private String testDriveDate;
