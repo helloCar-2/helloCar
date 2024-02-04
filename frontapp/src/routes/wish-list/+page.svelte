@@ -27,7 +27,7 @@
                 });
 
                 // car라는 항목에 isFavorite: false 속성을 추가
-                result = res.data.helloCarList.map((car) => ({ ...car, isFavorite: true }));
+                result = res.data.helloCarList.map((car) => ({...car, isFavorite: true}));
             } catch (error) {
                 console.log('error :', error);
             }
@@ -36,6 +36,7 @@
 
 
     action();
+
     async function toggleFavorite(carId) {
         console.log(carId);
 
