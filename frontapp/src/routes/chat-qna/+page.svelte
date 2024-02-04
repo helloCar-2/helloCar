@@ -1,6 +1,5 @@
 <script>
     import api from '$lib/axiosEnterceptor/api.js';
-    import {goto} from '$app/navigation';
 
     let admin;
 
@@ -28,8 +27,8 @@
         getData();
     }
 
-    const goToCarHome = () => {
-        goto('/car-home');
+    function goToCarHome() {
+        window.location.href = '/car-home';
     };
 </script>
 

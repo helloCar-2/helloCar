@@ -8,6 +8,7 @@ import com.example.helloCar.domain.member.service.MemberService;
 import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.example.helloCar.domain.testdrive.service.TestDriveService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
