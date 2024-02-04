@@ -1,26 +1,24 @@
 <script>
-    import Footer from './footer/footer.svelte';
-    import '../app.css';
+	import Footer from './footer/footer.svelte';
+	import '../app.css';
+	import { onMount } from 'svelte';
 
-    let showFooter = false;
-    async function fetchData() {
-        try {
-            if (typeof window !== 'undefined' &&
-                window.location.pathname !== '/auth/login' &&
-                window.location.pathname !== '/signup-form' &&
-                window.location.pathname !== '/car-start' &&
-                window.location.pathname !== '/chat-qna') {
-                showFooter = true;
-            }
-        } catch (error) {
-            console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
-        }
-    }
+	let showFooter = true;
 
-    // 클라이언트 측에서만 fetchData 함수를 호출하여 데이터를 가져옴
-        fetchData();
+	onMount(() => {
+		// 현재 페이지 경로를 확인하고 showFooter 값을 조절합니다.
+		const currentPath = window.location.pathname;
+
+		// '/car-start' 또는 '/auth/login' 페이지에서는 Footer를 숨깁니다.
+		if (currentPath === '/car-start' || currentPath === '/auth/login' || currentPath === '/signup-form-email'
+				|| currentPath === '/signup-form' || currentPath === '/chat-qna' || currentPath === '/password-search'
+				|| currentPath === '/login-search') {
+			showFooter = false;
+		} else {
+			showFooter = true;
+		}
+	});
 </script>
-
 
 {#if showFooter}
     <div class="app mx-auto relative min-h-screen pb-14">
@@ -30,9 +28,9 @@
         </main>
     </div>
 {:else}
-    <div class="app mx-auto relative min-h-screen pb-20">
-        <main>
-            <slot/>
-        </main>
-    </div>
+	<div class="app mx-auto relative min-h-screen pb-20">
+		<main>
+			<slot />
+		</main>
+	</div>
 {/if}
