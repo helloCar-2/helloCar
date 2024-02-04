@@ -11,7 +11,7 @@
 
 		// '/car-start' 또는 '/auth/login' 페이지에서는 Footer를 숨깁니다.
 		if (currentPath === '/car-start' || currentPath === '/auth/login' || currentPath === '/signup-form-email'
-				|| currentPath === '/signup-form' || currentPath === '/chat-qna' || currentPath === '/password-search'
+				|| currentPath === '/signup-form' || currentPath === '/password-search'
 				|| currentPath === '/login-search') {
 			showFooter = false;
 		} else {

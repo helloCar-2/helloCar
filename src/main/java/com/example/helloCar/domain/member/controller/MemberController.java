@@ -99,7 +99,6 @@ public class MemberController {
     @GetMapping(value = "/my-page", consumes = ALL_VALUE)
     public RsData<MeResponse> mypage(HttpServletRequest request) {
         String token = tokenController.extractTokenFromHeader(request);
-
         String username = jwtProvider.getUsername(token);
 
         if (username == null) {

@@ -1,5 +1,6 @@
 package com.example.helloCar;
 
+
 import com.example.helloCar.domain.area.repository.AreaRepository;
 import com.example.helloCar.domain.hellocar.entity.HelloCar;
 import com.example.helloCar.domain.hellocar.service.HelloCarService;
@@ -20,6 +21,47 @@ class HelloCarApplicationTests {
     private MemberRepository memberRepository;
     @Autowired
     private AreaRepository areaRepository;
+
+
+//    @Test
+//    public void test1() {
+//        Area area = this.areaRepository.findById(1L).get(); //헬리스
+//        Member member = this.memberRepository.findById(1L).get(); // admin
+//        HelloCar helloCar1 = this.helloCarService.findById(1L);
+//        HelloCar helloCar2 = this.helloCarService.findById(2L);
+//        HelloCar helloCar3 = this.helloCarService.findById(3L);
+//
+//
+//
+//        TestDrive test1 = TestDrive.builder()
+//                .car(helloCar1)
+//                .date(LocalDate.now())
+//                .member(member)
+//                .area(area)
+//                .time("14:00")
+//                .build();
+//        this.testDriveRepository.save(test1);
+//
+//        TestDrive test2 = TestDrive.builder()
+//                .car(helloCar2)
+//                .date(LocalDate.now())
+//                .member(member)
+//                .area(area)
+//                .time("14:00")
+//                .build();
+//        this.testDriveRepository.save(test2);
+//
+//        TestDrive test3 = TestDrive.builder()
+//                .car(helloCar3)
+//                .date(LocalDate.now())
+//                .member(member)
+//                .area(area)
+//                .time("14:00")
+//                .build();
+//        this.testDriveRepository.save(test3);
+//    }
+
+
 
 
     @Test

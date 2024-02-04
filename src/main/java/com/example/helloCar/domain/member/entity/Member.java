@@ -2,20 +2,20 @@ package com.example.helloCar.domain.member.entity;
 
 import com.example.helloCar.domain.global.baseentity.BaseEntity;
 import com.example.helloCar.domain.hellocar.entity.HelloCar;
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Entity
 @NoArgsConstructor
@@ -23,7 +23,7 @@ import java.util.Map;
 @SuperBuilder
 @Getter
 @Setter
-@EntityListeners(AuditingEntityListener.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class Member extends BaseEntity {
 
     private String name;
@@ -34,12 +34,8 @@ public class Member extends BaseEntity {
     @Column(unique = true)
     private String email;
 
-    @ManyToMany
-    private List<HelloCar> helloCars;
-
-
-
-
+    @OneToMany
+    Set<HelloCar> helloCars;
 
     // 현재 회원이 가지고 있는 권한들을 List<GrantedAuthority> 형태로 리턴
     public Collection<? extends GrantedAuthority> getAuthorities() {
