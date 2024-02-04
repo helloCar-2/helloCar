@@ -1,5 +1,3 @@
-//
-// console.log(66)
 // export async function load({fetch, params}) {
 //     console.log(77)
 //

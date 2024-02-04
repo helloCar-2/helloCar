@@ -1,7 +1,5 @@
 <script>
-
     import api from "$lib/axiosEnterceptor/api.js";
-
     import {
         Button,
         Checkbox, List,
@@ -15,53 +13,48 @@
 
     let result = [];
 
-    if (typeof window !== 'undefined') {
-        const accessToken = localStorage.getItem('accessToken');
-        const res = api.post(`/hellocar/wishLists`, {
-            // 요청 본문 데이터
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`,
-            }
-        })
-            .catch(function (error) {
-                console.log('error :', error);
-            });
+    async function action() {
+        if (typeof window !== 'undefined') {
+            const accessToken = localStorage.getItem('accessToken');
+            try {
+                const res = await api.post(`/hellocar/wishLists`, {
+                    // 요청 본문 데이터
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
+                    }
+                });
 
-        console.log(res)
-        const getData = async () => {
-            res.then((res) => {
-                //car라는 항목에 isFavorite: false 속성을 추가(...car: 객체나 배열의 내용을 펼쳐서 가져오는 역할)
-                result = res.data.helloCarList.map(car => ({...car, isFavorite: true}));
-                console.log(result)
-                toggleFavorite(result);
-            });
-        };
-        getData();
+                // car라는 항목에 isFavorite: false 속성을 추가
+                result = res.data.helloCarList.map((car) => ({ ...car, isFavorite: true }));
+            } catch (error) {
+                console.log('error :', error);
+            }
+        }
     }
 
-    async function toggleFavorite(id) {
-        console.log(id);
+
+    action();
+    async function toggleFavorite(carId) {
+        console.log(carId);
 
         if (typeof window !== 'undefined') {
             const accessToken = localStorage.getItem('accessToken');
 
             try {
-                // DELETE 요청에는 body가 필요하지 않음
-                const deleteResponse = await api.delete(`/hellocar/deletWishList/${id}`, {
+                const deleteResponse = api.delete(`/hellocar/delete/${carId}`, {
                     headers: {
-                        'Content-Type': 'application/json',
                         'Authorization': `Bearer ${accessToken}`,
                     },
                 });
+                if (deleteResponse) {
+                    // console.log('삭제 성공',deleteResponse);
+                    console.log(deleteResponse)
 
-                if (deleteResponse.status === 200) {
-                    // DELETE 요청이 성공한 경우
-                    console.log('삭제 성공');
+                    await action();
                 } else {
-                    // DELETE 요청이 실패한 경우
-                    console.error('삭제 실패:', deleteResponse.statusText);
+                    console.error('삭제 실패:', result.resultMsg);
                 }
             } catch (error) {
                 console.error('삭제 요청 오류:', error);

@@ -1,15 +1,12 @@
 <script>
     import api from "$lib/axiosEnterceptor/api.js";
     import {onMount} from 'svelte';
-
-
     import {Button} from 'flowbite-svelte';
     import {page} from '$app/stores';
 
     let data = [];
 
     let isFavorite = false;
-    // console.log(data.data.isChecked)
 
     var carId = parseInt($page.url.pathname.split('/').pop(), 10);
 
@@ -17,7 +14,8 @@
         if (typeof window !== 'undefined') {
             const accessToken = localStorage.getItem('accessToken');
 
-            let res = await fetch(`http://localhost:8080/api/v1/hellocar/${carId}`, {
+            let res =
+                await fetch(`http://localhost:8080/api/v1/hellocar/${carId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +25,8 @@
 
             let result = await res.json();
             isFavorite = result.data.ischecked
-            data = result.data.helloCar
+            data = result.data.result
+            console.log(result.data.result)
         }
     })
 
@@ -35,14 +34,14 @@
         window.location.href = '/model-search';
     }
 
-
     // 찜
-    async function toggleFavorite() {
+    function toggleFavorite() {
         isFavorite = !isFavorite;
 
+        console.log(carId)
         if (typeof window !== 'undefined') {
             const accessToken = localStorage.getItem('accessToken');
-            const username = api.post(`/wishList/${Number(data.id)}`, {
+            const username = api.post(`/hellocar/${carId}`, {
                 // 요청 본문 데이터
             }, {
                 headers: {
@@ -56,42 +55,7 @@
 
             console.log(username)
         }
-
     }
-    // const dataToSend = {
-    //     carId: Number(data.id),
-    //     isFavorite: isFavorite,
-    //     // memberId: data.data.members.memberId
-    // };
-    // console.log(dataToSend)
-
-    //
-    // try {
-    //     const response = await fetch(`http://localhost:8080/api/v1/member/like/${dataToSend.carId}`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(dataToSend),
-    //     });
-    //
-    //     if (response.ok) {
-    //         const data = await response.json();
-    //         //memberId 추출
-    //         const memberId = data.data.member.id;
-    //         console.log(memberId)
-    //         if (data.resultCode === 'S-9') {
-    //             const responseData = await response.json();
-    //             console.log(responseData);
-    //         } else {
-    //             console.error('서버 응답 오류:', response.statusText);
-    //         }
-    //     }
-    // } catch
-    //     (error) {
-    //     console.error('API 요청 실패:', error);
-    //
-    // }
 </script>
 
 
@@ -182,7 +146,7 @@
             <div class="w-full flex bottom-20 mx-auto mt-8 mb-6 justify-evenly">
                 <Button class="w-2/5" color="light" pill on:click={() => { searchPage(); }}>다른 모델 검색하기</Button>
                 <!-- isFavorite 상태에 따라 아이콘 변경 -->
-                <Button class="bg-[#f3651f] w-2/5" on:click={() => { toggleFavorite(); }} pill>
+                <Button class="bg-[#f3651f] w-2/5" on:click={toggleFavorite}>
                     {#if isFavorite}
                         <!-- 찜한 상태일 때 -->
                         찜하기 완료

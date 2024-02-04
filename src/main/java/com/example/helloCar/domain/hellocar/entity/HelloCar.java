@@ -47,17 +47,17 @@ public class HelloCar extends BaseEntity {
     private String fuel;
 
     @ManyToMany
-    private Set<Member> members;
+    Set<Member> members;
 
     //위시리스트
-//    public boolean checkedHeartClickMember(String username) {
-//        for (Member m : members) {
-//            if (username.equals(m.getUsername())) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public boolean checkedHeartClickMember(String username) {
+        for (Member m : members) {
+            if (username.equals(m.getUsername())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 

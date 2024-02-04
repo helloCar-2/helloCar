@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -106,9 +107,34 @@ public class HelloCarController {
 
     @AllArgsConstructor
     @Getter
-    public static class detailResponse {
-        private final HelloCar helloCar;
+    public static class selectResponses {
         private final boolean ischecked;
+    }
+
+    @PostMapping(value = "/{id}")
+    public RsData<selectResponses> toggleFavorite(@PathVariable("id") Long carId, HttpServletRequest request) {
+        String token = tokenController.extractTokenFromHeader(request);
+        String username = jwtProvider.getUsername(token);
+        Member member = this.memberService.findByUsername(username).get();
+        boolean isLiked = this.helloCarService.toggleHeart(carId, member);
+
+
+        if (member == null) {
+            // 사용자가 인증되지 않은 경우 처리
+            return RsData.of("E-1", "사용자가 인증되지 않았습니다.", null);
+        }
+        return RsData.of(
+                "S-2",
+                "성공",
+                new selectResponses(isLiked)
+        );
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class detailResponse {
+        private final boolean ischecked;
+        private final HelloCar result;
     }
 
     @GetMapping("/{id}")
@@ -120,7 +146,7 @@ public class HelloCarController {
         HelloCar result = this.helloCarService.findById(id);
         boolean ischecked = result.getMembers().contains(member);
 
-        return RsData.of("S-8", "성공", new detailResponse(result, ischecked));
+        return RsData.of("S-8", "성공", new detailResponse(ischecked, result));
     }
 
     @AllArgsConstructor
@@ -129,7 +155,6 @@ public class HelloCarController {
         private final List<HelloCar> helloCarList;
 //        private final boolean ischecked;
     }
-
 
     @PostMapping(value = "/wishLists", consumes = APPLICATION_JSON_VALUE)
     public RsData<WishListResponse> wishList(HttpServletRequest request) {
@@ -147,17 +172,21 @@ public class HelloCarController {
         return RsData.of("S-9", "성공", new WishListResponse(wishList));
     }
 
-    @DeleteMapping(value = "/deletWishList/{id}", consumes = APPLICATION_JSON_VALUE)
-    public RsData<WishListResponse> delete(@PathVariable(value = "id") Long carId, HttpServletRequest request) {
+    @DeleteMapping(value = "/delete/{carId}", consumes = MediaType.ALL_VALUE)
+    public RsData<WishListResponse> delete(@PathVariable("carId") Long carId, HttpServletRequest request) {
         String token = tokenController.extractTokenFromHeader(request);
         String username = jwtProvider.getUsername(token);
         Member member = this.memberService.findByUsername(username).orElse(null);
+        this.helloCarService.toggleHeart(carId, member);
 
         HelloCar result = this.helloCarService.findById(carId);
 
-        member.getHelloCars().remove(result);
-        List<HelloCar> wishList = new ArrayList<>(member.getHelloCars());
-        return RsData.of("S-11", "찜 삭제 성공", new WishListResponse(wishList));
+        if (result != null) {
+            List<HelloCar> wishList = new ArrayList<>(member.getHelloCars());
+            return RsData.of("S-11", "찜 삭제 성공", new WishListResponse(wishList));
+        } else {
+            return RsData.of("E-11", "해당 차량을 찾을 수 없습니다.", null);
+        }
     }
 }
 
