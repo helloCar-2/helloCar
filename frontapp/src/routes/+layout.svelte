@@ -2,8 +2,6 @@
 	import Footer from './footer/footer.svelte';
 	import '../app.css';
 	import { onMount } from 'svelte';
-	import { Alert } from 'flowbite-svelte';
-	import { AccordionItem, Accordion } from 'flowbite-svelte';
 
 	let showFooter = true;
 
@@ -21,7 +19,6 @@
 		}
 	});
 </script>
-
 
 {#if showFooter}
     <div class="app mx-auto relative min-h-screen pb-14">

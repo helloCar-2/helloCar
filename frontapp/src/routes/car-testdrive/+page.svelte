@@ -14,6 +14,21 @@
     import api from "$lib/axiosEnterceptor/api.js";
 
 
+    if (typeof window !== 'undefined') {
+        const accessToken = localStorage.getItem('accessToken');
+        api.post('/verify-token', {
+            // 요청 본문 데이터
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        })
+            .catch(function (error) {
+                console.log('진짜냐 :',error);
+            });
+    }
+
     let isChecked = false;
     let isChecked2 = false;
     let isOpen = false;
