@@ -44,16 +44,15 @@
             const accessToken = localStorage.getItem('accessToken');
 
             try {
-                const deleteResponse = api.delete(`/hellocar/delete/${carId}`, {
+                const deleteResponse = await api.delete(`/hellocar/delete/${carId}`, {
                     headers: {
                         'Authorization': `Bearer ${accessToken}`,
                     },
                 });
                 if (deleteResponse) {
                     // console.log('삭제 성공',deleteResponse);
-                    console.log(deleteResponse)
-
-                    await action();
+                    result = deleteResponse.data.helloCarList.map((car) => ({...car}));
+                    console.log(result)
                 } else {
                     console.error('삭제 실패:', result.resultMsg);
                 }
@@ -90,16 +89,14 @@
                 <TableBodyCell class="text-center">{car.minPrice} ~ {car.maxPrice} 만원</TableBodyCell>
                 <TableBodyCell class="relative">
                     <Button class="mx-auto" on:click={() => { toggleFavorite(car.id); }} pill>
-                        {#if car.isFavorite}
+
                             <!-- 찜한 상태일 때 -->
                             찜하기 취소
                             <svg class="ml-2 w-6 h-6 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                  fill="currentColor" viewBox="0 0 24 24">
                                 <path d="m12.7 20.7 6.2-7.1c2.7-3 2.6-6.5.8-8.7A5 5 0 0 0 16 3c-1.3 0-2.7.4-4 1.4A6.3 6.3 0 0 0 8 3a5 5 0 0 0-3.7 1.9c-1.8 2.2-2 5.8.8 8.7l6.2 7a1 1 0 0 0 1.4 0Z"/>
                             </svg>
-                        {:else}
-                            <span>찜</span>
-                        {/if}
+
                     </Button>
                 </TableBodyCell>
             </TableBodyRow>
