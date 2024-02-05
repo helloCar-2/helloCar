@@ -182,7 +182,10 @@ public class HelloCarController {
         HelloCar result = this.helloCarService.findById(carId);
 
         if (result != null) {
-            List<HelloCar> wishList = new ArrayList<>(member.getHelloCars());
+            List<HelloCar> wishList = new ArrayList<>();
+            for (HelloCar car : member.getHelloCars()) {
+                wishList.add(car);
+            }
             return RsData.of("S-11", "찜 삭제 성공", new WishListResponse(wishList));
         } else {
             return RsData.of("E-11", "해당 차량을 찾을 수 없습니다.", null);

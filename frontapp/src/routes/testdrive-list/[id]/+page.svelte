@@ -1,7 +1,7 @@
 <script>
 	export let data;
 </script>
-
+<!-- 
 <div class="w-10/12 m-auto">
 	<img src="../img/logo1.png" class="h-16 w-26 object-cover mx-auto my-6" />
 	<span class="font-bold block text-center text-4xl text-gray-800 mb-10">시승 신청내역</span>
@@ -64,4 +64,4 @@
 			</table>
 		</div>
 	</div>
-</div>
+</div> -->
