@@ -4,10 +4,12 @@ import com.example.helloCar.domain.global.jwt.JwtProvider;
 import com.example.helloCar.domain.hellocar.repository.HelloCarRepository;
 import com.example.helloCar.domain.member.entity.Member;
 import com.example.helloCar.domain.member.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -59,7 +61,8 @@ public class MemberService {
     public Optional<Member> findByUsername(String username) {
         return memberRepository.findByUsername(username);
     }
-    public Member findById(Long id){
+
+    public Member findById(Long id) {
         return this.memberRepository.findById(id).get();
     }
 
@@ -96,13 +99,13 @@ public class MemberService {
     }
 
     public Member findByNameAndEmail(String name, String email) {
-        Optional<Member> result = this.memberRepository.findByNameAndEmail(name,email);
+        Optional<Member> result = this.memberRepository.findByNameAndEmail(name, email);
 
         return result.orElse(null);
     }
 
     public Member findByNameAndEmailAndUsername(String name, String email, String username) {
-        Optional<Member> result = this.memberRepository.findByNameAndEmailAndUsername(name,email,username);
+        Optional<Member> result = this.memberRepository.findByNameAndEmailAndUsername(name, email, username);
         return result.orElse(null);
     }
 
@@ -117,5 +120,26 @@ public class MemberService {
                 .build();
 
         this.memberRepository.save(PWmodifyMember);
+    }
+
+    //소셜 로그인
+//    @Transactional
+//    public Member whenSocialLogin(String providerTypeCode, String name, String username) {
+//        Optional<Member> os = this.memberRepository.findByUsername(username);
+//        if (os.isPresent()) return os.get();
+//        String email, String name, String password, String username
+//        MultipartFile profileImage, String username, String name, String password,
+//                String email, String area, String level, LocalDate birthdate,Team team, int rating);
+//        return join(); // 최초 로그인 시 딱 한번 실행
+//
+//    }
+
+    //소셜 로그인
+    @Transactional
+    public Member whenSocialLogin(String providerTypeCode, String name, String username) {
+        Optional<Member> os = this.memberRepository.findByUsername(username);
+        if (os.isPresent()) return os.get();
+
+        return join(null, name, "", null); // 최초 로그인 시 딱 한번 실행
     }
 }

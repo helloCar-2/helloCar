@@ -15,7 +15,7 @@
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch('http://localhost:8080/hellocar/create', {
+            const response = await fetch('http://localhost:8080/api/v1/hellocar/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
