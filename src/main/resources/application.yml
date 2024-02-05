@@ -1,4 +1,22 @@
 spring:
+  profiles:
+    active: dev
+    include: secret
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            scope:
+            client-name: Kakao
+            authorization-grant-type: authorization_code
+            redirect-uri: 'http://localhost:5173/oauth/callback/kakao'
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
   mail:
     host: smtp.gmail.com
     port: 587
@@ -13,7 +31,3 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
-  profiles:
-    active: dev  # 기본적으로는 application-dev.yml 이 로딩된다는 의미
-    include: secret # active 되는 설정파일 (application-dev.yml) 다음에 application-secret.yml 이 로딩된다는 의미
-
