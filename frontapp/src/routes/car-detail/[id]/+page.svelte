@@ -5,9 +5,10 @@
     import {page} from '$app/stores';
 
     let data = [];
-
+    // let imagePath = data.board;
+    // console.log(imagePath)
     let isFavorite = false;
-
+    let imgfile ;
     var carId = parseInt($page.url.pathname.split('/').pop(), 10);
 
     onMount(async () => {
@@ -26,9 +27,13 @@
             let result = await res.json();
             isFavorite = result.data.ischecked
             data = result.data.result
-            console.log(result.data.result)
+            // console.log(data)
+            imgfile = data.board.storedFileName
+            // console.log(data.board.storedFileName)
+            // console.log(imgfile)
         }
     })
+
 
     function searchPage() {
         window.location.href = '/model-search';
@@ -67,7 +72,7 @@
 
     <div class="flex mx-auto">
         <div class="p-4 flex-grow" style="min-width:100%; max-width: 100%;">
-            <img src="/img/car3.png" class="mx-auto" alt="Apple Watch"/>
+            <img src="/img/{imgfile}" class="mx-auto" alt="Apple Watch"/>
         </div>
     </div>
     <div class="mt-12">

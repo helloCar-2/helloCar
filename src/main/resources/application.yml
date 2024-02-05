@@ -31,3 +31,5 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+myapp:
+  image-path: file:///Users/dev/Desktop/java/wines/src/main/resources/static/images/
