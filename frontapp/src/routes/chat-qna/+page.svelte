@@ -5,7 +5,7 @@
 
 <div class="container mx-auto w-5/6">
     <img src="../img/logo1.png" class="h-20 w-60 object-cover mx-auto my-6 object-cover mt-12">
-    <h5 class="text-4xl text-center my-8 font-bold">자주 묻는 질문</h5>
+    <h5 class="text-4xl text-center my-8 font-bold">자주 묻는 질문(FAQ)</h5>
 </div>
 
 <Accordion class="m-6">
@@ -44,6 +44,23 @@
                 <span slot="header">- 개인정보 보호 정책은 어떻게 되나요?</span>
                 <p class="mb-2 text-gray-500 dark:text-gray-400">
                     저희 홈페이지는 개인정보 보호를 위해 관련 법규를 준수하며, 개인정보 처리 방침을 공개하여 이용자의 개인정보를 안전하게 보호합니다.</p>
+            </AccordionItem>
+        </Accordion>
+    </AccordionItem>
+    <AccordionItem>
+        <span slot="header">3. 차량 관련 문의</span>
+        <Accordion>
+            <AccordionItem>
+                <span slot="header">- 앱에서 제공하는 정보 외에 추가로 알고 싶은 사항이 있을 경우 어떻게 문의할 수 있나요?</span>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">
+                    만약 앱에서 제공하는 정보 외에 추가로 알고싶은 사항이 있으시다면, 담당자에게 이메일을 보내거나, 유선 연결이 가능하며
+                    <br>자주 묻는 질문(FAQ) 섹션을 통해 일반적인 질문에 대한 답변을 빠르게 찾아보실 수도 있습니다.
+                </p>
+            </AccordionItem>
+            <AccordionItem>
+                <span slot="header">- 시승 체험 후 실제로 구매할 수 있는 방법은 무엇인가요?</span>
+                <p class="mb-2 text-gray-500 dark:text-gray-400">
+                    저희 홈페이지는 구매에 대한 기능은 제공되지 않습니다.</p>
             </AccordionItem>
         </Accordion>
     </AccordionItem>
