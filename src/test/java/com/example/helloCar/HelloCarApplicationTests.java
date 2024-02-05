@@ -1,7 +1,4 @@
 package com.example.helloCar;
-
-
-import com.example.helloCar.domain.area.repository.AreaRepository;
 import com.example.helloCar.domain.hellocar.entity.HelloCar;
 import com.example.helloCar.domain.hellocar.service.HelloCarService;
 import com.example.helloCar.domain.member.repository.MemberRepository;
@@ -19,9 +16,6 @@ class HelloCarApplicationTests {
     private HelloCarService helloCarService;
     @Autowired
     private MemberRepository memberRepository;
-    @Autowired
-    private AreaRepository areaRepository;
-
 
 //    @Test
 //    public void test1() {

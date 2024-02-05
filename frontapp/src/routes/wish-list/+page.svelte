@@ -33,8 +33,6 @@
             }
         }
     }
-
-
     action();
 
     async function toggleFavorite(carId) {
@@ -70,29 +68,26 @@
 <!--{/each}-->
 <Table>
     <TableHead>
-        <TableHeadCell>선택</TableHeadCell>
+        <TableHeadCell class="text-center">번호</TableHeadCell>
         <TableHeadCell class="text-center">차량 이미지</TableHeadCell>
         <TableHeadCell class="text-center">차량 이름</TableHeadCell>
         <TableHeadCell class="text-center">차량 가격</TableHeadCell>
         <TableHeadCell class="text-center">찜</TableHeadCell>
     </TableHead>
     <TableBody class="divide-y">
-        {#each result as car (car.id)}
+        {#each result as car ,index(car.id)}
             <TableBodyRow>
-                <TableBodyCell>
-                    <Checkbox checked>
-                    </Checkbox>
+                <TableBodyCell class="text-center">{index + 1}
                 </TableBodyCell>
                 <TableBodyCell><img src="/img/car3.png" class="w-16 md:w-32 max-w-full max-h-full mx-auto" alt=""/>
                 </TableBodyCell>
                 <TableBodyCell class="text-center">{car.carname}</TableBodyCell>
                 <TableBodyCell class="text-center">{car.minPrice} ~ {car.maxPrice} 만원</TableBodyCell>
                 <TableBodyCell class="relative">
-                    <Button class="mx-auto" on:click={() => { toggleFavorite(car.id); }} pill>
-
+                    <Button class="w-full mx-auto" on:click={() => { toggleFavorite(car.id); }} pill>
                             <!-- 찜한 상태일 때 -->
-                            찜하기 취소
-                            <svg class="ml-2 w-6 h-6 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+
+                            <svg class=" w-6 h-6 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                  fill="currentColor" viewBox="0 0 24 24">
                                 <path d="m12.7 20.7 6.2-7.1c2.7-3 2.6-6.5.8-8.7A5 5 0 0 0 16 3c-1.3 0-2.7.4-4 1.4A6.3 6.3 0 0 0 8 3a5 5 0 0 0-3.7 1.9c-1.8 2.2-2 5.8.8 8.7l6.2 7a1 1 0 0 0 1.4 0Z"/>
                             </svg>
