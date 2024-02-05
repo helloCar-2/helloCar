@@ -121,4 +121,20 @@ public class TestDriveController {
                 new MemberResponse(testDrive)
         );
     }
+
+    @AllArgsConstructor
+    @Getter
+    public static class getTestDrive {
+        private final List<TestDrive> testDrive;
+    }
+    @GetMapping(value = "/getlist")
+    public RsData<getTestDrive> getTestDrive(){
+
+        List<TestDrive> testDrives = testDriveService.findAll();
+
+        return RsData.of(
+                "s-1",
+                "성공",
+                new getTestDrive(testDrives));
+    }
 }
