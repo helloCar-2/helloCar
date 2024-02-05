@@ -15,8 +15,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 
@@ -225,13 +233,48 @@ public class MemberController {
 
     @PostMapping(value = "/pwSearch", consumes = ALL_VALUE)
     public RsData<UserSearchResponse> PWSearch(@Valid @RequestBody SearchIdValue searchIdValue) {
-        Member username = memberService.findByNameAndEmailAndUsername(searchIdValue.getName(), searchIdValue.getEmail(),searchIdValue.getUsername());
+        Member username = memberService.findByNameAndEmailAndUsername(searchIdValue.getName(), searchIdValue.getEmail(), searchIdValue.getUsername());
         if (username != null) {
             String PW = this.emailService.PWSearch(searchIdValue.getEmail());
-            this.memberService.PWmodify(username,PW);
+            this.memberService.PWmodify(username, PW);
             return RsData.of("S-8", "성공", new UserSearchResponse("등록된 이메일로 임시 비밀번호를 전송했습니다."));
         } else {
             return RsData.of("S-9", "실패", new UserSearchResponse("해당 회원정보가 없습니다."));
         }
+    }
+
+    @Data
+    public static class CodeDTO {
+        private String code;
+    }
+
+
+    @Value("${spring.security.oauth2.client.registration.kakao.clientId}")
+    private String kakaoClientId;
+
+    @Value("${spring.security.oauth2.client.registration.kakao.client-secret}")
+    private String kakaoClientSecret;
+    @PostMapping(value = "/token", consumes = ALL_VALUE)
+    public String getToken(@RequestBody CodeDTO codeDTO) {
+
+
+
+
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.add("grant_type", "authorization_code");
+        params.add("client_id", kakaoClientId);
+        params.add("redirect_uri", "http://localhost:5173/oauth/callback/kakao");
+        params.add("client_secret", kakaoClientSecret);
+        params.add("code", codeDTO.getCode());
+        System.out.println("client_id: " + kakaoClientId);
+        System.out.println("redirect_uri: " + "http://localhost:5173/oauth/callback/kakao");
+        System.out.println("code: " + codeDTO.getCode());
+        System.out.println("client_secret: " + kakaoClientSecret);
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(params, headers);
+        ResponseEntity<String> response = restTemplate.exchange("https://kauth.kakao.com/oauth/token", HttpMethod.POST, request, String.class);
+        return response.getBody();
     }
 }
