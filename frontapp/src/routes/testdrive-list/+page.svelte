@@ -1,14 +1,14 @@
 <script>
 	import api from '$lib/axiosEnterceptor/api.js';
 
-	let result =[];
+	let result = [];
 
 	if (typeof window !== 'undefined') {
 		const accessToken = localStorage.getItem('accessToken');
-
+		console.log(accessToken);
 		let res = api
 			.get(
-				'/testdrives',
+				'/testdrive',
 				{
 					// 요청 본문 데이터
 				},
@@ -26,6 +26,7 @@
 		const getData = () => {
 			res.then((res) => {
 				result = res.data.testDrives;
+				console.log(result);
 			});
 		};
 
@@ -41,17 +42,22 @@
 		<table class="w-full text-sm text-left text-gray-500">
 			<thead class="text-xs text-gray-700 uppercase bg-gray-50">
 				<tr>
-					<th scope="col" class="px-10 py-3">
+					<!-- <th scope="col" class="px-10 py-3">
 						<span class="sr-only"></span>
-					</th>
+					</th> -->
+					<th scope="col" class="px-6 py-3 text-center"> 번호 </th>
+					<th scope="col" class="px-6 py-3"> 사진 </th>
 					<th scope="col" class="px-6 py-3"> 차량이름 </th>
 					<th scope="col" class="px-6 py-3"> 시승날짜 / 시승장 </th>
 					<th scope="col" class="px-6 py-3"> 신청상태 </th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each result as testdrive}
+				{#each result as testdrive, index (testdrive.id)}
 					<tr class="bg-white border-b">
+						<td class="text-center">
+							{index + 1}
+						</td>
 						<td class="p-4">
 							<img
 								src="/img/car3.png"
@@ -60,12 +66,10 @@
 							/>
 						</td>
 						<td class="px-6 py-4 font-semibold text-gray-900">
-							<a href="/testdrive-list/{testdrive.id}">
-								{testdrive.car.carname}
-							</a>
+							{testdrive.car}
 						</td>
 						<td class="px-6 py-4 font-semibold text-gray-900">
-							{testdrive.date}/{testdrive.area.drivingLoungeName}
+							{testdrive.testDriveDate} / {testdrive.area}
 						</td>
 						<td class="px-6 py-4 font-semibold text-gray-900"> 신청 완료 </td>
 					</tr>

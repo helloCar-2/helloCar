@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.util.MimeTypeUtils.ALL_VALUE;
 
 @RestController
 @RequestMapping(value = "/api/v1/testdrive", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
@@ -37,7 +38,7 @@ public class TestDriveController {
     }
 
 
-    @GetMapping("")
+    @GetMapping(value = "", consumes = ALL_VALUE)
     public RsData<TestDrivesResponse> list(HttpServletRequest request, HttpServletResponse resp){
         String token = tokenController.extractTokenFromHeader(request);
         String username = jwtProvider.getUsername(token);
@@ -120,5 +121,21 @@ public class TestDriveController {
                 "성공",
                 new MemberResponse(testDrive)
         );
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public static class getTestDrive {
+        private final List<TestDrive> testDrive;
+    }
+    @GetMapping(value = "/getlist")
+    public RsData<getTestDrive> getTestDrive(){
+
+        List<TestDrive> testDrives = testDriveService.findAll();
+
+        return RsData.of(
+                "s-1",
+                "성공",
+                new getTestDrive(testDrives));
     }
 }

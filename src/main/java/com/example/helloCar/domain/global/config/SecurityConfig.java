@@ -27,14 +27,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         authorizeHttpRequests -> authorizeHttpRequests
                                 .requestMatchers("/**").permitAll() // 로그인은 누구나 가능
-//                                .requestMatchers("/api/v1/member/check-username").permitAll()
-//                                .requestMatchers("/api/v1/member/check-email").permitAll()
-//                                .requestMatchers("/api/v1/member/create").permitAll()
-//                                .requestMatchers("/api/v1/member/create").permitAll()
-//                                .requestMatchers("/api/v1/member/my-page").permitAll()
                                 .anyRequest().authenticated() // 나머지는 인증된 사용자만 가능
                         // 나머지는 인증된 사용자만 가능
 
+                )
+                .oauth2Login(
+                        oauth2Login -> oauth2Login
+                                .loginPage("/api/v1/member/login")
                 )
                 .cors(cors -> cors.configure(http)) // 타 도메인에서 API 호출 가능
                 .csrf(csrf -> csrf.disable()) // CSRF 토큰 끄기

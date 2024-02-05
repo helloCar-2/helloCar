@@ -40,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@svkakao/svelte-kakao-login": "^1.0.1",
 		"axios": "^1.6.7",
 		"bcrypt": "^5.1.1",
 		"cookie": "^0.6.0",

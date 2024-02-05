@@ -1,5 +1,6 @@
 <script>
     import {AccordionItem, Accordion} from 'flowbite-svelte';
+
 </script>
 
 
@@ -26,7 +27,7 @@
                 <span slot="header">- 시승 장소와 시간은 어떻게 정해지나요?</span>
                 <p class="mb-2 text-gray-500 dark:text-gray-400">
                     저희 앱 홈에서 시승 신청 버튼을 누르면 시승 신청이 가능합니다.</p>
-                <li><a href="/car-testdrive" rel="noreferrer" target="_blank"
+                <li><a href="/car-testdrive" rel="noreferrer" target="_self"
                        class="text-blue-600 dark:text-blue-500 hover:underline">시승 신청하러 가기 ⇢</a></li>
             </AccordionItem>
         </Accordion>
