@@ -1,18 +1,19 @@
+import dotenv from 'dotenv';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: [vitePreprocess({})],
+dotenv.config();
 
-	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
-	}
+const config = {
+  preprocess: [vitePreprocess({})],
+
+  kit: {
+    adapter: adapter(),
+  },
+
+  env: {
+    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KAKAO_CLIENT_ID: "0db93a1c1e0a9813a3d10461ca9a40d2",
+  },
 };
 
 export default config;
