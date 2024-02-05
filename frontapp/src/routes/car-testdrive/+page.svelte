@@ -25,7 +25,7 @@
             }
         })
             .catch(function (error) {
-                console.log('진짜냐 :',error);
+                console.log('진짜냐 :', error);
             });
     }
 
@@ -110,16 +110,47 @@
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${accessToken}`,
                     }
+
                 }).then(response => {
                     console.log(response.data); // 서버 응답 로그
                 }).catch(error => {
                     console.error('Error:', error); // 에러 처리
                 });
             }
-            window.location.href = '/car-home'
+
+            // window.location.href = '/car-home'
             console.log(formData);
         }
     }
+
+    let testDriveListDate = {
+        brand: '',
+        carName: '',
+        area: '',
+        testDriveDate: '',
+        time: '',
+        hasCarAndYear: '',
+        testDriveQnA: '',
+    };
+
+
+    onMount(async () => {
+        try {
+            const response = await fetch('http://localhost:8080/api/v1/testdrive/getlist', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) {
+                throw new Error('실화냐아');
+            }
+            const testDriveList = await response.json();
+            console.log(testDriveList);
+        } catch (error) {
+            console.error('진짜냐아:', error);
+        }
+    });
 
     const buttons = [
         {id: 0, brand: ''},
@@ -182,7 +213,8 @@
         {brand: 'KG모빌리티', value: {carName: '코란도', url: '../img/korando.png'}},
         {brand: 'KG모빌리티', value: {carName: '렉스턴', url: '../img/rexton.png'}},
         {brand: 'KG모빌리티', value: {carName: '렉스턴 스포츠', url: '../img/rexton_sport.png'}},
-        {brand: 'KG모빌리티', value: {carName: '렉스턴 스포츠 칸', url: '../img/rexton_sport_khan.png'}
+        {
+            brand: 'KG모빌리티', value: {carName: '렉스턴 스포츠 칸', url: '../img/rexton_sport_khan.png'}
         }
     ];
 
@@ -650,7 +682,10 @@
         </AccordionItem>
         <AccordionItem>
             <div slot="header" class="flex items-center justify-between w-full" on:click={buttonClick3}>
-                <span>시승 일정</span>
+                <span class="flex">시승 일정
+                    {#if formData.testDriveDate != ''}
+						<div class="ml-4 text-[#f3651f]">{formData.testDriveDate}</div>
+					{/if}</span>
                 <span class="font-normal text-[#f3651f] mr-2 text-sm">시승 일정을 선택해주세요.</span>
             </div>
             <div class="relative max-w-sm">
@@ -668,13 +703,16 @@
         </AccordionItem>
         <AccordionItem>
             <div slot="header" class="flex items-center justify-between w-full" on:click={buttonClick4}>
-                <span>시승 시간</span>
+                <span class="flex">시승 시간
+                    {#if formData.time != ''}
+						<div class="ml-4 text-[#f3651f]">{formData.time}</div>
+					{/if}</span>
                 <span class="font-normal text-[#f3651f] mr-2 text-sm">시승 시간을 선택해주세요.</span>
             </div>
-            <Button outline color="dark" on:click={handleButtonClick}>11 : 00</Button>
-            <Button outline color="dark" on:click={handleButtonClick}>13 : 00</Button>
-            <Button outline color="dark" on:click={handleButtonClick}>14 : 00</Button>
-            <Button outline color="dark" on:click={handleButtonClick}>15 : 00</Button>
+                <Button outline color="dark" on:click={handleButtonClick}>11 : 00</Button>
+                <Button outline color="dark" on:click={handleButtonClick}>13 : 00</Button>
+                <Button outline color="dark" on:click={handleButtonClick}>14 : 00</Button>
+                <Button outline color="dark" on:click={handleButtonClick}>15 : 00</Button>
         </AccordionItem>
         <AccordionItem>
             <div slot="header" class="flex items-center justify-between w-full">
