@@ -243,38 +243,41 @@ public class MemberController {
         }
     }
 
+
     @Data
-    public static class CodeDTO {
-        private String code;
+    public static class KakaoLoginRequest {
+        @NotBlank
+        private String id;
+        @NotBlank
+        private String nickname;
     }
 
+    @PostMapping(value = "/kakaologin", consumes = APPLICATION_JSON_VALUE)
+    public RsData<loginresponse> KakaoLogin(@Valid @RequestBody KakaoLoginRequest kakaoLoginRequest, HttpServletResponse resp) {
+        String kakaoUserId = "KAKAO_"+kakaoLoginRequest.getId();
 
-    @Value("${spring.security.oauth2.client.registration.kakao.clientId}")
-    private String kakaoClientId;
+        Member searchKakaoUser = this.memberService.findByUsername(kakaoUserId).orElse(null);
+        String password = "nwegjlaejzdnklkh!$@#!@123sdafsadf";
 
-    @Value("${spring.security.oauth2.client.registration.kakao.client-secret}")
-    private String kakaoClientSecret;
-    @PostMapping(value = "/token", consumes = ALL_VALUE)
-    public String getToken(@RequestBody CodeDTO codeDTO) {
+        String accessToken = null;
+        String refreshToken = null;
+
+        if(searchKakaoUser != null){
+            accessToken = memberService.genAccessToken(kakaoUserId,password);
+            refreshToken = memberService.genRefreshToken(kakaoUserId,password);
+        }else {
+            Member kakaomember = memberService.join("",kakaoLoginRequest.getNickname(),password,kakaoUserId);
+            accessToken = memberService.genAccessToken(kakaoUserId,password);
+            refreshToken = memberService.genRefreshToken(kakaoUserId,password);
+        }
 
 
+        if (accessToken == null) {
+            return RsData.of("Invalid username or password", null);
+        }
+        resp.addHeader("Authentication", accessToken);
+        resp.addHeader("Authentication", refreshToken);
 
-
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("grant_type", "authorization_code");
-        params.add("client_id", kakaoClientId);
-        params.add("redirect_uri", "http://localhost:5173/oauth/callback/kakao");
-        params.add("client_secret", kakaoClientSecret);
-        params.add("code", codeDTO.getCode());
-        System.out.println("client_id: " + kakaoClientId);
-        System.out.println("redirect_uri: " + "http://localhost:5173/oauth/callback/kakao");
-        System.out.println("code: " + codeDTO.getCode());
-        System.out.println("client_secret: " + kakaoClientSecret);
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(params, headers);
-        ResponseEntity<String> response = restTemplate.exchange("https://kauth.kakao.com/oauth/token", HttpMethod.POST, request, String.class);
-        return response.getBody();
+        return RsData.of("S-10", "토큰이 생성되었습니다.", new loginresponse(accessToken, refreshToken));
     }
 }
