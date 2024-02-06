@@ -21,7 +21,6 @@
 			if (response.ok) {
 				const data = await response.json();
                 helloCars = data.data.helloCars;
-                console.log(helloCars[0].board.storedFileName)
 			} else {
 				console.error('서버 응답 오류:', response.statusText);
 			}

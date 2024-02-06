@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface TestDriveRepository extends JpaRepository<TestDrive, Long> {
 
-
+    List<TestDrive> findAll();
     List<TestDrive> findByMember(Member member);
 }
