@@ -27,29 +27,17 @@ public class Member extends BaseEntity {
 
     private String name;
     @Column(unique = true)
-    private String username; //김땡땡1ddfvcsf
+    private String username;
 
     private String password;
     @Column(unique = true)
-    private String email; //김땡땡@gmail.comfssfvcxdf
+    private String email;
 
     @ManyToMany
     Set<HelloCar> helloCars;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<TestDrive> testDrive;
-
-//
-//    @ManyToMany(cascade = CascadeType.REMOVE)
-//    @JoinTable(
-//    name="hello_car_members",
-//            joinColumns = @JoinColumn(name="member_id")
-//
-//
-//    )
-
-    @Setter
-    private boolean isOutAccount = false;
 
     // 현재 회원이 가지고 있는 권한들을 List<GrantedAuthority> 형태로 리턴
     public Collection<? extends GrantedAuthority> getAuthorities() {

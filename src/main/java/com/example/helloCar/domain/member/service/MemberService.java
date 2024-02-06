@@ -39,7 +39,7 @@ public class MemberService {
                     .id(member.getId())
                     .username(member.getUsername()+str)
                     .email(member.getEmail()+str)
-                    .isOutAccount(true)
+                    .name("탈퇴한 사용자")
                     .build();
 
             memberRepository.save(deleteMember);

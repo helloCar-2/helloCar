@@ -15,16 +15,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 
@@ -266,7 +258,7 @@ public class MemberController {
             accessToken = memberService.genAccessToken(kakaoUserId,password);
             refreshToken = memberService.genRefreshToken(kakaoUserId,password);
         }else {
-            Member kakaomember = memberService.join("",kakaoLoginRequest.getNickname(),password,kakaoUserId);
+            Member kakaomember = memberService.join(null,kakaoLoginRequest.getNickname(),password,kakaoUserId);
             accessToken = memberService.genAccessToken(kakaoUserId,password);
             refreshToken = memberService.genRefreshToken(kakaoUserId,password);
         }
