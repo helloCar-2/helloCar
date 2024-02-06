@@ -2,8 +2,10 @@ package com.example.helloCar.domain.member.entity;
 
 import com.example.helloCar.domain.global.baseentity.BaseEntity;
 import com.example.helloCar.domain.hellocar.entity.HelloCar;
+import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -34,8 +36,11 @@ public class Member extends BaseEntity {
     @Column(unique = true)
     private String email;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     Set<HelloCar> helloCars;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TestDrive> testDrive;
 
     // 현재 회원이 가지고 있는 권한들을 List<GrantedAuthority> 형태로 리턴
     public Collection<? extends GrantedAuthority> getAuthorities() {

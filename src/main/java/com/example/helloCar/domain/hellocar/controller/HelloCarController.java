@@ -1,5 +1,7 @@
 package com.example.helloCar.domain.hellocar.controller;
 
+import com.example.helloCar.domain.board.entity.Board;
+import com.example.helloCar.domain.board.service.BoardService;
 import com.example.helloCar.domain.global.jwt.JwtProvider;
 import com.example.helloCar.domain.global.rs.RsData;
 import com.example.helloCar.domain.global.tokenverify.TokenController;
@@ -8,14 +10,13 @@ import com.example.helloCar.domain.hellocar.service.HelloCarService;
 import com.example.helloCar.domain.member.entity.Member;
 import com.example.helloCar.domain.member.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,27 +32,28 @@ public class HelloCarController {
     private final MemberService memberService;
     private final TokenController tokenController;
     private final JwtProvider jwtProvider;
+    private final BoardService boardService;
 
-    @Data
-    public static class HelloCarRequest {
-        @NotBlank
-        private String carName;
-        private String img;
-        @NotBlank
-        private String brand;
-        @NotNull
-        private int maxPrice;
-        @NotNull
-        private int minPrice;
-        @NotNull
-        private int modelYear;
-        @NotBlank
-        private String vehicle;
-        @NotBlank
-        private String size;
-        @NotBlank
-        private String fuel;
-    }
+//    @Data
+//    public static class HelloCarRequest {
+//        @NotBlank
+//        private String carname;
+//        private String files;
+//        @NotBlank
+//        private String brand;
+//        @NotNull
+//        private int maxPrice;
+//        @NotNull
+//        private int minPrice;
+//        @NotNull
+//        private int modelYear;
+//        @NotBlank
+//        private String vehicle;
+//        @NotBlank
+//        private String size;
+//        @NotBlank
+//        private String fuel;
+//    }
 
     //등록
     @AllArgsConstructor
@@ -60,14 +62,27 @@ public class HelloCarController {
         private final HelloCar helloCar;
     }
 
-    @PostMapping(value = "/create", consumes = APPLICATION_JSON_VALUE)
-    public RsData<HellocarResponse> create(@RequestBody HelloCarRequest helloCarRequest) {
-        HelloCar helloCar = helloCarService.create(helloCarRequest.getCarName(), helloCarRequest.getImg(), helloCarRequest.getBrand(),
-                helloCarRequest.getMaxPrice(), helloCarRequest.getMinPrice(), helloCarRequest.getModelYear(), helloCarRequest.getVehicle(),
-                helloCarRequest.getSize(), helloCarRequest.getFuel());
+    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public RsData<HellocarResponse> create(@RequestParam("files") List<MultipartFile> files,
+                                           @RequestParam("carname") String carname,
+                                           @RequestParam("brand") String brand,
+                                           @RequestParam("maxPrice") int maxPrice,
+                                           @RequestParam("minPrice") int minPrice,
+                                           @RequestParam("modelYear") int modelYear,
+                                           @RequestParam("vehicle") String vehicle,
+                                           @RequestParam("size") String size,
+                                           @RequestParam("fuel") String fuel) throws Exception {
+        List<Board> boards = boardService.addBoard(files);
 
+        HelloCar helloCar = null;
+        for (Board board : boards) {
+            helloCar = helloCarService.create(carname, board, brand, maxPrice, minPrice, modelYear, vehicle, size, fuel);
+        }
         return RsData.of("S-5", "성공", new HellocarResponse(helloCar));
     }
+
+
+
 
 
     @AllArgsConstructor

@@ -1,9 +1,11 @@
 package com.example.helloCar.domain.hellocar.entity;
 
+import com.example.helloCar.domain.board.entity.Board;
 import com.example.helloCar.domain.global.baseentity.BaseEntity;
 import com.example.helloCar.domain.member.entity.Member;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,6 +50,9 @@ public class HelloCar extends BaseEntity {
 
     @ManyToMany
     Set<Member> members;
+
+    @OneToOne
+    private Board board;
 
     //위시리스트
     public boolean checkedHeartClickMember(String username) {

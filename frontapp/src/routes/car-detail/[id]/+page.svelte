@@ -5,9 +5,10 @@
     import {page} from '$app/stores';
 
     let data = [];
-
+    // let imagePath = data.board;
+    // console.log(imagePath)
     let isFavorite = false;
-
+    let imgfile ;
     var carId = parseInt($page.url.pathname.split('/').pop(), 10);
 
     onMount(async () => {
@@ -26,9 +27,13 @@
             let result = await res.json();
             isFavorite = result.data.ischecked
             data = result.data.result
-            console.log(result.data.result)
+            // console.log(data)
+            imgfile = data.board.storedFileName
+            // console.log(data.board.storedFileName)
+            // console.log(imgfile)
         }
     })
+
 
     function searchPage() {
         window.location.href = '/model-search';
@@ -67,7 +72,7 @@
 
     <div class="flex mx-auto">
         <div class="p-4 flex-grow" style="min-width:100%; max-width: 100%;">
-            <img src="/img/car3.png" class="mx-auto" alt="Apple Watch"/>
+            <img src="/img/{imgfile}" class="mx-auto" alt="Apple Watch"/>
         </div>
     </div>
     <div class="mt-12">
@@ -146,7 +151,7 @@
             <div class="w-full flex bottom-20 mx-auto mt-8 mb-6 justify-evenly">
                 <Button class="w-2/5" color="light" pill on:click={() => { searchPage(); }}>다른 모델 검색하기</Button>
                 <!-- isFavorite 상태에 따라 아이콘 변경 -->
-                <Button class="bg-[#f3651f] w-2/5" on:click={toggleFavorite}>
+                <Button class="bg-[#f3651f] w-2/5" pill on:click={toggleFavorite}>
                     {#if isFavorite}
                         <!-- 찜한 상태일 때 -->
                         찜하기 완료
