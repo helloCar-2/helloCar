@@ -36,5 +36,7 @@ spring:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
 myapp:
-  image-path: file:/Users/kimjoeun/java/중플2/hellocar/frontapp/static/img/
+  image-path: file:/Users/dev/Desktop/java/helloCar/frontapp/static/img/
+#  file:/Users/kimjoeun/java/중플2/hellocar/frontapp/static/img/ 조은
+#  file:/Users/dev/Desktop/java/helloCar/frontapp/static/img/ 경현
 
