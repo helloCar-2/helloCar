@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -26,7 +27,7 @@ public class TestDriveService {
     public TestDrive findById(Long id) {
         return this.testDriveRepository.findById(id).get();
     }
-    public TestDrive testDriveWrite(Member member, String helloCar, String area, String brand, String testDriveDate, String time, String hasCarAndYear, String testDriveQnA){
+    public TestDrive testDriveWrite(Member member, String helloCar, String area, String brand, String testDriveDate, String time, String hasCarAndYear, String testDriveQnA, Map<String, Boolean> buttonState){
         TestDrive testDrive = TestDrive.builder()
                 .member(member)
                 .car(helloCar)
@@ -36,6 +37,7 @@ public class TestDriveService {
                 .time(time)
                 .hasCarAndYear(hasCarAndYear)
                 .testDriveQnA(testDriveQnA)
+                .buttonState(buttonState)
                 .build();
 
         testDriveRepository.save(testDrive);
@@ -44,5 +46,9 @@ public class TestDriveService {
     }
     public List<TestDrive> findByUser(String username) {
         return this.testDriveRepository.findByMember(this.memberRepository.findByUsername(username).get());
+    }
+
+    public List<TestDrive> findByBrandAndCarNameAndArea(String brand, String carName, String area, String testDriveDate) {
+        return this.testDriveRepository.findByBrandAndCarAndAreaAndTestDriveDate(brand,carName,area,testDriveDate);
     }
 }

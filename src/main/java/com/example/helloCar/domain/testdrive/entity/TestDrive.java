@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Map;
+
 @Entity
 @Getter
 @AllArgsConstructor
@@ -41,4 +43,11 @@ public class TestDrive extends BaseEntity {
 
     // 기타 시승 관련 및 요청사항
     private String testDriveQnA;
+
+    // 버튼 값 활성화 여부
+    @ElementCollection
+    @CollectionTable(name = "testdrive_button_state", joinColumns = @JoinColumn(name = "testdrive_id"))
+    @MapKeyColumn(name = "button_time")
+    @Column(name = "state")
+    private Map<String, Boolean> buttonState;
 }

@@ -90,6 +90,8 @@ public class TestDriveController {
         private String hasCarAndYear;
 
         private String testDriveQnA;
+
+        private Map<String, Boolean> buttonState;
     }
 
     @AllArgsConstructor
@@ -119,7 +121,8 @@ public class TestDriveController {
                 testDriveWrite.getTestDriveDate(),
                 testDriveWrite.getTime(),
                 testDriveWrite.getHasCarAndYear(),
-                testDriveWrite.getTestDriveQnA()
+                testDriveWrite.getTestDriveQnA(),
+                testDriveWrite.getButtonState()
                 );
 
         return RsData.of(
@@ -129,15 +132,29 @@ public class TestDriveController {
         );
     }
 
+
+
+    @Data
+    public static class TimeData {
+
+        private String brand;
+
+        private String carName;
+
+        private String area;
+
+        private String testDriveDate;
+    }
+
     @AllArgsConstructor
     @Getter
     public static class getTestDrive {
         private final List<TestDrive> testDrive;
     }
-    @GetMapping(value = "/getlist")
-    public RsData<getTestDrive> getTestDrive(){
+    @PostMapping(value = "/getlist", consumes = ALL_VALUE)
+    public RsData<getTestDrive> getTestDrive(@RequestBody TimeData timeData){
 
-        List<TestDrive> testDrives = testDriveService.findAll();
+        List<TestDrive> testDrives = testDriveService.findByBrandAndCarNameAndArea(timeData.getBrand(),timeData.getCarName(),timeData.getArea(),timeData.getTestDriveDate());
 
         return RsData.of(
                 "s-1",
