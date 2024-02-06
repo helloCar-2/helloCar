@@ -151,7 +151,7 @@
             <div class="w-full flex bottom-20 mx-auto mt-8 mb-6 justify-evenly">
                 <Button class="w-2/5" color="light" pill on:click={() => { searchPage(); }}>다른 모델 검색하기</Button>
                 <!-- isFavorite 상태에 따라 아이콘 변경 -->
-                <Button class="bg-[#f3651f] w-2/5" on:click={toggleFavorite}>
+                <Button class="bg-[#f3651f] w-2/5" pill on:click={toggleFavorite}>
                     {#if isFavorite}
                         <!-- 찜한 상태일 때 -->
                         찜하기 완료

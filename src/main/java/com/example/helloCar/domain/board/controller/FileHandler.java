@@ -32,7 +32,7 @@ public class FileHandler {
 //        mac은 역슬래쉬 아님 슬래쉬 한개 / window 는 역슬래쉬 \\두개
 
         // 경로를 지정하고 그곳에다가 저장
-        String path = "src/main/resources/static/img/";
+        String path = "frontapp/static/img/";
 //        current_date 일단 생략
         File file = new File(path);
         // 저장할 위치의 디렉토리가 존지하지 않을 경우
