@@ -2,6 +2,7 @@ package com.example.helloCar.domain.testdrive.entity;
 
 import com.example.helloCar.domain.global.baseentity.BaseEntity;
 import com.example.helloCar.domain.member.entity.Member;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class TestDrive extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Member member;
     // 유저 id (유저정보)
 

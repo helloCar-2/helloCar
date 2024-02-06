@@ -50,7 +50,8 @@ public class HelloCarService {
     }
 
     public HelloCar findById(Long id) {
-        return this.helloCarRepository.findById(id).get();
+        Optional<HelloCar> helloCar = this.helloCarRepository.findById(id);
+        return helloCar.get();
     }
 
     public List<HelloCar> findByBrand(String brand) {
