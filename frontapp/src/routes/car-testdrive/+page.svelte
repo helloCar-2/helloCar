@@ -12,6 +12,7 @@
     } from 'flowbite-svelte';
     import {createEventDispatcher, onMount} from 'svelte';
     import api from "$lib/axiosEnterceptor/api.js";
+    import axios from "axios";
 
 
     if (typeof window !== 'undefined') {
@@ -68,6 +69,12 @@
         time: '',
         hasCarAndYear: '',
         testDriveQnA: '',
+        buttonState: {
+            '11:00': false,
+            '13:00': false,
+            '14:00': false,
+            '15:00': false,
+        },
     };
 
     // 데이터를 백엔드로 보내는 구문
@@ -131,26 +138,42 @@
         time: '',
         hasCarAndYear: '',
         testDriveQnA: '',
+        buttonState: {
+            '11:00': false,
+            '13:00': false,
+            '14:00': false,
+            '15:00': false,
+        },
     };
 
 
-    onMount(async () => {
+    async function handleAccordionOpen() {
+        let timeData = {
+            brand: formData.brand,
+            carName: formData.carName,
+            area: formData.area,
+            testDriveDate: formData.testDriveDate
+        }
+        console.log(timeData)
         try {
-            const response = await fetch('http://localhost:8080/api/v1/testdrive/getlist', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (!response.ok) {
-                throw new Error('실화냐아');
+            const response = await axios.post('http://localhost:8080/api/v1/testdrive/getlist',timeData
+            );
+
+            console.log(response)
+            const res = await response.data.data.testDrive;
+            for (let i = 0; i < res.length; i++) {
+                let timedata = res[i].time
+                testDriveListDate.buttonState[timedata]=true;
+
+                console.log(testDriveListDate)
             }
-            const testDriveList = await response.json();
-            console.log(testDriveList);
+
         } catch (error) {
             console.error('진짜냐아:', error);
         }
-    });
+    }
+
+    console.log(testDriveListDate)
 
     const buttons = [
         {id: 0, brand: ''},
@@ -325,9 +348,10 @@
 
     // 시간 입력 구문
     function handleButtonClick(event) {
-        const selectedTime = event.target.textContent.trim();
-        formData.time = selectedTime;
-        console.log(formData.time)
+        const time = event.target.textContent.trim();
+        formData.time = time;
+        console.log(time)
+        formData.buttonState[time] = true;
     }
 
     // 보유차량 및 연식입력 구문
@@ -702,17 +726,21 @@
             </div>
         </AccordionItem>
         <AccordionItem>
-            <div slot="header" class="flex items-center justify-between w-full" on:click={buttonClick4}>
+            <div slot="header" class="flex items-center justify-between w-full" on:click={handleAccordionOpen}>
                 <span class="flex">시승 시간
                     {#if formData.time != ''}
 						<div class="ml-4 text-[#f3651f]">{formData.time}</div>
 					{/if}</span>
                 <span class="font-normal text-[#f3651f] mr-2 text-sm">시승 시간을 선택해주세요.</span>
             </div>
-                <Button outline color="dark" on:click={handleButtonClick}>11 : 00</Button>
-                <Button outline color="dark" on:click={handleButtonClick}>13 : 00</Button>
-                <Button outline color="dark" on:click={handleButtonClick}>14 : 00</Button>
-                <Button outline color="dark" on:click={handleButtonClick}>15 : 00</Button>
+            <Button outline color="dark" on:click={handleButtonClick} disabled={testDriveListDate.buttonState['11:00']}>11:00
+            </Button>
+            <Button outline color="dark" on:click={handleButtonClick} disabled={testDriveListDate.buttonState['13:00']}>13:00
+            </Button>
+            <Button outline color="dark" on:click={handleButtonClick} disabled={testDriveListDate.buttonState['14:00']}>14:00
+            </Button>
+            <Button outline color="dark" on:click={handleButtonClick} disabled={testDriveListDate.buttonState['15:00']}>15:00
+            </Button>
         </AccordionItem>
         <AccordionItem>
             <div slot="header" class="flex items-center justify-between w-full">
