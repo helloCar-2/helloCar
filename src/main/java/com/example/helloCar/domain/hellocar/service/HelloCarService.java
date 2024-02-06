@@ -1,5 +1,6 @@
 package com.example.helloCar.domain.hellocar.service;
 
+import com.example.helloCar.domain.board.entity.Board;
 import com.example.helloCar.domain.hellocar.entity.HelloCar;
 import com.example.helloCar.domain.hellocar.repository.HelloCarRepository;
 import com.example.helloCar.domain.member.entity.Member;
@@ -17,15 +18,13 @@ public class HelloCarService {
     private final HelloCarRepository helloCarRepository;
     private final MemberRepository memberRepository;
 
-    public HelloCar create(String carname, String img, String brand, int maxPrice,
+    public HelloCar create(String carname, Board board, String brand, int maxPrice,
                            int minPrice, int modelYear, String vehicle, String size, String fuel) {
 
         HelloCar helloCar = HelloCar
                 .builder()
-
                 .carname(carname)
-                .img(img)
-
+                .board(board)
                 .brand(brand)
                 .maxPrice(maxPrice)
                 .minPrice(minPrice)
@@ -37,14 +36,6 @@ public class HelloCarService {
         this.helloCarRepository.save(helloCar);
         return helloCar;
     }
-
-//    private String saveProfileImage(MultipartFile profileImage) {
-//        if (profileImage == null || profileImage.isEmpty()) {
-//            // 프로필 이미지가 없을 경우 null 반환
-//            return null;
-//        }
-//        return null;
-//    }
 
     public void delete(HelloCar helloCar) {
         helloCarRepository.delete(helloCar);
@@ -59,7 +50,8 @@ public class HelloCarService {
     }
 
     public HelloCar findById(Long id) {
-        return this.helloCarRepository.findById(id).get();
+        Optional<HelloCar> helloCar = this.helloCarRepository.findById(id);
+        return helloCar.get();
     }
 
     public List<HelloCar> findByBrand(String brand) {

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.util.MimeTypeUtils.ALL_VALUE;
@@ -43,8 +44,13 @@ public class TestDriveController {
         String token = tokenController.extractTokenFromHeader(request);
         String username = jwtProvider.getUsername(token);
 
-        List<TestDrive> testDrivelist = this.testDriveService.findByUser(username);
+        List<TestDrive> testDrivelist;
 
+        if(Objects.equals(username, "admin")) {
+            testDrivelist = this.testDriveService.findAll();
+        }else {
+            testDrivelist = this.testDriveService.findByUser(username);
+        }
         return RsData.of(
                 "s-1",
                 "성공",

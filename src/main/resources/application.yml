@@ -17,6 +17,10 @@ spring:
             token-uri: https://kauth.kakao.com/oauth/token
             user-info-uri: https://kapi.kakao.com/v2/user/me
             user-name-attribute: id
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   mail:
     host: smtp.gmail.com
     port: 587
@@ -31,3 +35,6 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+myapp:
+  image-path: file:/Users/kimjoeun/java/중플2/hellocar/frontapp/static/img/
+

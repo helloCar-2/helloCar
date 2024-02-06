@@ -2,11 +2,10 @@ package com.example.helloCar.domain.member.entity;
 
 import com.example.helloCar.domain.global.baseentity.BaseEntity;
 import com.example.helloCar.domain.hellocar.entity.HelloCar;
+import com.example.helloCar.domain.testdrive.entity.TestDrive;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,14 +27,29 @@ public class Member extends BaseEntity {
 
     private String name;
     @Column(unique = true)
-    private String username;
+    private String username; //김땡땡1ddfvcsf
 
     private String password;
     @Column(unique = true)
-    private String email;
+    private String email; //김땡땡@gmail.comfssfvcxdf
 
-    @OneToMany
+    @ManyToMany
     Set<HelloCar> helloCars;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<TestDrive> testDrive;
+
+//
+//    @ManyToMany(cascade = CascadeType.REMOVE)
+//    @JoinTable(
+//    name="hello_car_members",
+//            joinColumns = @JoinColumn(name="member_id")
+//
+//
+//    )
+
+    @Setter
+    private boolean isOutAccount = false;
 
     // 현재 회원이 가지고 있는 권한들을 List<GrantedAuthority> 형태로 리턴
     public Collection<? extends GrantedAuthority> getAuthorities() {

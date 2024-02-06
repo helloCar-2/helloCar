@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface TestDriveRepository extends JpaRepository<TestDrive, Long> {
 
-
+    List<TestDrive> findAll();
     List<TestDrive> findByMember(Member member);
 
     List<TestDrive> findByBrandAndCarAndAreaAndTestDriveDate(String brand, String carName, String area, String testDriveDate);

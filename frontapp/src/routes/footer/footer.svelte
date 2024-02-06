@@ -93,7 +93,7 @@
                             fill="currentColor"
                     />
                 </svg>
-                <p class="text-center mt-1">채팅 문의</p>
+                <p class="text-center mt-1">자주 묻는 질문</p>
             </div>
         </FooterLink>
         <FooterLink class="hover:underline">

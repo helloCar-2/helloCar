@@ -6,10 +6,8 @@ import com.example.helloCar.domain.member.entity.Member;
 import com.example.helloCar.domain.member.repository.MemberRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -26,7 +24,25 @@ public class MemberService {
         if (om.isPresent()) {
             Member member = om.get();
 
-            memberRepository.delete(member);
+            char[] charSet = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+                    'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+            String str = "";
+
+            int idx = 0;
+            for (int i = 0; i < 10; i++) {
+                idx = (int) (charSet.length * Math.random());
+                str += charSet[idx];
+            }
+
+            Member deleteMember = Member.builder()
+                    .id(member.getId())
+                    .username(member.getUsername()+str)
+                    .email(member.getEmail()+str)
+                    .isOutAccount(true)
+                    .build();
+
+            memberRepository.save(deleteMember);
         }
     }
 
