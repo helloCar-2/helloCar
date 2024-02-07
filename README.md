@@ -117,7 +117,7 @@
    
 1. 문제 : JWT 토큰 검증을 구현하면서 axios를 이용하는 도중에 localstorege가 정의되지 않는다는 오류가 계속 발생하였다.
 2. 원인 : localStorage는 브라우저에서 제공하는 Web Storage API의 일부이며, 서버 쪽에서는 실행 될 수 없는 이유때문이였다. localStorage를 사용하는 코드를 브라우저 환경에서만 실행되도록 분기 처리하였다.
-3. 해결 :  if (typeof window !== 'undefined’)이 구문을 통하여 현재 브라우저 및 클라이언트에서 실행되는지 확인해달라는 구문이다. 브라우저에서는 window라는 객체가 존재하지 않는데,  만약 브라우저가 아닌 곳에서 실행하면 undefined구문이 반환된다.
+3. 해결 : if (typeof window !== 'undefined’)이 구문을 통하여 현재 브라우저 및 클라이언트에서 실행되는지 확인해달라는 구문이다. 브라우저에서는 window라는 객체가 존재하지 않는데, 만약 브라우저가 아닌 곳에서 실행하면 undefined구문이 반환된다.
 ￼
 <img width="571" alt="스크린샷 2024-02-06 오후 8 23 41" src="https://github.com/helloCar-2/helloCar/assets/139303810/48ade988-8f8e-47eb-80e6-a9e70ae7be87">
 
