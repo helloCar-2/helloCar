@@ -60,8 +60,8 @@ public class HelloCarService {
 
     public List<HelloCar> keywordSearch(String brand, String carname, String fuel, int minPrice, int maxPrice) {
         return this.helloCarRepository.findCarsByCriteria(brand, carname, fuel, minPrice, maxPrice);
-
     }
+
     public boolean toggleHeart(Long carId, Member member) {
         Optional<HelloCar> ho = helloCarRepository.findById(carId);
         HelloCar helloCar = ho.get();
