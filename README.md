@@ -1,7 +1,6 @@
-# 
+# HelloCar
 - 차에 대해 흥미가 있고, 시승을 해보고 싶은 사람들을 위한 앱입니다.
 <p align="center"><img width="700" src="https://github.com/helloCar-2/helloCar/assets/139303810/7d3aaecb-5393-4c12-9c81-950f2c9c7a6f"></p>
-
 
 
 ## 1. 프로젝트 소개
@@ -122,7 +121,8 @@
 
 ## 4. ERD 설계
 
-<p align="center"><img width="900" src="https://github.com/winesProject/wines/assets/133175842/34e4b2cd-c5a7-4591-9a34-5d633dfe5956"></p>
+<p align="center"><img width="900" src="https://github.com/helloCar-2/helloCar/assets/139303810/bacc0327-ac27-43f6-ab1e-f3531e9fd1ab"></p>
+
 
 
 ## 5. 시연 영상
