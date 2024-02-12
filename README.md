@@ -1,5 +1,5 @@
 # 
--
+- 차에 대해 흥미가 있고, 시승을 해보고 싶은 사람들을 위한 앱입니다.
 <p align="center"><img width="700" src="https://github.com/helloCar-2/helloCar/assets/139303810/7d3aaecb-5393-4c12-9c81-950f2c9c7a6f"></p>
 
 
