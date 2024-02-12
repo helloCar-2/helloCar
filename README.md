@@ -129,6 +129,7 @@
 
 ## 6. 트러블 슈팅
 <details>
+   <summary>💥 최경현 </summary>
 <br/>
    
 1. 문제 : JWT 토큰 검증을 구현하면서 axios를 이용하는 도중에 localstorege가 정의되지 않는다는 오류가 계속 발생하였다.
@@ -140,6 +141,7 @@
 </details>
 
 <details>
+   <summary>💥 백현우 </summary>
 <br/>
    
 1. 문제 : 소셜 로그인을 진행했는데 인증 처리가 되지 않아, 홈페이지 접속이 되지 않는 문제가 발생했다
@@ -156,6 +158,7 @@
 </details>
 
 <details>
+   <summary>💥 김조은 </summary>
    </br>
 
 1. 문제 : 회원탈퇴 시, DB에 저장된 자동차 데이터도 같이 삭제되었다
