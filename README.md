@@ -1,6 +1,8 @@
 # 
 -
-<p align="center"><img width="700" src=""></p>
+<p align="center"><img width="700" src="https://github.com/helloCar-2/helloCar/assets/139303810/7d3aaecb-5393-4c12-9c81-950f2c9c7a6f"></p>
+
+
 
 ## 1. 프로젝트 소개
 ### [기획배경]
