@@ -10,7 +10,7 @@
 </div>
 
 <Accordion class="m-6">
-    <AccordionItem open>
+    <AccordionItem>
         <span slot="header">1. 시승 관련 문의</span>
         <Accordion>
             <AccordionItem>

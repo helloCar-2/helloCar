@@ -13,75 +13,86 @@
 
 ## 2. 프로젝트 구조
 ```
+   frontapp
+    ├── src
+    │   ├── lib
+    │   │   ├── axiosEnterceptor
+    │   │   ├── requestToken
+    │   │   └── responseToken
+    │   └── routes
+    │   │   ├── auth
+    │   │   ├── car-detail
+    │   │   ├── car-home
+    │   │   ├── car-list
+    │   │   ├── car-start
+    │   │   ├── car-testdrive
+    │   │   ├── chat-qna
+    │   │   ├── footer
+    │   │   ├── hellocar
+    │   │   ├── login-search
+    │   │   ├── model-search
+    │   │   ├── my-page
+    │   │   ├── oauth
+    │   │   ├── password-search
+    │   │   ├── signup-form
+    │   │   ├── testdrive-list
+    │   │   └── wish-list
+    └── static
+          └── img
    src
     ├── main
     │   ├── generated
     │   ├── java
     │   │   └── com
-    │   │       └── std
-    │   │           └── sbb
+    │   │       └── example
+    │   │           └── hellocar
     │   │               ├── domain
-    │   │               │   ├── answer
+    │   │               │   ├── hellocar
     │   │               │   │   ├── controller
     │   │               │   │   ├── entity
-    │   │               │   │   ├── form
     │   │               │   │   ├── repository
-    │   │               │   │   └── service
-    │   │               │   ├── email
-    │   │               │   │   ├── controller
     │   │               │   │   └── service
     │   │               │   ├── member
     │   │               │   │   ├── controller
     │   │               │   │   ├── entity
-    │   │               │   │   ├── form
     │   │               │   │   ├── repository
     │   │               │   │   └── service
-    │   │               │   ├── question
+    │   │               │   ├── qna
+    │   │               │   │   ├── controller
+    │   │               │   │   ├── entity
+    │   │               │   │   ├── repository
+    │   │               │   │   └── service
+    │   │               │   ├── testdrive
     │   │               │   │   ├── controller
     │   │               │   │   ├── entity
     │   │               │   │   ├── form
     │   │               │   │   ├── repository
     │   │               │   │   └── service
-    │   │               │   ├── review
-    │   │               │   │   ├── controller
-    │   │               │   │   ├── entity
-    │   │               │   │   ├── form
-    │   │               │   │   ├── repository
-    │   │               │   │   └── service
-    │   │               │   ├── taste
-    │   │               │   │   ├── entity
-    │   │               │   │   ├── form
-    │   │               │   │   ├── repository
-    │   │               │   │   └── service
-    │   │               │   └── wine
-    │   │               │       ├── controller
-    │   │               │       ├── entity
-    │   │               │       ├── form
-    │   │               │       ├── repository
-    │   │               │       ├── searchType
-    │   │               │       └── service
-    │   │               └── global
-    │   │                   ├── imagesfile
-    │   │                   │   ├── config
-    │   │                   │   ├── controller
-    │   │                   │   ├── entity
-    │   │                   │   ├── repository
-    │   │                   │   └── service
-    │   │                   ├── initDate
-    │   │                   ├── jpa
-    │   │                   ├── rq
-    │   │                   ├── security
-    │   │                   └── standard
-    │   │                       └── utill
+    │   │               ├── global
+    │   │               │    ├── baseentity
+    │   │               │    ├── config
+    │   │               │    ├── filter
+    │   │               │    ├── initdata
+    │   │               │    ├── jwt
+    │   │               │    ├── mvcconfig
+    │   │               │    ├── rq
+    │   │               │    ├── rs
+    │   │               │    ├── tokenverify
+    │   │               │    └── utill
+    │   │               └── board
+    │   │                   ├── controller
+    │   │                   ├── entity
+    │   │                   ├── repository
+    │   │                   └── service
     │   └── resources
     │       ├── static
-    │       │   └── images
+    │       │   └── img
     │       └── templates
     └── test
         └── java
             └── com
-                └── std
-                    └── sbb
+                └── example
+                    └── hellocar
 
 ```
 ## 3. 개발환경

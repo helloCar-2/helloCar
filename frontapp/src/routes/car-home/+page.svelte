@@ -38,10 +38,10 @@
 		src="img/car.png"
 		alt="car_image"
 		class="object-cover mx-auto w-full"
-		style="height: 700px;"
+		style="height: 100%;"
 	/>
 	<div class="absolute top-0 left-1/2 transform -translate-x-1/2 pt-4">
-		<a href="/car-home"> <img src="img/logo2.png" alt="로고" class="w-26 h-16" /></a>
+		<a href="/car-home"> <img src="img/logo2.png" alt="로고" class="w-26 h-16"/></a>
 	</div>
 </div>
 

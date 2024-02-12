@@ -125,7 +125,7 @@
                 });
             }
 
-            // window.location.href = '/car-home'
+            window.location.href = '/car-home'
             console.log(formData);
         }
     }
