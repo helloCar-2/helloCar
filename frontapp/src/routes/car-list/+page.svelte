@@ -53,7 +53,6 @@
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md h-full">
                 <div class="flex flex-col h-full">
                     <img class="h-auto my-auto max-w-full rounded-lg" src="/img/{helloCar.board.storedFileName}"
-                    
                      alt="" />
                     <div class="mx-auto h-10 text-xl font-bold tracking-tight text-gray-900 flex">
                         <p class="mt-2">{helloCar.carname}</p>
